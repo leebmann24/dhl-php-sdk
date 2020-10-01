@@ -15,7 +15,7 @@ use Petschko\DHL\ShipmentDetails;
 
 $testMode = Credentials::TEST_NORMAL; // Uses the normal test user
 //$testMode = Credentials::DHL_BUSINESS_TEST_USER_THERMO; // Uses the thermo-printer test user
-$version = '3.0'; // Can be specified or just left out (uses newest by default)
+$version = '3.1'; // Can be specified or just left out (uses newest by default)
 $reference = '1'; // You can use anything here (max 35 chars)
 
 // Set this to true then you can skip set the "User", "Signature" and "EKP" (Just for test-Mode) else false or empty

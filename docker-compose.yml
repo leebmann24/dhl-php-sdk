@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+
+  composer:
+    image: library/composer:latest
+    restart: "no"
+    volumes:
+      - .:/mod-dhl
+
+  php:
+    build: .
+    restart: "no"
+    volumes:
+      - .:/mod-dhl
+    working_dir: /mod-dhl
+    env_file:
+      - .env
+
+  phpunit:
+    build: .
+    restart: "no"
+    volumes:
+      - .:/mod-dhl
+    working_dir: /mod-dhl
+    entrypoint: ./vendor/bin/phpunit tests
+    env_file:
+      - .env

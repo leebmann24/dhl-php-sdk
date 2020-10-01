@@ -1,21 +1,21 @@
 {
-    "name": "petschko/dhl-php-sdk",
+    "name": "leebmann24/dhl-php-sdk",
     "description": "DHL SDK",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Peter Dragicevic",
-            "email": "peter@petschko.org",
-            "homepage": "http://petschko.org/",
+            "name": "Bernhard Schönberger",
+            "email": "bernhard.schoenberger@leebmann.de",
+            "homepage": "https://www.leebmann24.de/",
             "role": "developer"
         }
     ],
     "support": {
         "email": "peter@petschko.org",
-        "issues": "https://github.com/Petschko/dhl-php-sdk/issues",
-        "source": "https://github.com/Petschko/dhl-php-sdk",
-        "docs": "http://docs.petschko.org/dhl-php-sdk/index.html"
+        "issues": "https://github.com/leebmann24/dhl-php-sdk/issues",
+        "source": "https://github.com/leebmann24/dhl-php-sdk",
+        "docs": "https://github.com/leebmann24/dhl-php-sdk/blob/master/examples/getting-started.md"
     },
     "require": {
         "php": ">=7.2.0",
@@ -26,5 +26,8 @@
         "psr-4": {
             "Petschko\\DHL\\": "includes/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
     }
 }
