@@ -18,7 +18,8 @@ use stdClass;
  * @package Petschko\DHL
  * @since 3.0
  */
-class LabelFormat {
+class LabelFormat
+{
 	/**
 	 * DHL uses sometimes strings instead of int values for true/false, these are set here
 	 */
@@ -99,7 +100,8 @@ class LabelFormat {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->groupProfileName);
 		unset($this->labelFormat);
 		unset($this->labelFormatRetoure);
@@ -112,7 +114,8 @@ class LabelFormat {
 	 *
 	 * @return string|null - Group-Profile name | null uses default from DHL
 	 */
-	public function getGroupProfileName(): ?string {
+	public function getGroupProfileName(): ?string
+	{
 		return $this->groupProfileName;
 	}
 
@@ -121,7 +124,8 @@ class LabelFormat {
 	 *
 	 * @param string|null $groupProfileName - Group-Profile name | null uses default from DHL
 	 */
-	public function setGroupProfileName(?string $groupProfileName): void {
+	public function setGroupProfileName(?string $groupProfileName): void
+	{
 		$this->groupProfileName = $groupProfileName;
 	}
 
@@ -130,7 +134,8 @@ class LabelFormat {
 	 *
 	 * @return string|null - Label-Format | null uses default from DHL
 	 */
-	public function getLabelFormat(): ?string {
+	public function getLabelFormat(): ?string
+	{
 		return $this->labelFormat;
 	}
 
@@ -139,7 +144,8 @@ class LabelFormat {
 	 *
 	 * @param string|null $labelFormat - Label-Format | null uses default from DHL
 	 */
-	public function setLabelFormat(?string $labelFormat): void {
+	public function setLabelFormat(?string $labelFormat): void
+	{
 		$this->labelFormat = $labelFormat;
 	}
 
@@ -148,7 +154,8 @@ class LabelFormat {
 	 *
 	 * @return string|null - Return-Label-Format | null uses default from DHL
 	 */
-	public function getLabelFormatRetoure(): ?string {
+	public function getLabelFormatRetoure(): ?string
+	{
 		return $this->labelFormatRetoure;
 	}
 
@@ -157,7 +164,8 @@ class LabelFormat {
 	 *
 	 * @param string|null $labelFormatRetoure - Return-Label-Format | null uses default from DHL
 	 */
-	public function setLabelFormatRetoure(?string $labelFormatRetoure): void {
+	public function setLabelFormatRetoure(?string $labelFormatRetoure): void
+	{
 		$this->labelFormatRetoure = $labelFormatRetoure;
 	}
 
@@ -166,7 +174,8 @@ class LabelFormat {
 	 *
 	 * @return bool|null - Should labels printed together | null uses default from DHL
 	 */
-	public function getCombinedPrinting(): ?bool {
+	public function getCombinedPrinting(): ?bool
+	{
 		return $this->combinedPrinting;
 	}
 
@@ -175,7 +184,8 @@ class LabelFormat {
 	 *
 	 * @param bool|null $combinedPrinting - Should labels printed together | null uses default from DHL
 	 */
-	public function setCombinedPrinting(?bool $combinedPrinting): void {
+	public function setCombinedPrinting(?bool $combinedPrinting): void
+	{
 		$this->combinedPrinting = $combinedPrinting;
 	}
 
@@ -184,8 +194,19 @@ class LabelFormat {
 	 *
 	 * @return string|null - Unused | null uses default from DHL
 	 */
-	private function getFeederSystem(): ?string {
+	public function getFeederSystem(): ?string
+	{
 		return $this->feederSystem;
+	}
+
+	/**
+	 * Get the FeederSystem value - Unused
+	 *
+	 * @return string|null - Unused | null uses default from DHL
+	 */
+	public function getFeederSystemLabel(): ?string
+	{
+		return !$this->feederSystem ? 'False' : 'True';
 	}
 
 	/**
@@ -193,7 +214,8 @@ class LabelFormat {
 	 *
 	 * @param string|null $feederSystem - Unused | null uses default from DHL
 	 */
-	private function setFeederSystem(?string $feederSystem): void {
+	public function setFeederSystem(?string $feederSystem): void
+	{
 		$this->feederSystem = $feederSystem;
 	}
 
@@ -202,8 +224,9 @@ class LabelFormat {
 	 *
 	 * @return string|null - DHL-Bool string or null for default
 	 */
-	public function getCombinedPrintingLabel(): ?string {
-		if($this->getCombinedPrinting() === null)
+	public function getCombinedPrintingLabel(): ?string
+	{
+		if ($this->getCombinedPrinting() === null)
 			return null;
 
 		return ($this->getCombinedPrinting()) ? self::DHL_TRUE_STR : self::DHL_FALSE_STR;
@@ -216,17 +239,18 @@ class LabelFormat {
 	 * @return StdClass - Label-Format-Class
 	 * @since 3.0
 	 */
-	public function addLabelFormatClass_v3($classToExtend) {
-		if($this->getGroupProfileName() !== null)
+	public function addLabelFormatClass_v3($classToExtend)
+	{
+		if ($this->getGroupProfileName() !== null)
 			$classToExtend->groupProfileName = $this->getGroupProfileName();
-		if($this->getLabelFormat() !== null)
+		if ($this->getLabelFormat() !== null)
 			$classToExtend->labelFormat = $this->getLabelFormat();
-		if($this->getLabelFormatRetoure() !== null)
+		if ($this->getLabelFormatRetoure() !== null)
 			$classToExtend->labelFormatRetoure = $this->getLabelFormatRetoure();
-		if($this->getCombinedPrinting() !== null)
+		if ($this->getCombinedPrinting() !== null)
 			$classToExtend->combinedPrinting = $this->getCombinedPrintingLabel();
-		if($this->getFeederSystem() !== null)
-			$classToExtend->feederSystem = $this->getFeederSystem();
+		if ($this->getFeederSystem() !== null)
+			$classToExtend->feederSystem = $this->getFeederSystemLabel();
 
 		return $classToExtend;
 	}

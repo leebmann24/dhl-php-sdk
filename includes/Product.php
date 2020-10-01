@@ -16,7 +16,8 @@ namespace Petschko\DHL;
  *
  * @package Petschko\DHL
  */
-class Product {
+class Product
+{
 	/**
 	 * Contains the Product-Type
 	 *
@@ -99,14 +100,16 @@ class Product {
 	 *
 	 * @param string $type - Product-Type
 	 */
-	public function __construct($type) {
+	public function __construct($type)
+	{
 		$this->setType($type);
 	}
 
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->type);
 		unset($this->name);
 		unset($this->austria);
@@ -125,7 +128,8 @@ class Product {
 	 *
 	 * @return string - Product-Type
 	 */
-	public function getType() {
+	public function getType()
+	{
 		return $this->type;
 	}
 
@@ -134,7 +138,8 @@ class Product {
 	 *
 	 * @param string $type - Product-Type
 	 */
-	private function setType($type) {
+	private function setType($type)
+	{
 		$this->type = $type;
 	}
 
@@ -143,7 +148,8 @@ class Product {
 	 *
 	 * @return string - Name
 	 */
-	public function getName() {
+	public function getName()
+	{
 		return $this->name;
 	}
 
@@ -152,7 +158,8 @@ class Product {
 	 *
 	 * @param string $name - Name
 	 */
-	public function setName($name) {
+	public function setName($name)
+	{
 		$this->name = $name;
 	}
 
@@ -161,7 +168,8 @@ class Product {
 	 *
 	 * @return bool - Is send to Austria allowed
 	 */
-	public function isAustria() {
+	public function isAustria()
+	{
 		return $this->austria;
 	}
 
@@ -170,7 +178,8 @@ class Product {
 	 *
 	 * @param bool $austria - Is send to Austria allowed
 	 */
-	public function setAustria($austria) {
+	public function setAustria($austria)
+	{
 		$this->austria = $austria;
 	}
 
@@ -179,7 +188,8 @@ class Product {
 	 *
 	 * @return float|int - Min-Length
 	 */
-	public function getMinLength() {
+	public function getMinLength()
+	{
 		return $this->minLength;
 	}
 
@@ -188,7 +198,8 @@ class Product {
 	 *
 	 * @param float|int $minLength - Min-Length
 	 */
-	public function setMinLength($minLength) {
+	public function setMinLength($minLength)
+	{
 		$this->minLength = $minLength;
 	}
 
@@ -197,7 +208,8 @@ class Product {
 	 *
 	 * @return float|int - Max-Length
 	 */
-	public function getMaxLength() {
+	public function getMaxLength()
+	{
 		return $this->maxLength;
 	}
 
@@ -206,7 +218,8 @@ class Product {
 	 *
 	 * @param float|int $maxLength - Max-Length
 	 */
-	public function setMaxLength($maxLength) {
+	public function setMaxLength($maxLength)
+	{
 		$this->maxLength = $maxLength;
 	}
 
@@ -215,7 +228,8 @@ class Product {
 	 *
 	 * @return float|int - Min-Width
 	 */
-	public function getMinWidth() {
+	public function getMinWidth()
+	{
 		return $this->minWidth;
 	}
 
@@ -224,7 +238,8 @@ class Product {
 	 *
 	 * @param float|int $minWidth - Min-Width
 	 */
-	public function setMinWidth($minWidth) {
+	public function setMinWidth($minWidth)
+	{
 		$this->minWidth = $minWidth;
 	}
 
@@ -233,7 +248,8 @@ class Product {
 	 *
 	 * @return float|int - Max-Width
 	 */
-	public function getMaxWidth() {
+	public function getMaxWidth()
+	{
 		return $this->maxWidth;
 	}
 
@@ -242,7 +258,8 @@ class Product {
 	 *
 	 * @param float|int $maxWidth - Max-Width
 	 */
-	public function setMaxWidth($maxWidth) {
+	public function setMaxWidth($maxWidth)
+	{
 		$this->maxWidth = $maxWidth;
 	}
 
@@ -251,7 +268,8 @@ class Product {
 	 *
 	 * @return float|int - Min-Height
 	 */
-	public function getMinHeight() {
+	public function getMinHeight()
+	{
 		return $this->minHeight;
 	}
 
@@ -260,7 +278,8 @@ class Product {
 	 *
 	 * @param float|int $minHeight - Min-Height
 	 */
-	public function setMinHeight($minHeight) {
+	public function setMinHeight($minHeight)
+	{
 		$this->minHeight = $minHeight;
 	}
 
@@ -269,7 +288,8 @@ class Product {
 	 *
 	 * @return float|int - Max-Height
 	 */
-	public function getMaxHeight() {
+	public function getMaxHeight()
+	{
 		return $this->maxHeight;
 	}
 
@@ -278,7 +298,8 @@ class Product {
 	 *
 	 * @param float|int $maxHeight - Max-Height
 	 */
-	public function setMaxHeight($maxHeight) {
+	public function setMaxHeight($maxHeight)
+	{
 		$this->maxHeight = $maxHeight;
 	}
 
@@ -287,7 +308,8 @@ class Product {
 	 *
 	 * @return float|int - Max-Weight
 	 */
-	public function getMaxWeight() {
+	public function getMaxWeight()
+	{
 		return $this->maxWeight;
 	}
 
@@ -296,7 +318,8 @@ class Product {
 	 *
 	 * @param float|int $maxWeight - Max-Weight
 	 */
-	public function setMaxWeight($maxWeight) {
+	public function setMaxWeight($maxWeight)
+	{
 		$this->maxWeight = $maxWeight;
 	}
 
@@ -305,7 +328,8 @@ class Product {
 	 *
 	 * @return string[] - Services
 	 */
-	public function getServices() {
+	public function getServices()
+	{
 		return $this->services;
 	}
 
@@ -314,7 +338,8 @@ class Product {
 	 *
 	 * @param string[] $services - Services
 	 */
-	public function setServices($services) {
+	public function setServices($services)
+	{
 		$this->services = $services;
 	}
 
@@ -323,7 +348,8 @@ class Product {
 	 *
 	 * @param string $service - Service to add
 	 */
-	public function addService($service) {
+	public function addService($service)
+	{
 		$this->services[] = $service;
 	}
 
@@ -333,7 +359,8 @@ class Product {
 	 * @param string $service - Service to check
 	 * @return bool - Has this Product this Service
 	 */
-	public function hasService($service) {
+	public function hasService($service)
+	{
 		return in_array($service, $this->services);
 	}
 }

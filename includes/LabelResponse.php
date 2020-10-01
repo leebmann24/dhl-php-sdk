@@ -16,7 +16,8 @@ namespace Petschko\DHL;
  *
  * @package Petschko\DHL
  */
-interface LabelResponse {
+interface LabelResponse
+{
 	/**
 	 * Getter for Status-Code
 	 *
@@ -31,7 +32,7 @@ interface LabelResponse {
 	 *
 	 * @return int - Status-Code
 	 */
- 	function getStatusCode();
+	function getStatusCode();
 
 	/**
 	 * Getter for Status-Text

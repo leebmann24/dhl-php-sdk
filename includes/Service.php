@@ -18,15 +18,16 @@ use stdClass;
  *
  * @package Petschko\DHL
  */
-class Service {
+class Service
+{
 	/**
 	 * Contains if the Shipment should delivered on a specific Day
 	 *
 	 * Note: Optional
 	 *
 	 * Available for:
-	 * 	ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
+	 *    ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 	 *
 	 * @var bool|null $dayOfDeliveryEnabled - Is this enabled | null uses default
 	 */
@@ -38,8 +39,8 @@ class Service {
 	 * Note: Optional|ISO-Date-Format (YYYY-MM-DD)|Required if $dayOfDeliveryEnabled
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 	 *
 	 * Min-Len: 10
 	 * Max-Len: 10
@@ -54,8 +55,8 @@ class Service {
 	 * Note: Optional
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 	 *
 	 * @var bool|null $deliveryTimeframeEnabled - Is this enabled | null uses default
 	 */
@@ -67,13 +68,13 @@ class Service {
 	 * Note: Optional|Required if $deliveryTimeframeEnabled
 	 *
 	 * Write the Values like this:
-	 * 	10:00 - 12:30 => (Correct Value) '10001230'
-	 * 	9:13 - 10:00 => '09131000'
-	 * 	16:00 - 19:00 => '16001900'
+	 *    10:00 - 12:30 => (Correct Value) '10001230'
+	 *    9:13 - 10:00 => '09131000'
+	 *    16:00 - 19:00 => '16001900'
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 	 *
 	 * Min-Len: 8
 	 * Max-Len: 8
@@ -88,8 +89,8 @@ class Service {
 	 * Note: Optional
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE
 	 *
 	 * @var bool|null $preferredTimeEnabled - Is this enabled | null uses default
 	 */
@@ -101,13 +102,13 @@ class Service {
 	 * Note: Optional|Required if $preferredTimeEnabled
 	 *
 	 * Write the Values like this:
-	 * 	10:00 - 12:30 => (Correct Value) '10001230'
-	 * 	9:13 - 10:00 => '09131000'
-	 * 	16:00 - 19:00 => '16001900'
+	 *    10:00 - 12:30 => (Correct Value) '10001230'
+	 *    9:13 - 10:00 => '09131000'
+	 *    16:00 - 19:00 => '16001900'
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE
 	 *
 	 * Min-Len: 8
 	 * Max-Len: 8
@@ -122,8 +123,8 @@ class Service {
 	 * Note: Optional
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 	 *
 	 * @var bool|null $individualSenderRequirementsEnabled - Is this enabled | null uses default
 	 */
@@ -135,8 +136,8 @@ class Service {
 	 * Note: Optional|Required if $individualSenderRequirementsEnabled
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 	 *
 	 * Min-Len: 1
 	 * Max-Len: 250
@@ -160,7 +161,7 @@ class Service {
 	 * Note: Optional
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE
 	 *
 	 * @var bool|null $returnImmediatelyIfShipmentFailed - Is this enabled | null uses default
 	 */
@@ -181,8 +182,8 @@ class Service {
 	 * Note: Optional
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 	 *
 	 * @var bool|null $shipmentHandlingEnabled - Is this enabled | null uses default
 	 */
@@ -194,19 +195,19 @@ class Service {
 	 * Note: Optional|Required if $shipmentHandlingEnabled
 	 *
 	 * Available for:
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
-	 * 	DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER
+	 *    DHL_ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 	 *
 	 * Min-Len: 1
 	 * Max-Len: 1
 	 *
 	 * The following types are allowed:
-	 * 	'a': Remove content, return box;
-	 * 	'b': Remove content, pick up and dispose cardboard packaging;
-	 * 	'c': Handover parcel/box to customer ¿ no disposal of cardboar.d/box;
-	 * 	'd': Remove bag from of cooling unit and handover to customer;
-	 * 	'e': Remove content, apply return label und seal box, return box
-	 * 	null: None
+	 *    'a': Remove content, return box;
+	 *    'b': Remove content, pick up and dispose cardboard packaging;
+	 *    'c': Handover parcel/box to customer ¿ no disposal of cardboar.d/box;
+	 *    'd': Remove bag from of cooling unit and handover to customer;
+	 *    'e': Remove content, apply return label und seal box, return box
+	 *    null: None
 	 *
 	 * @var string|null $shipmentHandlingType - Shipment-Handling Type | null for none
 	 */
@@ -227,13 +228,13 @@ class Service {
 	 * Note: Optional|Required if $endorsementEnabled
 	 *
 	 * Values for national:
-	 * 	'SOZU': (Return immediately),
-	 * 	'ZWZU': (2nd attempt of Delivery);
+	 *    'SOZU': (Return immediately),
+	 *    'ZWZU': (2nd attempt of Delivery);
 	 * -----------------------------
 	 * Values for International:
-	 * 	'IMMEDIATE': (Sending back immediately to sender),
-	 * 	'AFTER_DEADLINE': (Sending back immediately to sender after expiration of time),
-	 * 	'ABANDONMENT': (Abandonment of parcel at the hands of sender (free of charge))
+	 *    'IMMEDIATE': (Sending back immediately to sender),
+	 *    'AFTER_DEADLINE': (Sending back immediately to sender after expiration of time),
+	 *    'ABANDONMENT': (Abandonment of parcel at the hands of sender (free of charge))
 	 *
 	 * @var string|null $endorsementType - Endorsement-Service Type | null for none
 	 */
@@ -257,8 +258,8 @@ class Service {
 	 * Max-Len: 3
 	 *
 	 * The following Values are allowed:
-	 * 	'A16': Person must be 16+
-	 * 	'A18': Person must be 18+
+	 *    'A16': Person must be 16+
+	 *    'A18': Person must be 18+
 	 *
 	 * @var string|null $visualCheckOfAgeType - Minimum-Age of the Receiver | null for none
 	 */
@@ -479,7 +480,8 @@ class Service {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->dayOfDeliveryEnabled);
 		unset($this->dayOfDeliveryDate);
 		unset($this->deliveryTimeframeEnabled);
@@ -525,7 +527,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "DayOfDelivery" enabled or null for default
 	 */
-	public function getDayOfDeliveryEnabled() {
+	public function getDayOfDeliveryEnabled()
+	{
 		return $this->dayOfDeliveryEnabled;
 	}
 
@@ -534,7 +537,8 @@ class Service {
 	 *
 	 * @param bool|null $dayOfDeliveryEnabled - Service "DayOfDelivery" is enabled or null for default
 	 */
-	public function setDayOfDeliveryEnabled($dayOfDeliveryEnabled) {
+	public function setDayOfDeliveryEnabled($dayOfDeliveryEnabled)
+	{
 		$this->dayOfDeliveryEnabled = $dayOfDeliveryEnabled;
 	}
 
@@ -543,7 +547,8 @@ class Service {
 	 *
 	 * @return null|string - The day of Delivery as ISO-Date-Format (YYYY-MM-DD) or null for none
 	 */
-	public function getDayOfDeliveryDate() {
+	public function getDayOfDeliveryDate()
+	{
 		return $this->dayOfDeliveryDate;
 	}
 
@@ -553,11 +558,12 @@ class Service {
 	 * @param null|int|string $dayOfDeliveryDate - The Day of Delivery as ISO-Date-Format (YYYY-MM-DD), the day as time() int value or null for none
 	 * @param bool $useIntTime - Use the int Time Value instead of a String
 	 */
-	public function setDayOfDeliveryDate($dayOfDeliveryDate, $useIntTime = false) {
-		if($useIntTime) {
+	public function setDayOfDeliveryDate($dayOfDeliveryDate, $useIntTime = false)
+	{
+		if ($useIntTime) {
 			$dayOfDeliveryDate = date('Y-m-d', $dayOfDeliveryDate);
 
-			if($dayOfDeliveryDate === false)
+			if ($dayOfDeliveryDate === false)
 				$dayOfDeliveryDate = null;
 		}
 
@@ -569,7 +575,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "DeliveryTimeframe" enabled or null for default
 	 */
-	public function getDeliveryTimeframeEnabled() {
+	public function getDeliveryTimeframeEnabled()
+	{
 		return $this->deliveryTimeframeEnabled;
 	}
 
@@ -578,7 +585,8 @@ class Service {
 	 *
 	 * @param bool|null $deliveryTimeframeEnabled - Service "DeliveryTimeframe" is enabled or null for default
 	 */
-	public function setDeliveryTimeframeEnabled($deliveryTimeframeEnabled) {
+	public function setDeliveryTimeframeEnabled($deliveryTimeframeEnabled)
+	{
 		$this->deliveryTimeframeEnabled = $deliveryTimeframeEnabled;
 	}
 
@@ -586,13 +594,14 @@ class Service {
 	 * Get the Timeframe for the Service "DeliveryTimeframe"
 	 *
 	 * You get Values like this:
-	 * 	10:00 - 12:30 => '10001230'
-	 * 	9:13 - 10:00 => '09131000'
-	 * 	16:00 - 19:00 => '16001900'
+	 *    10:00 - 12:30 => '10001230'
+	 *    9:13 - 10:00 => '09131000'
+	 *    16:00 - 19:00 => '16001900'
 	 *
 	 * @return null|string - Timeframe for the Service "DeliveryTimeframe" or null for none
 	 */
-	public function getDeliveryTimeframe() {
+	public function getDeliveryTimeframe()
+	{
 		return $this->deliveryTimeframe;
 	}
 
@@ -600,13 +609,14 @@ class Service {
 	 * Set the Timeframe for the Service "DeliveryTimeframe"
 	 *
 	 * Write Values like this:
-	 * 	10:00 - 12:30 => (Correct Value) '10001230'
-	 * 	9:13 - 10:00 => '09131000'
-	 * 	16:00 - 19:00 => '16001900'
+	 *    10:00 - 12:30 => (Correct Value) '10001230'
+	 *    9:13 - 10:00 => '09131000'
+	 *    16:00 - 19:00 => '16001900'
 	 *
 	 * @param null|string $deliveryTimeframe - Timeframe for the Service "DeliveryTimeframe" or null for none
 	 */
-	public function setDeliveryTimeframe($deliveryTimeframe) {
+	public function setDeliveryTimeframe($deliveryTimeframe)
+	{
 		$this->deliveryTimeframe = $deliveryTimeframe;
 	}
 
@@ -615,7 +625,8 @@ class Service {
 	 *
 	 * @return bool|null - Service "PreferredTime" is enabled or null for default
 	 */
-	public function getPreferredTimeEnabled() {
+	public function getPreferredTimeEnabled()
+	{
 		return $this->preferredTimeEnabled;
 	}
 
@@ -624,7 +635,8 @@ class Service {
 	 *
 	 * @param bool|null $preferredTimeEnabled - Service "PreferredTime" is enabled or null for default
 	 */
-	public function setPreferredTimeEnabled($preferredTimeEnabled) {
+	public function setPreferredTimeEnabled($preferredTimeEnabled)
+	{
 		$this->preferredTimeEnabled = $preferredTimeEnabled;
 	}
 
@@ -632,13 +644,14 @@ class Service {
 	 * Get the Timeframe for the "PreferredTime"-Service
 	 *
 	 * You get Values like this:
-	 * 	10:00 - 12:30 => '10001230'
-	 * 	9:13 - 10:00 => '09131000'
-	 * 	16:00 - 19:00 => '16001900'
+	 *    10:00 - 12:30 => '10001230'
+	 *    9:13 - 10:00 => '09131000'
+	 *    16:00 - 19:00 => '16001900'
 	 *
 	 * @return null|string - Preferred Time-Frame or null for none
 	 */
-	public function getPreferredTime() {
+	public function getPreferredTime()
+	{
 		return $this->preferredTime;
 	}
 
@@ -646,13 +659,14 @@ class Service {
 	 * Set the Timeframe for the "PreferredTime"-Service
 	 *
 	 * Write Values like this:
-	 * 	10:00 - 12:30 => (Correct Value) '10001230'
-	 * 	or 9:13 - 10:00 => '09131000'
-	 * 	or 16:00 - 19:00 => '16001900'
+	 *    10:00 - 12:30 => (Correct Value) '10001230'
+	 *    or 9:13 - 10:00 => '09131000'
+	 *    or 16:00 - 19:00 => '16001900'
 	 *
 	 * @param null|string $preferredTime - Preferred Time-Frame or null for none
 	 */
-	public function setPreferredTime($preferredTime) {
+	public function setPreferredTime($preferredTime)
+	{
 		$this->preferredTime = $preferredTime;
 	}
 
@@ -663,7 +677,8 @@ class Service {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function getIndividualSenderRequiredmentsEnabled() {
+	public function getIndividualSenderRequiredmentsEnabled()
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use getIndividualSenderRequirementsEnabled() instead, this method will removed in the future!');
 
 		return $this->getIndividualSenderRequirementsEnabled();
@@ -676,7 +691,8 @@ class Service {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function setIndividualSenderRequiredmentsEnabled($individualSenderRequirementsEnabled) {
+	public function setIndividualSenderRequiredmentsEnabled($individualSenderRequirementsEnabled)
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use setIndividualSenderRequirementsEnabled() instead, this method will removed in the future!');
 
 		$this->setIndividualSenderRequirementsEnabled($individualSenderRequirementsEnabled);
@@ -689,7 +705,8 @@ class Service {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function getIndividualSenderRequiredmentsText() {
+	public function getIndividualSenderRequiredmentsText()
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use getIndividualSenderRequirementsText() instead, this method will removed in the future!');
 
 		return $this->getIndividualSenderRequirementsText();
@@ -702,7 +719,8 @@ class Service {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function setIndividualSenderRequiredmentsText($individualSenderRequirementsText) {
+	public function setIndividualSenderRequiredmentsText($individualSenderRequirementsText)
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use setIndividualSenderRequirementsText() instead, this method will removed in the future!');
 
 		$this->setIndividualSenderRequirementsText($individualSenderRequirementsText);
@@ -713,7 +731,8 @@ class Service {
 	 *
 	 * @return bool|null - Service "IndividualSenderRequirements" is enabled or null for default
 	 */
-	public function getIndividualSenderRequirementsEnabled() {
+	public function getIndividualSenderRequirementsEnabled()
+	{
 		return $this->individualSenderRequirementsEnabled;
 	}
 
@@ -722,7 +741,8 @@ class Service {
 	 *
 	 * @param bool|null $individualSenderRequirementsEnabled - Service "IndividualSenderRequirements" is enabled or null for default
 	 */
-	public function setIndividualSenderRequirementsEnabled($individualSenderRequirementsEnabled) {
+	public function setIndividualSenderRequirementsEnabled($individualSenderRequirementsEnabled)
+	{
 		$this->individualSenderRequirementsEnabled = $individualSenderRequirementsEnabled;
 	}
 
@@ -731,7 +751,8 @@ class Service {
 	 *
 	 * @return null|string - Sender Requirement (Free text) or null for none
 	 */
-	public function getIndividualSenderRequirementsText() {
+	public function getIndividualSenderRequirementsText()
+	{
 		return $this->individualSenderRequirementsText;
 	}
 
@@ -740,7 +761,8 @@ class Service {
 	 *
 	 * @param null|string $individualSenderRequirementsText - Sender Requirement (Free text) or null for none
 	 */
-	public function setIndividualSenderRequirementsText($individualSenderRequirementsText) {
+	public function setIndividualSenderRequirementsText($individualSenderRequirementsText)
+	{
 		$this->individualSenderRequirementsText = $individualSenderRequirementsText;
 	}
 
@@ -749,7 +771,8 @@ class Service {
 	 *
 	 * @return bool|null - Packaging return is enabled or null for default
 	 */
-	public function getPackagingReturn() {
+	public function getPackagingReturn()
+	{
 		return $this->packagingReturn;
 	}
 
@@ -758,7 +781,8 @@ class Service {
 	 *
 	 * @param bool|null $packagingReturn - Packaging return is enabled or null for default
 	 */
-	public function setPackagingReturn($packagingReturn) {
+	public function setPackagingReturn($packagingReturn)
+	{
 		$this->packagingReturn = $packagingReturn;
 	}
 
@@ -769,7 +793,8 @@ class Service {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function getReturnImmediatlyIfShipmentFailed() {
+	public function getReturnImmediatlyIfShipmentFailed()
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use getReturnImmediatelyIfShipmentFailed() instead, this method will removed in the future!');
 
 		return $this->getReturnImmediatelyIfShipmentFailed();
@@ -782,7 +807,8 @@ class Service {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function setReturnImmediatlyIfShipmentFailed($returnImmediatelyIfShipmentFailed) {
+	public function setReturnImmediatlyIfShipmentFailed($returnImmediatelyIfShipmentFailed)
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use setReturnImmediatelyIfShipmentFailed() instead, this method will removed in the future!');
 
 		$this->setReturnImmediatelyIfShipmentFailed($returnImmediatelyIfShipmentFailed);
@@ -793,7 +819,8 @@ class Service {
 	 *
 	 * @return bool|null - Should Package return immediately when the shipping has failed or null for default
 	 */
-	public function getReturnImmediatelyIfShipmentFailed() {
+	public function getReturnImmediatelyIfShipmentFailed()
+	{
 		return $this->returnImmediatelyIfShipmentFailed;
 	}
 
@@ -802,7 +829,8 @@ class Service {
 	 *
 	 * @param bool|null $returnImmediatelyIfShipmentFailed - Should Package return immediately when the shipping has failed or null for default
 	 */
-	public function setReturnImmediatelyIfShipmentFailed($returnImmediatelyIfShipmentFailed) {
+	public function setReturnImmediatelyIfShipmentFailed($returnImmediatelyIfShipmentFailed)
+	{
 		$this->returnImmediatelyIfShipmentFailed = $returnImmediatelyIfShipmentFailed;
 	}
 
@@ -813,7 +841,8 @@ class Service {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function getNoticeNonDeliverability() {
+	public function getNoticeNonDeliverability()
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use getNoticeOnNonDeliverable() instead, this method will removed in the future!');
 
 		return $this->getNoticeOnNonDeliverable();
@@ -826,7 +855,8 @@ class Service {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function setNoticeNonDeliverability($noticeOnNonDeliverable) {
+	public function setNoticeNonDeliverability($noticeOnNonDeliverable)
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use setNoticeOnNonDeliverable() instead, this method will removed in the future!');
 
 		$this->setNoticeOnNonDeliverable($noticeOnNonDeliverable);
@@ -837,7 +867,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "Notice on Non-Deliverable" enabled or null for default
 	 */
-	public function getNoticeOnNonDeliverable() {
+	public function getNoticeOnNonDeliverable()
+	{
 		return $this->noticeOnNonDeliverable;
 	}
 
@@ -846,7 +877,8 @@ class Service {
 	 *
 	 * @param bool|null $noticeOnNonDeliverable - Is the Service "Notice on Non-Deliverable" enabled or null for default
 	 */
-	public function setNoticeOnNonDeliverable($noticeOnNonDeliverable) {
+	public function setNoticeOnNonDeliverable($noticeOnNonDeliverable)
+	{
 		$this->noticeOnNonDeliverable = $noticeOnNonDeliverable;
 	}
 
@@ -855,7 +887,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "ShipmentHandling" enabled or null for default
 	 */
-	public function getShipmentHandlingEnabled() {
+	public function getShipmentHandlingEnabled()
+	{
 		return $this->shipmentHandlingEnabled;
 	}
 
@@ -864,7 +897,8 @@ class Service {
 	 *
 	 * @param bool|null $shipmentHandlingEnabled - Is the Service "ShipmentHandling" enabled or null for default
 	 */
-	public function setShipmentHandlingEnabled($shipmentHandlingEnabled) {
+	public function setShipmentHandlingEnabled($shipmentHandlingEnabled)
+	{
 		$this->shipmentHandlingEnabled = $shipmentHandlingEnabled;
 	}
 
@@ -872,16 +906,17 @@ class Service {
 	 * Get the Shipment-Handling Type
 	 *
 	 * You will get the following values:
-	 * 	'a': Remove content, return box;
-	 * 	'b': Remove content, pick up and dispose cardboard packaging;
-	 * 	'c': Handover parcel/box to customer ¿ no disposal of cardboar.d/box;
-	 * 	'd': Remove bag from of cooling unit and handover to customer;
-	 * 	'e': Remove content, apply return label und seal box, return box
-	 * 	null: none
+	 *    'a': Remove content, return box;
+	 *    'b': Remove content, pick up and dispose cardboard packaging;
+	 *    'c': Handover parcel/box to customer ¿ no disposal of cardboar.d/box;
+	 *    'd': Remove bag from of cooling unit and handover to customer;
+	 *    'e': Remove content, apply return label und seal box, return box
+	 *    null: none
 	 *
 	 * @return null|string - Shipment-Handling Type or null for none
 	 */
-	public function getShipmentHandlingType() {
+	public function getShipmentHandlingType()
+	{
 		return $this->shipmentHandlingType;
 	}
 
@@ -889,16 +924,17 @@ class Service {
 	 * Set the Shipment-Handling Type
 	 *
 	 * The following values are allowed:
-	 * 	'a': Remove content, return box;
-	 * 	'b': Remove content, pick up and dispose cardboard packaging;
-	 * 	'c': Handover parcel/box to customer ¿ no disposal of cardboar.d/box;
-	 * 	'd': Remove bag from of cooling unit and handover to customer;
-	 * 	'e': Remove content, apply return label und seal box, return box
-	 * 	null: none
+	 *    'a': Remove content, return box;
+	 *    'b': Remove content, pick up and dispose cardboard packaging;
+	 *    'c': Handover parcel/box to customer ¿ no disposal of cardboar.d/box;
+	 *    'd': Remove bag from of cooling unit and handover to customer;
+	 *    'e': Remove content, apply return label und seal box, return box
+	 *    null: none
 	 *
 	 * @param null|string $shipmentHandlingType - Shipment-Handling Type or null for none
 	 */
-	public function setShipmentHandlingType($shipmentHandlingType) {
+	public function setShipmentHandlingType($shipmentHandlingType)
+	{
 		$this->shipmentHandlingType = $shipmentHandlingType;
 	}
 
@@ -907,7 +943,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "Endorsement" enabled or null for default
 	 */
-	public function getEndorsementEnabled() {
+	public function getEndorsementEnabled()
+	{
 		return $this->endorsementEnabled;
 	}
 
@@ -916,7 +953,8 @@ class Service {
 	 *
 	 * @param bool|null $endorsementEnabled - Is the Service "Endorsement" enabled or null for default
 	 */
-	public function setEndorsementEnabled($endorsementEnabled) {
+	public function setEndorsementEnabled($endorsementEnabled)
+	{
 		$this->endorsementEnabled = $endorsementEnabled;
 	}
 
@@ -924,17 +962,18 @@ class Service {
 	 * Get the Endorsement Type
 	 *
 	 * Values for national:
-	 * 	'SOZU': (Return immediately),
-	 * 	'ZWZU': (2nd attempt of Delivery);
+	 *    'SOZU': (Return immediately),
+	 *    'ZWZU': (2nd attempt of Delivery);
 	 * ---------------------------
 	 * Values for International:
-	 * 	'IMMEDIATE': (Sending back immediately to sender),
-	 * 	'AFTER_DEADLINE': (Sending back immediately to sender after expiration of time),
-	 * 	'ABANDONMENT': (Abandonment of parcel at the hands of sender (free of charge))
+	 *    'IMMEDIATE': (Sending back immediately to sender),
+	 *    'AFTER_DEADLINE': (Sending back immediately to sender after expiration of time),
+	 *    'ABANDONMENT': (Abandonment of parcel at the hands of sender (free of charge))
 	 *
 	 * @return null|string - Endorsement-Service Type or null for none
 	 */
-	public function getEndorsementType() {
+	public function getEndorsementType()
+	{
 		return $this->endorsementType;
 	}
 
@@ -942,17 +981,18 @@ class Service {
 	 * Set the Endorsement Type
 	 *
 	 * Values for national:
-	 * 	'SOZU': (Return immediately),
-	 * 	'ZWZU': (2nd attempt of Delivery);
+	 *    'SOZU': (Return immediately),
+	 *    'ZWZU': (2nd attempt of Delivery);
 	 * ---------------------------
 	 * Values for International:
-	 * 	'IMMEDIATE': (Sending back immediately to sender),
-	 * 	'AFTER_DEADLINE': (Sending back immediately to sender after expiration of time),
-	 * 	'ABANDONMENT': (Abandonment of parcel at the hands of sender (free of charge))
+	 *    'IMMEDIATE': (Sending back immediately to sender),
+	 *    'AFTER_DEADLINE': (Sending back immediately to sender after expiration of time),
+	 *    'ABANDONMENT': (Abandonment of parcel at the hands of sender (free of charge))
 	 *
 	 * @param null|string $endorsementType - Endorsement-Service Type or null for none
 	 */
-	public function setEndorsementType($endorsementType) {
+	public function setEndorsementType($endorsementType)
+	{
 		$this->endorsementType = $endorsementType;
 	}
 
@@ -961,7 +1001,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "VisualCheckOfAge" enabled or null for default
 	 */
-	public function getVisualCheckOfAgeEnabled() {
+	public function getVisualCheckOfAgeEnabled()
+	{
 		return $this->visualCheckOfAgeEnabled;
 	}
 
@@ -970,7 +1011,8 @@ class Service {
 	 *
 	 * @param bool|null $visualCheckOfAgeEnabled - Is the Service "VisualCheckOfAge" enabled or null for default
 	 */
-	public function setVisualCheckOfAgeEnabled($visualCheckOfAgeEnabled) {
+	public function setVisualCheckOfAgeEnabled($visualCheckOfAgeEnabled)
+	{
 		$this->visualCheckOfAgeEnabled = $visualCheckOfAgeEnabled;
 	}
 
@@ -978,12 +1020,13 @@ class Service {
 	 * Get the Age that the Receiver should be at least have
 	 *
 	 * You will get the following values:
-	 * 	'A16': Person must be 16+
-	 * 	'A18': Person must be 18+
+	 *    'A16': Person must be 16+
+	 *    'A18': Person must be 18+
 	 *
 	 * @return null|string - Minimum-Age of the Receiver or null for none
 	 */
-	public function getVisualCheckOfAgeType() {
+	public function getVisualCheckOfAgeType()
+	{
 		return $this->visualCheckOfAgeType;
 	}
 
@@ -991,12 +1034,13 @@ class Service {
 	 * Set the Age that the Receiver should be at least have
 	 *
 	 * The following Values are allowed:
-	 * 	'A16': Person must be 16+
-	 * 	'A18': Person must be 18+
+	 *    'A16': Person must be 16+
+	 *    'A18': Person must be 18+
 	 *
 	 * @param null|string $visualCheckOfAgeType - Minimum-Age of the Receiver or null for none
 	 */
-	public function setVisualCheckOfAgeType($visualCheckOfAgeType) {
+	public function setVisualCheckOfAgeType($visualCheckOfAgeType)
+	{
 		$this->visualCheckOfAgeType = $visualCheckOfAgeType;
 	}
 
@@ -1005,7 +1049,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "PreferredLocation" enabled or null for default
 	 */
-	public function getPreferredLocationEnabled() {
+	public function getPreferredLocationEnabled()
+	{
 		return $this->preferredLocationEnabled;
 	}
 
@@ -1014,7 +1059,8 @@ class Service {
 	 *
 	 * @param bool|null $preferredLocationEnabled - Is the Service "PreferredLocation" enabled or null for default
 	 */
-	public function setPreferredLocationEnabled($preferredLocationEnabled) {
+	public function setPreferredLocationEnabled($preferredLocationEnabled)
+	{
 		$this->preferredLocationEnabled = $preferredLocationEnabled;
 	}
 
@@ -1023,7 +1069,8 @@ class Service {
 	 *
 	 * @return null|string - Details of the preferred Location (Free text) or null for none
 	 */
-	public function getPreferredLocationDetails() {
+	public function getPreferredLocationDetails()
+	{
 		return $this->preferredLocationDetails;
 	}
 
@@ -1032,7 +1079,8 @@ class Service {
 	 *
 	 * @param null|string $preferredLocationDetails - Details of the preferred Location (Free text) or null for none
 	 */
-	public function setPreferredLocationDetails($preferredLocationDetails) {
+	public function setPreferredLocationDetails($preferredLocationDetails)
+	{
 		$this->preferredLocationDetails = $preferredLocationDetails;
 	}
 
@@ -1041,7 +1089,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "PreferredNeighbour" enabled or null for default
 	 */
-	public function getPreferredNeighbourEnabled() {
+	public function getPreferredNeighbourEnabled()
+	{
 		return $this->preferredNeighbourEnabled;
 	}
 
@@ -1050,7 +1099,8 @@ class Service {
 	 *
 	 * @param bool|null $preferredNeighbourEnabled - Is the Service "PreferredNeighbour" enabled or null for default
 	 */
-	public function setPreferredNeighbourEnabled($preferredNeighbourEnabled) {
+	public function setPreferredNeighbourEnabled($preferredNeighbourEnabled)
+	{
 		$this->preferredNeighbourEnabled = $preferredNeighbourEnabled;
 	}
 
@@ -1059,7 +1109,8 @@ class Service {
 	 *
 	 * @return null|string - The details of the preferred Neighbour (Free text) or null for none
 	 */
-	public function getPreferredNeighbourText() {
+	public function getPreferredNeighbourText()
+	{
 		return $this->preferredNeighbourText;
 	}
 
@@ -1068,7 +1119,8 @@ class Service {
 	 *
 	 * @param null|string $preferredNeighbourText - The details of the preferred Neighbour (Free text) or null for none
 	 */
-	public function setPreferredNeighbourText($preferredNeighbourText) {
+	public function setPreferredNeighbourText($preferredNeighbourText)
+	{
 		$this->preferredNeighbourText = $preferredNeighbourText;
 	}
 
@@ -1077,7 +1129,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "PreferredDay" enabled or null for default
 	 */
-	public function getPreferredDayEnabled() {
+	public function getPreferredDayEnabled()
+	{
 		return $this->preferredDayEnabled;
 	}
 
@@ -1086,7 +1139,8 @@ class Service {
 	 *
 	 * @param bool|null $preferredDayEnabled - Is the Service "PreferredDay" enabled or null for default
 	 */
-	public function setPreferredDayEnabled($preferredDayEnabled) {
+	public function setPreferredDayEnabled($preferredDayEnabled)
+	{
 		$this->preferredDayEnabled = $preferredDayEnabled;
 	}
 
@@ -1095,7 +1149,8 @@ class Service {
 	 *
 	 * @return null|string - The details of the preferred Day (Free text) or null for none
 	 */
-	public function getPreferredDayText() {
+	public function getPreferredDayText()
+	{
 		return $this->preferredDayText;
 	}
 
@@ -1104,7 +1159,8 @@ class Service {
 	 *
 	 * @param null|string $preferredDayText - The details of the preferred Day (Free text) or null for none
 	 */
-	public function setPreferredDayText($preferredDayText) {
+	public function setPreferredDayText($preferredDayText)
+	{
 		$this->preferredDayText = $preferredDayText;
 	}
 
@@ -1113,7 +1169,8 @@ class Service {
 	 *
 	 * @return bool|null - Deliver Perishables or null for default
 	 */
-	public function getPerishables() {
+	public function getPerishables()
+	{
 		return $this->perishables;
 	}
 
@@ -1122,7 +1179,8 @@ class Service {
 	 *
 	 * @param bool|null $perishables - Deliver Perishables or null for default
 	 */
-	public function setPerishables($perishables) {
+	public function setPerishables($perishables)
+	{
 		$this->perishables = $perishables;
 	}
 
@@ -1131,7 +1189,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "DisableNeighbourDelivery" enabled or null for default
 	 */
-	public function getDisableNeighbourDelivery() {
+	public function getDisableNeighbourDelivery()
+	{
 		return $this->disableNeighbourDelivery;
 	}
 
@@ -1140,7 +1199,8 @@ class Service {
 	 *
 	 * @param bool|null $disableNeighbourDelivery - Is the Service "DisableNeighbourDelivery" enabled or null for default
 	 */
-	public function setDisableNeighbourDelivery($disableNeighbourDelivery) {
+	public function setDisableNeighbourDelivery($disableNeighbourDelivery)
+	{
 		$this->disableNeighbourDelivery = $disableNeighbourDelivery;
 	}
 
@@ -1149,7 +1209,8 @@ class Service {
 	 *
 	 * @return bool|null - Named Person can only accept delivery or null for default
 	 */
-	public function getNamedPersonOnly() {
+	public function getNamedPersonOnly()
+	{
 		return $this->namedPersonOnly;
 	}
 
@@ -1158,7 +1219,8 @@ class Service {
 	 *
 	 * @param bool|null $namedPersonOnly - Named Person can only accept delivery or null for default
 	 */
-	public function setNamedPersonOnly($namedPersonOnly) {
+	public function setNamedPersonOnly($namedPersonOnly)
+	{
 		$this->namedPersonOnly = $namedPersonOnly;
 	}
 
@@ -1167,7 +1229,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "ReturnReceipt" enabled or null for default
 	 */
-	public function getReturnReceipt() {
+	public function getReturnReceipt()
+	{
 		return $this->returnReceipt;
 	}
 
@@ -1176,7 +1239,8 @@ class Service {
 	 *
 	 * @param bool|null $returnReceipt - Is the Service "ReturnReceipt" enabled or null for default
 	 */
-	public function setReturnReceipt($returnReceipt) {
+	public function setReturnReceipt($returnReceipt)
+	{
 		$this->returnReceipt = $returnReceipt;
 	}
 
@@ -1185,7 +1249,8 @@ class Service {
 	 *
 	 * @return bool|null - Premium is enabled or null for default
 	 */
-	public function getPremium() {
+	public function getPremium()
+	{
 		return $this->premium;
 	}
 
@@ -1194,7 +1259,8 @@ class Service {
 	 *
 	 * @param bool|null $premium - Premium is enabled or null for default
 	 */
-	public function setPremium($premium) {
+	public function setPremium($premium)
+	{
 		$this->premium = $premium;
 	}
 
@@ -1203,7 +1269,8 @@ class Service {
 	 *
 	 * @return bool|null - Is Cash on delivery (COD) enabled or null for default
 	 */
-	public function getCashOnDeliveryEnabled() {
+	public function getCashOnDeliveryEnabled()
+	{
 		return $this->cashOnDeliveryEnabled;
 	}
 
@@ -1212,7 +1279,8 @@ class Service {
 	 *
 	 * @param bool|null $cashOnDeliveryEnabled - Is Cash on delivery (COD) enabled or null for default
 	 */
-	public function setCashOnDeliveryEnabled($cashOnDeliveryEnabled) {
+	public function setCashOnDeliveryEnabled($cashOnDeliveryEnabled)
+	{
 		$this->cashOnDeliveryEnabled = $cashOnDeliveryEnabled;
 	}
 
@@ -1221,7 +1289,8 @@ class Service {
 	 *
 	 * @return bool|null - Is the Service "AddFee" is enabled or null for default
 	 */
-	public function getCashOnDeliveryAddFee() {
+	public function getCashOnDeliveryAddFee()
+	{
 		return $this->cashOnDeliveryAddFee;
 	}
 
@@ -1230,7 +1299,8 @@ class Service {
 	 *
 	 * @param bool|null $cashOnDeliveryAddFee - Is the Service "AddFee" is enabled or null for default
 	 */
-	public function setCashOnDeliveryAddFee($cashOnDeliveryAddFee) {
+	public function setCashOnDeliveryAddFee($cashOnDeliveryAddFee)
+	{
 		$this->cashOnDeliveryAddFee = $cashOnDeliveryAddFee;
 	}
 
@@ -1239,7 +1309,8 @@ class Service {
 	 *
 	 * @return float|null - The Amount how much the receiver must pay or null for none
 	 */
-	public function getCashOnDeliveryAmount() {
+	public function getCashOnDeliveryAmount()
+	{
 		return $this->cashOnDeliveryAmount;
 	}
 
@@ -1248,7 +1319,8 @@ class Service {
 	 *
 	 * @param float|null $cashOnDeliveryAmount - The Amount how much the receiver must pay or null for none
 	 */
-	public function setCashOnDeliveryAmount($cashOnDeliveryAmount) {
+	public function setCashOnDeliveryAmount($cashOnDeliveryAmount)
+	{
 		$this->cashOnDeliveryAmount = $cashOnDeliveryAmount;
 	}
 
@@ -1257,7 +1329,8 @@ class Service {
 	 *
 	 * @return bool|null - Is additional Insurance enabled or null for default
 	 */
-	public function getAdditionalInsuranceEnabled() {
+	public function getAdditionalInsuranceEnabled()
+	{
 		return $this->additionalInsuranceEnabled;
 	}
 
@@ -1266,7 +1339,8 @@ class Service {
 	 *
 	 * @param bool|null $additionalInsuranceEnabled - Is additional Insurance enabled or null for default
 	 */
-	public function setAdditionalInsuranceEnabled($additionalInsuranceEnabled) {
+	public function setAdditionalInsuranceEnabled($additionalInsuranceEnabled)
+	{
 		$this->additionalInsuranceEnabled = $additionalInsuranceEnabled;
 	}
 
@@ -1275,7 +1349,8 @@ class Service {
 	 *
 	 * @return float|null - The Amount with that the Shipment is insured or null for none
 	 */
-	public function getAdditionalInsuranceAmount() {
+	public function getAdditionalInsuranceAmount()
+	{
 		return $this->additionalInsuranceAmount;
 	}
 
@@ -1284,7 +1359,8 @@ class Service {
 	 *
 	 * @param float|null $additionalInsuranceAmount - The Amount with that the Shipment is insured or null for none
 	 */
-	public function setAdditionalInsuranceAmount($additionalInsuranceAmount) {
+	public function setAdditionalInsuranceAmount($additionalInsuranceAmount)
+	{
 		$this->additionalInsuranceAmount = $additionalInsuranceAmount;
 	}
 
@@ -1293,7 +1369,8 @@ class Service {
 	 *
 	 * @return bool|null - Do you deliver Bulky-Goods or null for default
 	 */
-	public function getBulkyGoods() {
+	public function getBulkyGoods()
+	{
 		return $this->bulkyGoods;
 	}
 
@@ -1302,7 +1379,8 @@ class Service {
 	 *
 	 * @param bool|null $bulkyGoods - Do you deliver Bulky-Goods or null for default
 	 */
-	public function setBulkyGoods($bulkyGoods) {
+	public function setBulkyGoods($bulkyGoods)
+	{
 		$this->bulkyGoods = $bulkyGoods;
 	}
 
@@ -1311,7 +1389,8 @@ class Service {
 	 *
 	 * @return bool|null - Is Ident check enabled or null for default
 	 */
-	public function getIdentCheckEnabled() {
+	public function getIdentCheckEnabled()
+	{
 		return $this->identCheckEnabled;
 	}
 
@@ -1320,7 +1399,8 @@ class Service {
 	 *
 	 * @param bool|null $identCheckEnabled - Is Ident check enabled or null for default
 	 */
-	public function setIdentCheckEnabled($identCheckEnabled) {
+	public function setIdentCheckEnabled($identCheckEnabled)
+	{
 		$this->identCheckEnabled = $identCheckEnabled;
 	}
 
@@ -1329,7 +1409,8 @@ class Service {
 	 *
 	 * @return IdentCheck|null - The IdentCheck Object or null for none
 	 */
-	public function getIdentCheckObj() {
+	public function getIdentCheckObj()
+	{
 		return $this->identCheckObj;
 	}
 
@@ -1338,7 +1419,8 @@ class Service {
 	 *
 	 * @param IdentCheck|null $identCheckObj - The IdentCheck Object or null for none
 	 */
-	public function setIdentCheckObj($identCheckObj) {
+	public function setIdentCheckObj($identCheckObj)
+	{
 		$this->identCheckObj = $identCheckObj;
 	}
 
@@ -1348,7 +1430,8 @@ class Service {
 	 * @return bool|null - Is ParcelOutletRouting enabled or null for default
 	 * @since 3.0
 	 */
-	public function getParcelOutletRoutingEnabled(): ?bool {
+	public function getParcelOutletRoutingEnabled(): ?bool
+	{
 		return $this->parcelOutletRoutingEnabled;
 	}
 
@@ -1358,7 +1441,8 @@ class Service {
 	 * @param bool|null $parcelOutletRoutingEnabled - Is ParcelOutletRouting enabled or null for default
 	 * @since 3.0
 	 */
-	public function setParcelOutletRoutingEnabled(?bool $parcelOutletRoutingEnabled): void {
+	public function setParcelOutletRoutingEnabled(?bool $parcelOutletRoutingEnabled): void
+	{
 		$this->parcelOutletRoutingEnabled = $parcelOutletRoutingEnabled;
 	}
 
@@ -1368,7 +1452,8 @@ class Service {
 	 * @return string|null - ParcelOutletRouting details or null for none
 	 * @since 3.0
 	 */
-	public function getParcelOutletRoutingDetails(): ?string {
+	public function getParcelOutletRoutingDetails(): ?string
+	{
 		return $this->parcelOutletRoutingDetails;
 	}
 
@@ -1378,7 +1463,8 @@ class Service {
 	 * @param string|null $parcelOutletRoutingDetails - ParcelOutletRouting details or null for none
 	 * @since 3.0
 	 */
-	public function setParcelOutletRoutingDetails(?string $parcelOutletRoutingDetails): void {
+	public function setParcelOutletRoutingDetails(?string $parcelOutletRoutingDetails): void
+	{
 		$this->parcelOutletRoutingDetails = $parcelOutletRoutingDetails;
 	}
 
@@ -1389,139 +1475,140 @@ class Service {
 	 * @return StdClass - Service-DHL-Class
 	 * @since 2.0
 	 */
-	public function getServiceClass_v2($productType) {
+	public function getServiceClass_v2($productType)
+	{
 		$class = new StdClass;
 
-		if($this->getDayOfDeliveryEnabled() !== null && in_array(
-			$productType,
-			array(
-				ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER,
-				ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
-			))) {
+		if ($this->getDayOfDeliveryEnabled() !== null && in_array(
+				$productType,
+				array(
+					ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER,
+					ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
+				))) {
 			$class->DayOfDelivery = new StdClass;
-			$class->DayOfDelivery->active = (int) $this->getDayOfDeliveryEnabled();
+			$class->DayOfDelivery->active = (int)$this->getDayOfDeliveryEnabled();
 			$class->DayOfDelivery->details = $this->getDayOfDeliveryDate();
 		}
-		if($this->getDeliveryTimeframeEnabled() !== null && in_array(
+		if ($this->getDeliveryTimeframeEnabled() !== null && in_array(
 				$productType,
 				array(
 					ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER,
 					ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 				))) {
 			$class->DeliveryTimeframe = new StdClass;
-			$class->DeliveryTimeframe->active = (int) $this->getDeliveryTimeframeEnabled();
+			$class->DeliveryTimeframe->active = (int)$this->getDeliveryTimeframeEnabled();
 			$class->DeliveryTimeframe->type = $this->getDeliveryTimeframe();
 		}
-		if($this->getPreferredTimeEnabled() !== null && in_array(
+		if ($this->getPreferredTimeEnabled() !== null && in_array(
 				$productType,
 				array(
 					ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE,
 					ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE
 				))) {
 			$class->PreferredTime = new StdClass;
-			$class->PreferredTime->active = (int) $this->getPreferredTimeEnabled();
+			$class->PreferredTime->active = (int)$this->getPreferredTimeEnabled();
 			$class->PreferredTime->type = $this->getPreferredTime();
 		}
-		if($this->getIndividualSenderRequirementsEnabled() !== null && in_array(
+		if ($this->getIndividualSenderRequirementsEnabled() !== null && in_array(
 				$productType,
 				array(
 					ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER,
 					ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 				))) {
 			$class->IndividualSenderRequirement = new StdClass;
-			$class->IndividualSenderRequirement->active = (int) $this->getIndividualSenderRequirementsEnabled();
+			$class->IndividualSenderRequirement->active = (int)$this->getIndividualSenderRequirementsEnabled();
 			$class->IndividualSenderRequirement->details = $this->getIndividualSenderRequirementsText();
 		}
-		if($this->getPackagingReturn() !== null) {
+		if ($this->getPackagingReturn() !== null) {
 			$class->PackagingReturn = new StdClass;
-			$class->PackagingReturn->active = (int) $this->getPackagingReturn();
+			$class->PackagingReturn->active = (int)$this->getPackagingReturn();
 		}
-		if($this->getReturnImmediatelyIfShipmentFailed() !== null && in_array(
+		if ($this->getReturnImmediatelyIfShipmentFailed() !== null && in_array(
 				$productType,
 				array(
 					ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE
 				))) {
 			$class->ReturnImmediately = new StdClass;
-			$class->ReturnImmediately->active = (int) $this->getReturnImmediatelyIfShipmentFailed();
+			$class->ReturnImmediately->active = (int)$this->getReturnImmediatelyIfShipmentFailed();
 		}
-		if($this->getNoticeOnNonDeliverable() !== null) {
+		if ($this->getNoticeOnNonDeliverable() !== null) {
 			$class->NoticeOfNonDeliverability = new StdClass;
-			$class->NoticeOfNonDeliverability->active = (int) $this->getNoticeOnNonDeliverable();
+			$class->NoticeOfNonDeliverability->active = (int)$this->getNoticeOnNonDeliverable();
 		}
-		if($this->getShipmentHandlingEnabled() !== null && in_array(
+		if ($this->getShipmentHandlingEnabled() !== null && in_array(
 				$productType,
 				array(
 					ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER,
 					ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER
 				))) {
 			$class->ShipmentHandling = new StdClass;
-			$class->ShipmentHandling->active = (int) $this->getShipmentHandlingEnabled();
+			$class->ShipmentHandling->active = (int)$this->getShipmentHandlingEnabled();
 			$class->ShipmentHandling->type = $this->getShipmentHandlingType();
 		}
-		if($this->getEndorsementEnabled() !== null) {
+		if ($this->getEndorsementEnabled() !== null) {
 			$class->Endorsement = new StdClass;
-			$class->Endorsement->active = (int) $this->getEndorsementEnabled();
+			$class->Endorsement->active = (int)$this->getEndorsementEnabled();
 			$class->Endorsement->type = $this->getEndorsementType();
 		}
-		if($this->getVisualCheckOfAgeEnabled() !== null) {
+		if ($this->getVisualCheckOfAgeEnabled() !== null) {
 			$class->VisualCheckOfAge = new StdClass;
-			$class->VisualCheckOfAge->active = (int) $this->getVisualCheckOfAgeEnabled();
+			$class->VisualCheckOfAge->active = (int)$this->getVisualCheckOfAgeEnabled();
 			$class->VisualCheckOfAge->type = $this->getVisualCheckOfAgeType();
 		}
-		if($this->getPreferredLocationEnabled() !== null) {
+		if ($this->getPreferredLocationEnabled() !== null) {
 			$class->PreferredLocation = new StdClass;
-			$class->PreferredLocation->active = (int) $this->getPreferredLocationEnabled();
+			$class->PreferredLocation->active = (int)$this->getPreferredLocationEnabled();
 			$class->PreferredLocation->details = $this->getPreferredLocationDetails();
 		}
-		if($this->getPreferredNeighbourEnabled() !== null) {
+		if ($this->getPreferredNeighbourEnabled() !== null) {
 			$class->PreferredNeighbour = new StdClass;
-			$class->PreferredNeighbour->active = (int) $this->getPreferredNeighbourEnabled();
+			$class->PreferredNeighbour->active = (int)$this->getPreferredNeighbourEnabled();
 			$class->PreferredNeighbour->details = $this->getPreferredNeighbourText();
 		}
-		if($this->getPreferredDayEnabled() !== null) {
+		if ($this->getPreferredDayEnabled() !== null) {
 			$class->PreferredDay = new StdClass;
-			$class->PreferredDay->active = (int) $this->getPreferredDayEnabled();
+			$class->PreferredDay->active = (int)$this->getPreferredDayEnabled();
 			$class->PreferredDay->details = $this->getPreferredDayText();
 		}
-		if($this->getPerishables() !== null) {
+		if ($this->getPerishables() !== null) {
 			$class->Perishables = new StdClass;
-			$class->Perishables->active = (int) $this->getPerishables();
+			$class->Perishables->active = (int)$this->getPerishables();
 		}
-		if($this->getDisableNeighbourDelivery() !== null) {
+		if ($this->getDisableNeighbourDelivery() !== null) {
 			$class->NoNeighbourDelivery = new StdClass;
-			$class->NoNeighbourDelivery->active = (int) $this->getDisableNeighbourDelivery();
+			$class->NoNeighbourDelivery->active = (int)$this->getDisableNeighbourDelivery();
 		}
-		if($this->getNamedPersonOnly() !== null) {
+		if ($this->getNamedPersonOnly() !== null) {
 			$class->NamedPersonOnly = new StdClass;
-			$class->NamedPersonOnly->active = (int) $this->getNamedPersonOnly();
+			$class->NamedPersonOnly->active = (int)$this->getNamedPersonOnly();
 		}
-		if($this->getReturnReceipt() !== null) {
+		if ($this->getReturnReceipt() !== null) {
 			$class->ReturnReceipt = new StdClass;
-			$class->ReturnReceipt->active = (int) $this->getReturnReceipt();
+			$class->ReturnReceipt->active = (int)$this->getReturnReceipt();
 		}
-		if($this->getPremium() !== null) {
+		if ($this->getPremium() !== null) {
 			$class->Premium = new StdClass;
-			$class->Premium->active = (int) $this->getPremium();
+			$class->Premium->active = (int)$this->getPremium();
 		}
-		if($this->getCashOnDeliveryEnabled() !== null) {
+		if ($this->getCashOnDeliveryEnabled() !== null) {
 			$class->CashOnDelivery = new StdClass;
-			$class->CashOnDelivery->active = (int) $this->getCashOnDeliveryEnabled();
-			if($this->getCashOnDeliveryAddFee() !== null)
-				$class->CashOnDelivery->addFee = (int) $this->getCashOnDeliveryAddFee();
-			$class->CashOnDelivery->codAmount = (float) $this->getCashOnDeliveryAmount();
+			$class->CashOnDelivery->active = (int)$this->getCashOnDeliveryEnabled();
+			if ($this->getCashOnDeliveryAddFee() !== null)
+				$class->CashOnDelivery->addFee = (int)$this->getCashOnDeliveryAddFee();
+			$class->CashOnDelivery->codAmount = (float)$this->getCashOnDeliveryAmount();
 		}
-		if($this->getAdditionalInsuranceEnabled() !== null) {
+		if ($this->getAdditionalInsuranceEnabled() !== null) {
 			$class->AdditionalInsurance = new StdClass;
-			$class->AdditionalInsurance->active = (int) $this->getAdditionalInsuranceEnabled();
-			$class->AdditionalInsurance->insuranceAmount = (float) $this->getAdditionalInsuranceAmount();
+			$class->AdditionalInsurance->active = (int)$this->getAdditionalInsuranceEnabled();
+			$class->AdditionalInsurance->insuranceAmount = (float)$this->getAdditionalInsuranceAmount();
 		}
-		if($this->getBulkyGoods() !== null) {
+		if ($this->getBulkyGoods() !== null) {
 			$class->BulkyGoods = new StdClass;
-			$class->BulkyGoods->active = (int) $this->getBulkyGoods();
+			$class->BulkyGoods->active = (int)$this->getBulkyGoods();
 		}
-		if($this->getIdentCheckEnabled() !== null) {
+		if ($this->getIdentCheckEnabled() !== null) {
 			$class->IdentCheck = new StdClass;
-			$class->IdentCheck->active = (int) $this->getIdentCheckEnabled();
+			$class->IdentCheck->active = (int)$this->getIdentCheckEnabled();
 			$class->IdentCheck->Ident = $this->getIdentCheckObj()->getIdentClass_v2();
 		}
 
@@ -1535,14 +1622,15 @@ class Service {
 	 * @return StdClass - Service-DHL-Class
 	 * @since 3.0
 	 */
-	public function getServiceClass_v3(string $productType) {
+	public function getServiceClass_v3(string $productType)
+	{
 		$class = $this->getServiceClass_v2($productType);
 
-		if($this->getParcelOutletRoutingEnabled() !== null) {
+		if ($this->getParcelOutletRoutingEnabled() !== null) {
 			$class->ParcelOutletRouting = new StdClass;
-			$class->ParcelOutletRouting->active = (int) $this->getParcelOutletRoutingEnabled();
+			$class->ParcelOutletRouting->active = (int)$this->getParcelOutletRoutingEnabled();
 
-			if($this->getParcelOutletRoutingDetails() !== null)
+			if ($this->getParcelOutletRoutingDetails() !== null)
 				$class->ParcelOutletRouting->details = $this->getParcelOutletRoutingDetails();
 		}
 

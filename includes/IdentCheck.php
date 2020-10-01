@@ -18,7 +18,8 @@ use stdClass;
  *
  * @package Petschko\DHL
  */
-class IdentCheck {
+class IdentCheck
+{
 	/**
 	 * Contains the Last-Name of the Person
 	 *
@@ -69,7 +70,8 @@ class IdentCheck {
 	 * @param string $birthday - Birthday (Format: YYYY-MM-DD)
 	 * @param int $minimumAge - Minimum-Age
 	 */
-	public function __construct($lastName, $firstName, $birthday, $minimumAge) {
+	public function __construct($lastName, $firstName, $birthday, $minimumAge)
+	{
 		$this->setLastName($lastName);
 		$this->setFirstName($firstName);
 		$this->setBirthday($birthday);
@@ -79,7 +81,8 @@ class IdentCheck {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->lastName);
 		unset($this->firstName);
 		unset($this->birthday);
@@ -91,7 +94,8 @@ class IdentCheck {
 	 *
 	 * @return string - Last-Name
 	 */
-	public function getLastName() {
+	public function getLastName()
+	{
 		return $this->lastName;
 	}
 
@@ -100,7 +104,8 @@ class IdentCheck {
 	 *
 	 * @param string $lastName - Last-Name
 	 */
-	private function setLastName($lastName) {
+	private function setLastName($lastName)
+	{
 		$this->lastName = $lastName;
 	}
 
@@ -109,7 +114,8 @@ class IdentCheck {
 	 *
 	 * @return string - First-Name
 	 */
-	public function getFirstName() {
+	public function getFirstName()
+	{
 		return $this->firstName;
 	}
 
@@ -118,7 +124,8 @@ class IdentCheck {
 	 *
 	 * @param string $firstName - First-Name
 	 */
-	private function setFirstName($firstName) {
+	private function setFirstName($firstName)
+	{
 		$this->firstName = $firstName;
 	}
 
@@ -127,7 +134,8 @@ class IdentCheck {
 	 *
 	 * @return string - Birthday
 	 */
-	public function getBirthday() {
+	public function getBirthday()
+	{
 		return $this->birthday;
 	}
 
@@ -136,7 +144,8 @@ class IdentCheck {
 	 *
 	 * @param string $birthday - Birthday
 	 */
-	private function setBirthday($birthday) {
+	private function setBirthday($birthday)
+	{
 		$this->birthday = $birthday;
 	}
 
@@ -145,7 +154,8 @@ class IdentCheck {
 	 *
 	 * @return int - Minimum Age
 	 */
-	public function getMinimumAge() {
+	public function getMinimumAge()
+	{
 		return $this->minimumAge;
 	}
 
@@ -154,7 +164,8 @@ class IdentCheck {
 	 *
 	 * @param int $minimumAge - Minimum Age
 	 */
-	private function setMinimumAge($minimumAge) {
+	private function setMinimumAge($minimumAge)
+	{
 		$this->minimumAge = $minimumAge;
 	}
 
@@ -164,7 +175,8 @@ class IdentCheck {
 	 * @return StdClass - Ident-DHL-Class
 	 * @since 2.0
 	 */
-	public function getIdentClass_v2() {
+	public function getIdentClass_v2()
+	{
 		$class = new StdClass;
 		$class->surname = $this->getLastName();
 		$class->givenName = $this->getFirstName();
@@ -180,7 +192,8 @@ class IdentCheck {
 	 * @return StdClass - Ident-DHL-Class
 	 * @since 3.0
 	 */
-	public function getIdentClass_v3() {
+	public function getIdentClass_v3()
+	{
 		return $this->getIdentClass_v2();
 	}
 }

@@ -16,7 +16,8 @@ namespace Petschko\DHL;
  *
  * @package Petschko\DHL
  */
-class LabelData extends Version implements LabelResponse {
+class LabelData extends Version implements LabelResponse
+{
 	/**
 	 * Contains the Status-Code
 	 *
@@ -95,11 +96,12 @@ class LabelData extends Version implements LabelResponse {
 	 * @param string $version - Current DHL-Version
 	 * @param object $labelData - LabelData-Object from DHL-Response
 	 */
-	public function __construct($version, $labelData) {
+	public function __construct($version, $labelData)
+	{
 		parent::__construct($version);
 
-		if($labelData !== null) {
-			switch($this->getMayor()) {
+		if ($labelData !== null) {
+			switch ($this->getMayor()) {
 				case 1:
 					break;
 				case 2:
@@ -115,7 +117,8 @@ class LabelData extends Version implements LabelResponse {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->statusCode);
 		unset($this->statusText);
 		unset($this->statusMessage);
@@ -141,7 +144,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @return int - Status-Code
 	 */
-	public function getStatusCode() {
+	public function getStatusCode()
+	{
 		return $this->statusCode;
 	}
 
@@ -159,7 +163,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @param int $statusCode - Status-Code
 	 */
-	private function setStatusCode($statusCode) {
+	private function setStatusCode($statusCode)
+	{
 		$this->statusCode = $statusCode;
 	}
 
@@ -168,7 +173,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @return string|null - Status-Text or null if not set
 	 */
-	public function getStatusText() {
+	public function getStatusText()
+	{
 		return $this->statusText;
 	}
 
@@ -177,7 +183,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @param string|null $statusText - Status-Text or null for not set
 	 */
-	private function setStatusText($statusText) {
+	private function setStatusText($statusText)
+	{
 		$this->statusText = $statusText;
 	}
 
@@ -186,7 +193,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @return string|null - Status-Message or null if not set
 	 */
-	public function getStatusMessage() {
+	public function getStatusMessage()
+	{
 		return $this->statusMessage;
 	}
 
@@ -195,7 +203,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @param string|null $statusMessage - Status-Message or null for not set
 	 */
-	private function setStatusMessage($statusMessage) {
+	private function setStatusMessage($statusMessage)
+	{
 		$this->statusMessage = $statusMessage;
 	}
 
@@ -204,7 +213,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @return string|null - Sequence-Number of the Request or null if not set
 	 */
-	public function getSequenceNumber() {
+	public function getSequenceNumber()
+	{
 		return $this->sequenceNumber;
 	}
 
@@ -213,7 +223,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @param string|null $sequenceNumber - Sequence-Number of the Request or null for not set
 	 */
-	private function setSequenceNumber($sequenceNumber) {
+	private function setSequenceNumber($sequenceNumber)
+	{
 		$this->sequenceNumber = $sequenceNumber;
 	}
 
@@ -222,7 +233,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @return null|string - Shipment-Number or null if not set
 	 */
-	public function getShipmentNumber() {
+	public function getShipmentNumber()
+	{
 		return $this->shipmentNumber;
 	}
 
@@ -231,7 +243,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @param null|string $shipment_number - Shipment-Number or null for not set
 	 */
-	private function setShipmentNumber($shipment_number) {
+	private function setShipmentNumber($shipment_number)
+	{
 		$this->shipmentNumber = $shipment_number;
 	}
 
@@ -240,7 +253,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @return null|string - Label URL/Base64-Data (Can also contain the return label) or null if not set
 	 */
-	public function getLabel() {
+	public function getLabel()
+	{
 		return $this->label;
 	}
 
@@ -249,7 +263,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @param null|string $label - Label URL/Base64-Data (Can also contain the return label) or null for not set
 	 */
-	private function setLabel($label) {
+	private function setLabel($label)
+	{
 		$this->label = $label;
 	}
 
@@ -258,7 +273,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @return null|string - Return Label-URL/Base64-Label-Data or null if not requested/set
 	 */
-	public function getReturnLabel() {
+	public function getReturnLabel()
+	{
 		return $this->returnLabel;
 	}
 
@@ -267,7 +283,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @param null|string $returnLabel - Return Label-URL/Base64-Label-Data or null for not requested/set
 	 */
-	private function setReturnLabel($returnLabel) {
+	private function setReturnLabel($returnLabel)
+	{
 		$this->returnLabel = $returnLabel;
 	}
 
@@ -276,7 +293,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @return null|string - Export-Document Label-URL/Base64-Label-Data or null if not requested/set
 	 */
-	public function getExportDoc() {
+	public function getExportDoc()
+	{
 		return $this->exportDoc;
 	}
 
@@ -285,7 +303,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @param null|string $exportDoc - Export-Document Label-URL/Base64-Label-Data or null for not requested/set
 	 */
-	private function setExportDoc($exportDoc) {
+	private function setExportDoc($exportDoc)
+	{
 		$this->exportDoc = $exportDoc;
 	}
 
@@ -294,7 +313,8 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @return null|string - Cod-Label-URL/Base64-Data or null if not requested/set
 	 */
-	public function getCodLabel() {
+	public function getCodLabel()
+	{
 		return $this->codLabel;
 	}
 
@@ -303,15 +323,17 @@ class LabelData extends Version implements LabelResponse {
 	 *
 	 * @param null|string $codLabel - Cod-Label-URL/Base64-Data or null if not requested/set
 	 */
-	private function setCodLabel($codLabel) {
+	private function setCodLabel($codLabel)
+	{
 		$this->codLabel = $codLabel;
 	}
 
 	/**
 	 * Check if the current Status-Code is correct and set the correct one if not
 	 */
-	private function validateStatusCode() {
-		if($this->getStatusCode() === 0 && $this->getStatusText() !== 'ok')
+	private function validateStatusCode()
+	{
+		if ($this->getStatusCode() === 0 && $this->getStatusText() !== 'ok')
 			$this->setStatusCode(Response::DHL_ERROR_WEAK_WARNING);
 	}
 
@@ -321,30 +343,31 @@ class LabelData extends Version implements LabelResponse {
 	 * @param Object $response - LabelData-Response
 	 * @since 2.0
 	 */
-	private function loadLabelData_v2($response) {
+	private function loadLabelData_v2($response)
+	{
 		$labelResponse = $response;
 		// Check if the tree is correct (and may reconfigure it)
-		if(isset($response->LabelData))
+		if (isset($response->LabelData))
 			$labelResponse = $response->LabelData;
 
 		// Get Sequence-Number
-		if(isset($response->sequenceNumber))
-			$this->setSequenceNumber((string) $response->sequenceNumber);
-		else if(isset($labelResponse->sequenceNumber))
-			$this->setSequenceNumber((string) $labelResponse->sequenceNumber);
+		if (isset($response->sequenceNumber))
+			$this->setSequenceNumber((string)$response->sequenceNumber);
+		else if (isset($labelResponse->sequenceNumber))
+			$this->setSequenceNumber((string)$labelResponse->sequenceNumber);
 
 		// Get Status
-		if(isset($labelResponse->Status)) {
-			if(isset($labelResponse->Status->statusCode))
-				$this->setStatusCode((int) $labelResponse->Status->statusCode);
-			if(isset($labelResponse->Status->statusText)) {
-				if(is_array($labelResponse->Status->statusText))
+		if (isset($labelResponse->Status)) {
+			if (isset($labelResponse->Status->statusCode))
+				$this->setStatusCode((int)$labelResponse->Status->statusCode);
+			if (isset($labelResponse->Status->statusText)) {
+				if (is_array($labelResponse->Status->statusText))
 					$this->setStatusText(implode(';', $labelResponse->Status->statusText));
 				else
 					$this->setStatusText($labelResponse->Status->statusText);
 			}
-			if(isset($labelResponse->Status->statusMessage)) {
-				if(is_array($labelResponse->Status->statusMessage))
+			if (isset($labelResponse->Status->statusMessage)) {
+				if (is_array($labelResponse->Status->statusMessage))
 					$this->setStatusMessage(implode(';', $labelResponse->Status->statusMessage));
 				else
 					$this->setStatusMessage($labelResponse->Status->statusMessage);
@@ -354,36 +377,36 @@ class LabelData extends Version implements LabelResponse {
 		}
 
 		// Get Shipment-Number
-		if(isset($response->shipmentNumber))
-			$this->setShipmentNumber((string) $response->shipmentNumber);
-		else if(isset($labelResponse->shipmentNumber))
-			$this->setShipmentNumber((string) $labelResponse->shipmentNumber);
+		if (isset($response->shipmentNumber))
+			$this->setShipmentNumber((string)$response->shipmentNumber);
+		else if (isset($labelResponse->shipmentNumber))
+			$this->setShipmentNumber((string)$labelResponse->shipmentNumber);
 
 		// Get Label-Data
-		if(isset($labelResponse->labelUrl))
+		if (isset($labelResponse->labelUrl))
 			$this->setLabel($labelResponse->labelUrl);
-		else if(isset($labelResponse->labelData))
+		else if (isset($labelResponse->labelData))
 			$this->setLabel($labelResponse->labelData);
 
 		// Get Return-Label
-		if(isset($labelResponse->returnLabelUrl))
+		if (isset($labelResponse->returnLabelUrl))
 			$this->setReturnLabel($labelResponse->returnLabelUrl);
-		else if(isset($labelResponse->returnLabelData))
+		else if (isset($labelResponse->returnLabelData))
 			$this->setReturnLabel($labelResponse->returnLabelData);
 
 		// Get Export-Doc
-		if(isset($labelResponse->exportLabelUrl))
+		if (isset($labelResponse->exportLabelUrl))
 			$this->setExportDoc($labelResponse->exportLabelUrl);
-		else if(isset($labelResponse->exportLabelData))
+		else if (isset($labelResponse->exportLabelData))
 			$this->setExportDoc($labelResponse->exportLabelData);
-		else if(isset($labelResponse->exportDocURL))
+		else if (isset($labelResponse->exportDocURL))
 			$this->setExportDoc($labelResponse->exportDocURL);
-		else if(isset($labelResponse->exportDocData))
+		else if (isset($labelResponse->exportDocData))
 			$this->setExportDoc($labelResponse->exportDocData);
 
-		if(isset($labelResponse->codLabelUrl))
+		if (isset($labelResponse->codLabelUrl))
 			$this->setCodLabel($labelResponse->codLabelUrl);
-		else if(isset($labelResponse->codLabelData))
+		else if (isset($labelResponse->codLabelData))
 			$this->setCodLabel($labelResponse->codLabelData);
 	}
 
@@ -393,7 +416,8 @@ class LabelData extends Version implements LabelResponse {
 	 * @param Object $response - LabelData-Response
 	 * @since 3.0
 	 */
-	private function loadLabelData_v3($response) {
+	private function loadLabelData_v3($response)
+	{
 		$this->loadLabelData_v2($response);
 	}
 }

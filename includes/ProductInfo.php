@@ -16,7 +16,8 @@ namespace Petschko\DHL;
  *
  * @package Petschko\DHL
  */
-class ProductInfo {
+class ProductInfo
+{
 	/**
 	 * was this Class Initiated
 	 *
@@ -66,17 +67,22 @@ class ProductInfo {
 	/**
 	 * Disabled Clone-Function
 	 */
-	private function __clone() { /* VOID */ }
+	private function __clone()
+	{ /* VOID */
+	}
 
 	/**
 	 * Disabled ProductInfo constructor.
 	 */
-	private function __construct() { /* VOID */ }
+	private function __construct()
+	{ /* VOID */
+	}
 
 	/**
 	 * Initiates the Class
 	 */
-	private static function init() {
+	private static function init()
+	{
 		self::setInit(true);
 
 		// Initiates Products
@@ -296,7 +302,6 @@ class ProductInfo {
 
 		$obj = new Product(ShipmentDetails::PRODUCT_TYPE_AUSTRIA_INTERNATIONAL_PACKAGE);
 		$obj->setName('DHL Paket International');
-		$obj->setAustria(true);
 		$obj->setMinLength(15);
 		$obj->setMaxLength(120);
 		$obj->setMinWidth(11);
@@ -310,6 +315,18 @@ class ProductInfo {
 			'cashOnDeliveryEnabled'
 		));
 		self::addProduct($obj);
+
+		$obj = new Product(ShipmentDetails::PRODUCT_TYPE_GOODS_LETTER);
+		$obj->setName('DHL "Warenpost" 2.0');
+		$obj->setMinLength(10);
+		$obj->setMaxLength(35.3);
+		$obj->setMinWidth(7);
+		$obj->setMaxWidth(25);
+		$obj->setMinHeight(0.1);
+		$obj->setMaxHeight(5);
+		$obj->setMaxWeight(1);
+		$obj->setServices([]);
+		self::addProduct($obj);
 	}
 
 	/**
@@ -317,7 +334,8 @@ class ProductInfo {
 	 *
 	 * @return bool - Is this Object initiated
 	 */
-	private static function isInit() {
+	private static function isInit()
+	{
 		return self::$init;
 	}
 
@@ -326,7 +344,8 @@ class ProductInfo {
 	 *
 	 * @param bool $init - Is this Object initiated
 	 */
-	private static function setInit($init) {
+	private static function setInit($init)
+	{
 		self::$init = $init;
 	}
 
@@ -335,8 +354,9 @@ class ProductInfo {
 	 *
 	 * @return Product[] - DHL-Product-Objects
 	 */
-	public static function getDhlProducts() {
-		if(! self::isInit())
+	public static function getDhlProducts()
+	{
+		if (!self::isInit())
 			self::init();
 
 		return self::$dhlProducts;
@@ -347,7 +367,8 @@ class ProductInfo {
 	 *
 	 * @param Product $product - Product to add
 	 */
-	private static function addProduct($product) {
+	private static function addProduct($product)
+	{
 		self::$dhlProducts[$product->getType()] = $product;
 	}
 
@@ -357,11 +378,12 @@ class ProductInfo {
 	 * @param string $productType - ProductType
 	 * @return Product|null - DHL-Product Object or null if not exists in Info-Class
 	 */
-	public static function getInfo($productType) {
-		if(! self::isInit())
+	public static function getInfo($productType)
+	{
+		if (!self::isInit())
 			self::init();
 
-		if(! array_key_exists($productType, self::$dhlProducts))
+		if (!array_key_exists($productType, self::$dhlProducts))
 			return null;
 
 		return self::$dhlProducts[$productType];

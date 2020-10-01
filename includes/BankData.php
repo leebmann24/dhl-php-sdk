@@ -18,7 +18,8 @@ use stdClass;
  *
  * @package Petschko\DHL
  */
-class BankData {
+class BankData
+{
 	/**
 	 * Name of the Account-Owner
 	 *
@@ -100,14 +101,16 @@ class BankData {
 	/**
 	 * BankData constructor.
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 		// VOID
 	}
 
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->accountOwnerName);
 		unset($this->bankName);
 		unset($this->iban);
@@ -122,7 +125,8 @@ class BankData {
 	 *
 	 * @return string - Account Owner Name
 	 */
-	public function getAccountOwnerName() {
+	public function getAccountOwnerName()
+	{
 		return $this->accountOwnerName;
 	}
 
@@ -131,7 +135,8 @@ class BankData {
 	 *
 	 * @param string $accountOwnerName - Account Owner Name
 	 */
-	public function setAccountOwnerName($accountOwnerName) {
+	public function setAccountOwnerName($accountOwnerName)
+	{
 		$this->accountOwnerName = $accountOwnerName;
 	}
 
@@ -140,7 +145,8 @@ class BankData {
 	 *
 	 * @return string - Bank-Name
 	 */
-	public function getBankName() {
+	public function getBankName()
+	{
 		return $this->bankName;
 	}
 
@@ -149,7 +155,8 @@ class BankData {
 	 *
 	 * @param string $bankName - Bank-Name
 	 */
-	public function setBankName($bankName) {
+	public function setBankName($bankName)
+	{
 		$this->bankName = $bankName;
 	}
 
@@ -158,7 +165,8 @@ class BankData {
 	 *
 	 * @return string - IBAN
 	 */
-	public function getIban() {
+	public function getIban()
+	{
 		return $this->iban;
 	}
 
@@ -167,7 +175,8 @@ class BankData {
 	 *
 	 * @param string $iban - IBAN
 	 */
-	public function setIban($iban) {
+	public function setIban($iban)
+	{
 		$this->iban = $iban;
 	}
 
@@ -176,7 +185,8 @@ class BankData {
 	 *
 	 * @return null|string - Bank-Note (1) or null for none
 	 */
-	public function getNote1() {
+	public function getNote1()
+	{
 		return $this->note1;
 	}
 
@@ -185,7 +195,8 @@ class BankData {
 	 *
 	 * @param null|string $note1 - Bank-Note (1) or null for none
 	 */
-	public function setNote1($note1) {
+	public function setNote1($note1)
+	{
 		$this->note1 = $note1;
 	}
 
@@ -194,7 +205,8 @@ class BankData {
 	 *
 	 * @return null|string - Bank-Note (2) or null for none
 	 */
-	public function getNote2() {
+	public function getNote2()
+	{
 		return $this->note2;
 	}
 
@@ -203,7 +215,8 @@ class BankData {
 	 *
 	 * @param null|string $note2 - Bank-Note (2) or null for none
 	 */
-	public function setNote2($note2) {
+	public function setNote2($note2)
+	{
 		$this->note2 = $note2;
 	}
 
@@ -212,7 +225,8 @@ class BankData {
 	 *
 	 * @return null|string - BIC or null for none
 	 */
-	public function getBic() {
+	public function getBic()
+	{
 		return $this->bic;
 	}
 
@@ -221,7 +235,8 @@ class BankData {
 	 *
 	 * @param null|string $bic - BIC or null for none
 	 */
-	public function setBic($bic) {
+	public function setBic($bic)
+	{
 		$this->bic = $bic;
 	}
 
@@ -230,7 +245,8 @@ class BankData {
 	 *
 	 * @return null|string - Account reference or null for none
 	 */
-	public function getAccountReference() {
+	public function getAccountReference()
+	{
 		return $this->accountReference;
 	}
 
@@ -239,7 +255,8 @@ class BankData {
 	 *
 	 * @param null|string $accountReference - Account reference or null for none
 	 */
-	public function setAccountReference($accountReference) {
+	public function setAccountReference($accountReference)
+	{
 		$this->accountReference = $accountReference;
 	}
 
@@ -249,19 +266,20 @@ class BankData {
 	 * @return StdClass - DHL-Bank-Class
 	 * @since 2.0
 	 */
-	public function getBankClass_v2() {
+	public function getBankClass_v2()
+	{
 		$class = new StdClass;
 
 		$class->accountOwner = $this->getAccountOwnerName();
 		$class->bankName = $this->getBankName();
 		$class->iban = $this->getIban();
-		if($this->getNote1() !== null)
+		if ($this->getNote1() !== null)
 			$class->note1 = $this->getNote1();
-		if($this->getNote2() !== null)
+		if ($this->getNote2() !== null)
 			$class->note2 = $this->getNote2();
-		if($this->getBic() !== null)
+		if ($this->getBic() !== null)
 			$class->bic = $this->getBic();
-		if($this->getAccountReference() !== null)
+		if ($this->getAccountReference() !== null)
 			$class->accountreference = $this->getAccountReference();
 
 		return $class;
@@ -273,7 +291,8 @@ class BankData {
 	 * @return StdClass - DHL-Bank-Class
 	 * @since 3.0
 	 */
-	public function getBankClass_v3() {
+	public function getBankClass_v3()
+	{
 		return $this->getBankClass_v2();
 	}
 }

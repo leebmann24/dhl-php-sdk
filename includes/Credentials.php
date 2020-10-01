@@ -16,7 +16,8 @@ namespace Petschko\DHL;
  *
  * @package Petschko\DHL
  */
-class Credentials {
+class Credentials
+{
 	// Test-Type Constants
 	/**
 	 * DHL-Test-Mode (Normal)
@@ -120,13 +121,14 @@ class Credentials {
 	 * If Test-Modus is true it will set Test-User, Test-Signature, Test-EKP for you!
 	 *
 	 * @param bool|string $testMode - Use a specific Test-Mode or Live Mode
-	 * 					Test-Mode (Normal): Credentials::TEST_NORMAL, 'test', true
-	 * 					Test-Mode (Thermo-Printer): Credentials::TEST_THERMO_PRINTER, 'thermo'
-	 * 					Live (No-Test-Mode): false - default
+	 *                    Test-Mode (Normal): Credentials::TEST_NORMAL, 'test', true
+	 *                    Test-Mode (Thermo-Printer): Credentials::TEST_THERMO_PRINTER, 'thermo'
+	 *                    Live (No-Test-Mode): false - default
 	 */
-	public function __construct($testMode = false) {
-		if($testMode) {
-			switch($testMode) {
+	public function __construct($testMode = false)
+	{
+		if ($testMode) {
+			switch ($testMode) {
 				case self::TEST_THERMO_PRINTER:
 					$this->setUser(self::DHL_BUSINESS_TEST_USER_THERMO);
 					break;
@@ -144,7 +146,8 @@ class Credentials {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->user);
 		unset($this->signature);
 		unset($this->ekp);
@@ -157,7 +160,8 @@ class Credentials {
 	 *
 	 * @return string - DHL-Intraship Username
 	 */
-	public function getUser() {
+	public function getUser()
+	{
 		return $this->user;
 	}
 
@@ -166,7 +170,8 @@ class Credentials {
 	 *
 	 * @param string $user - DHL-Intraship Username
 	 */
-	public function setUser($user) {
+	public function setUser($user)
+	{
 		$this->user = mb_strtolower($user);
 	}
 
@@ -175,7 +180,8 @@ class Credentials {
 	 *
 	 * @return string - DHL-Intraship Password
 	 */
-	public function getSignature() {
+	public function getSignature()
+	{
 		return $this->signature;
 	}
 
@@ -184,7 +190,8 @@ class Credentials {
 	 *
 	 * @param string $signature - DHL-Intraship Password
 	 */
-	public function setSignature($signature) {
+	public function setSignature($signature)
+	{
 		$this->signature = $signature;
 	}
 
@@ -194,7 +201,8 @@ class Credentials {
 	 * @param null|int $len - Max-Chars to get from this String or null for all
 	 * @return string - EKP-Number with x Chars
 	 */
-	public function getEkp($len = null) {
+	public function getEkp($len = null)
+	{
 		return mb_substr($this->ekp, 0, $len);
 	}
 
@@ -206,7 +214,8 @@ class Credentials {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function getEpk($len = null) {
+	public function getEpk($len = null)
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use getEkp() instead');
 
 		return $this->getEkp($len);
@@ -217,7 +226,8 @@ class Credentials {
 	 *
 	 * @param string $ekp - EKP-Number
 	 */
-	public function setEkp($ekp) {
+	public function setEkp($ekp)
+	{
 		$this->ekp = $ekp;
 	}
 
@@ -228,7 +238,8 @@ class Credentials {
 	 *
 	 * @deprecated - Invalid name of the function
 	 */
-	public function setEpk($ekp) {
+	public function setEpk($ekp)
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__, 'Use setEkp() instead');
 
 		$this->setEkp($ekp);
@@ -239,7 +250,8 @@ class Credentials {
 	 *
 	 * @return string - API-User
 	 */
-	public function getApiUser() {
+	public function getApiUser()
+	{
 		return $this->apiUser;
 	}
 
@@ -248,7 +260,8 @@ class Credentials {
 	 *
 	 * @param string $apiUser - API-User
 	 */
-	public function setApiUser($apiUser) {
+	public function setApiUser($apiUser)
+	{
 		$this->apiUser = $apiUser;
 	}
 
@@ -257,7 +270,8 @@ class Credentials {
 	 *
 	 * @return string - API-Password/Key
 	 */
-	public function getApiPassword() {
+	public function getApiPassword()
+	{
 		return $this->apiPassword;
 	}
 
@@ -266,7 +280,8 @@ class Credentials {
 	 *
 	 * @return string - API-Password/Key
 	 */
-	public function getApiKey() {
+	public function getApiKey()
+	{
 		return $this->getApiPassword();
 	}
 
@@ -275,7 +290,8 @@ class Credentials {
 	 *
 	 * @param string $apiPassword - API-Password/Key
 	 */
-	public function setApiPassword($apiPassword) {
+	public function setApiPassword($apiPassword)
+	{
 		$this->apiPassword = $apiPassword;
 	}
 
@@ -284,7 +300,8 @@ class Credentials {
 	 *
 	 * @param string $apiKey - API-Password/Key
 	 */
-	public function setApiKey($apiKey) {
+	public function setApiKey($apiKey)
+	{
 		$this->setApiPassword($apiKey);
 	}
 }

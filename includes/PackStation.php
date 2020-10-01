@@ -18,7 +18,8 @@ use stdClass;
  *
  * @package Petschko\DHL
  */
-class PackStation extends Receiver {
+class PackStation extends Receiver
+{
 	/**
 	 * Contains the Post-Number
 	 *
@@ -42,7 +43,8 @@ class PackStation extends Receiver {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		parent::__destruct();
 		unset($this->postNumber);
 		unset($this->packStationNumber);
@@ -53,7 +55,8 @@ class PackStation extends Receiver {
 	 *
 	 * @return string - Post-Number
 	 */
-	public function getPostNumber() {
+	public function getPostNumber()
+	{
 		return $this->postNumber;
 	}
 
@@ -62,7 +65,8 @@ class PackStation extends Receiver {
 	 *
 	 * @param string $postNumber - Post-Number
 	 */
-	public function setPostNumber($postNumber) {
+	public function setPostNumber($postNumber)
+	{
 		$this->postNumber = $postNumber;
 	}
 
@@ -71,7 +75,8 @@ class PackStation extends Receiver {
 	 *
 	 * @return string - Pack-station-Number
 	 */
-	public function getPackStationNumber() {
+	public function getPackStationNumber()
+	{
 		return $this->packStationNumber;
 	}
 
@@ -80,7 +85,8 @@ class PackStation extends Receiver {
 	 *
 	 * @param string $packStationNumber - Pack-Station-Number
 	 */
-	public function setPackStationNumber($packStationNumber) {
+	public function setPackStationNumber($packStationNumber)
+	{
 		$this->packStationNumber = $packStationNumber;
 	}
 
@@ -90,7 +96,8 @@ class PackStation extends Receiver {
 	 * @return StdClass - DHL-SendPerson-class
 	 * @since 2.0
 	 */
-	public function getClass_v2() {
+	public function getClass_v2()
+	{
 		$class = new StdClass;
 		$class->name1 = $this->getName();
 
@@ -102,7 +109,7 @@ class PackStation extends Receiver {
 		$class->Packstation->zip = $this->getZip();
 		$class->Packstation->city = $this->getLocation();
 
-		if($this->getCountryISOCode() !== null)
+		if ($this->getCountryISOCode() !== null)
 			$class->Packstation->Origin = $this->getOriginClass_v2();
 
 		return $class;
@@ -114,7 +121,8 @@ class PackStation extends Receiver {
 	 * @return StdClass - DHL-SendPerson-class
 	 * @since 3.0
 	 */
-	public function getClass_v3() {
+	public function getClass_v3()
+	{
 		$class = new StdClass;
 		$class->name1 = $this->getName();
 
@@ -125,10 +133,10 @@ class PackStation extends Receiver {
 		$class->Packstation->packstationNumber = $this->getPackStationNumber();
 		$class->Packstation->zip = $this->getZip();
 		$class->Packstation->city = $this->getLocation();
-		if($this->getProvince() !== null)
+		if ($this->getProvince() !== null)
 			$class->Packstation->province = $this->getProvince();
 
-		if($this->getCountryISOCode() !== null)
+		if ($this->getCountryISOCode() !== null)
 			$class->Packstation->Origin = $this->getOriginClass_v3();
 
 		return $class;

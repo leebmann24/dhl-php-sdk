@@ -18,7 +18,8 @@ use stdClass;
  *
  * @package Petschko\DHL
  */
-abstract class SendPerson extends Address {
+abstract class SendPerson extends Address
+{
 	/**
 	 * Name of the SendPerson (Can be a Company-Name too!)
 	 *
@@ -93,7 +94,8 @@ abstract class SendPerson extends Address {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		parent::__destruct();
 		unset($this->name);
 		unset($this->name2);
@@ -108,7 +110,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @return string - Name
 	 */
-	public function getName() {
+	public function getName()
+	{
 		return $this->name;
 	}
 
@@ -117,7 +120,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @param string $name - Name
 	 */
-	public function setName($name) {
+	public function setName($name)
+	{
 		$this->name = $name;
 	}
 
@@ -126,7 +130,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @return null|string - Name2 or null if none
 	 */
-	public function getName2() {
+	public function getName2()
+	{
 		return $this->name2;
 	}
 
@@ -135,7 +140,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @param null|string $name2 - Name2 or null for none
 	 */
-	public function setName2($name2) {
+	public function setName2($name2)
+	{
 		$this->name2 = $name2;
 	}
 
@@ -144,7 +150,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @return null|string - Name3 or null if none
 	 */
-	public function getName3() {
+	public function getName3()
+	{
 		return $this->name3;
 	}
 
@@ -153,7 +160,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @param null|string $name3 - Name3 or null for none
 	 */
-	public function setName3($name3) {
+	public function setName3($name3)
+	{
 		$this->name3 = $name3;
 	}
 
@@ -162,7 +170,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @return null|string - Phone or null if none
 	 */
-	public function getPhone() {
+	public function getPhone()
+	{
 		return $this->phone;
 	}
 
@@ -171,7 +180,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @param null|string $phone - Phone or null for none
 	 */
-	public function setPhone($phone) {
+	public function setPhone($phone)
+	{
 		$this->phone = $phone;
 	}
 
@@ -180,7 +190,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @return null|string - E-Mail or null if none
 	 */
-	public function getEmail() {
+	public function getEmail()
+	{
 		return $this->email;
 	}
 
@@ -189,7 +200,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @param null|string $email - E-Mail or null for none
 	 */
-	public function setEmail($email) {
+	public function setEmail($email)
+	{
 		$this->email = $email;
 	}
 
@@ -198,7 +210,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @return null|string - Contact-Person or null if none
 	 */
-	public function getContactPerson() {
+	public function getContactPerson()
+	{
 		return $this->contactPerson;
 	}
 
@@ -207,7 +220,8 @@ abstract class SendPerson extends Address {
 	 *
 	 * @param null|string $contactPerson - Contact-Person or null for none
 	 */
-	public function setContactPerson($contactPerson) {
+	public function setContactPerson($contactPerson)
+	{
 		$this->contactPerson = $contactPerson;
 	}
 
@@ -217,18 +231,19 @@ abstract class SendPerson extends Address {
 	 * @return StdClass - Communication Class
 	 * @since 2.0
 	 */
-	protected function getCommunicationClass_v2() {
+	protected function getCommunicationClass_v2()
+	{
 		$class = new StdClass;
 
-		if($this->getPhone() !== null)
+		if ($this->getPhone() !== null)
 			$class->phone = $this->getPhone();
-		if($this->getEmail() !== null)
+		if ($this->getEmail() !== null)
 			$class->email = $this->getEmail();
-		if($this->getContactPerson() !== null)
+		if ($this->getContactPerson() !== null)
 			$class->contactPerson = $this->getContactPerson();
 
 		// Just set a Contact-Person (The name) if nothing else if given since this is a required element but every element is optional...
-		if($this->getPhone() === null && $this->getEmail() === null && $this->getContactPerson() === null)
+		if ($this->getPhone() === null && $this->getEmail() === null && $this->getContactPerson() === null)
 			$class->contactPerson = $this->getName();
 
 		return $class;
@@ -240,7 +255,8 @@ abstract class SendPerson extends Address {
 	 * @return StdClass - Communication Class
 	 * @since 3.0
 	 */
-	protected function getCommunicationClass_v3() {
+	protected function getCommunicationClass_v3()
+	{
 		return $this->getCommunicationClass_v2();
 	}
 

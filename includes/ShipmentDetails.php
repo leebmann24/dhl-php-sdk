@@ -45,6 +45,7 @@ class ShipmentDetails {
 	const PRODUCT_TYPE_AUSTRIA_PACKAGE = 'V86PARCEL';
 	const PRODUCT_TYPE_AUSTRIA_INTERNATIONAL_PACKAGE = 'V82PARCEL';
 	const PRODUCT_TYPE_CONNECT_PACKAGE = 'V87PARCEL';
+	const PRODUCT_TYPE_GOODS_LETTER = 'V62WP';
 
 	/**
 	 * Contains which Product is used
@@ -270,6 +271,7 @@ class ShipmentDetails {
 	 * 	'V86PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_PACKAGE -> Austria Package
 	 * 	'V82PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_INTERNATIONAL_PACKAGE -> Austria International Package
 	 * 	'V87PARCEL' or ShipmentDetails::PRODUCT_TYPE_CONNECT_PACKAGE -> Connect Package
+	 * 	'V62WP' or ShipmentDetails:: PRODUCT_TYPE_GOODS_LETTER -> Warenpost 2.0
 	 *
 	 * @param string $product - Product, which should be used
 	 */

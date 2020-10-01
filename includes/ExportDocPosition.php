@@ -20,7 +20,8 @@ use stdClass;
  *
  * Note: If min 1 value is filled out, all other values are required (else none is required)
  */
-class ExportDocPosition {
+class ExportDocPosition
+{
 	/**
 	 * Description of the unit / position
 	 *
@@ -82,8 +83,9 @@ class ExportDocPosition {
 	 * @param int|float $netWeightInKG - Net weight of the unit / position
 	 * @param int|float $customsValue - Customs value amount of the unit / position
 	 */
-	public function __construct($description, $countryCodeOrigin, $customsTariffNumber, $amount, $netWeightInKG, $customsValue) {
-		if(! $description || ! $countryCodeOrigin || ! $amount || ! $netWeightInKG || ! $customsValue) {
+	public function __construct($description, $countryCodeOrigin, $customsTariffNumber, $amount, $netWeightInKG, $customsValue)
+	{
+		if (!$description || !$countryCodeOrigin || !$amount || !$netWeightInKG || !$customsValue) {
 			trigger_error('PHP-DHL-API: ' . __CLASS__ . '->' . __FUNCTION__ .
 				': All values must be filled out! (Not null, Not false, Not 0, Not "", Not empty) - Ignore this function for this call now', E_USER_WARNING);
 			error_log('PHP-DHL-API: ' . __CLASS__ . '->' . __FUNCTION__ .
@@ -95,14 +97,15 @@ class ExportDocPosition {
 		$this->setCountryCodeOrigin($countryCodeOrigin);
 		$this->setCustomsTariffNumber($customsTariffNumber);
 		$this->setAmount($amount);
-		$this->setNetWeightInKG((float) $netWeightInKG);
-		$this->setCustomsValue((float) $customsValue);
+		$this->setNetWeightInKG((float)$netWeightInKG);
+		$this->setCustomsValue((float)$customsValue);
 	}
 
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->description);
 		unset($this->countryCodeOrigin);
 		unset($this->customsTariffNumber);
@@ -116,7 +119,8 @@ class ExportDocPosition {
 	 *
 	 * @return string|null - Description or null on failure
 	 */
-	public function getDescription() {
+	public function getDescription()
+	{
 		return $this->description;
 	}
 
@@ -125,7 +129,8 @@ class ExportDocPosition {
 	 *
 	 * @param string $description - Description
 	 */
-	private function setDescription($description) {
+	private function setDescription($description)
+	{
 		$this->description = $description;
 	}
 
@@ -134,7 +139,8 @@ class ExportDocPosition {
 	 *
 	 * @return string|null - Country Code Origin or null on failure
 	 */
-	public function getCountryCodeOrigin() {
+	public function getCountryCodeOrigin()
+	{
 		return $this->countryCodeOrigin;
 	}
 
@@ -143,7 +149,8 @@ class ExportDocPosition {
 	 *
 	 * @param string $countryCodeOrigin - Country Code Origin
 	 */
-	private function setCountryCodeOrigin($countryCodeOrigin) {
+	private function setCountryCodeOrigin($countryCodeOrigin)
+	{
 		$this->countryCodeOrigin = $countryCodeOrigin;
 	}
 
@@ -152,7 +159,8 @@ class ExportDocPosition {
 	 *
 	 * @return float|int|string|null - Custom Tariff Number or null for none
 	 */
-	public function getCustomsTariffNumber() {
+	public function getCustomsTariffNumber()
+	{
 		return $this->customsTariffNumber;
 	}
 
@@ -161,7 +169,8 @@ class ExportDocPosition {
 	 *
 	 * @param float|int|string|null $customsTariffNumber - Custom Tariff Number or null for none
 	 */
-	private function setCustomsTariffNumber($customsTariffNumber) {
+	private function setCustomsTariffNumber($customsTariffNumber)
+	{
 		$this->customsTariffNumber = $customsTariffNumber;
 	}
 
@@ -170,7 +179,8 @@ class ExportDocPosition {
 	 *
 	 * @return int|null - Amount or null on failure
 	 */
-	public function getAmount() {
+	public function getAmount()
+	{
 		return $this->amount;
 	}
 
@@ -179,7 +189,8 @@ class ExportDocPosition {
 	 *
 	 * @param int $amount - Amount
 	 */
-	private function setAmount($amount) {
+	private function setAmount($amount)
+	{
 		$this->amount = $amount;
 	}
 
@@ -188,7 +199,8 @@ class ExportDocPosition {
 	 *
 	 * @return float|null - Weight in KG or null on failure
 	 */
-	public function getNetWeightInKG() {
+	public function getNetWeightInKG()
+	{
 		return $this->netWeightInKG;
 	}
 
@@ -197,7 +209,8 @@ class ExportDocPosition {
 	 *
 	 * @param float $netWeightInKG - Weight in KG
 	 */
-	private function setNetWeightInKG($netWeightInKG) {
+	private function setNetWeightInKG($netWeightInKG)
+	{
 		$this->netWeightInKG = $netWeightInKG;
 	}
 
@@ -206,7 +219,8 @@ class ExportDocPosition {
 	 *
 	 * @return float|null - Custom Value for the Unit / Package or null on failure
 	 */
-	public function getCustomsValue() {
+	public function getCustomsValue()
+	{
 		return $this->customsValue;
 	}
 
@@ -215,7 +229,8 @@ class ExportDocPosition {
 	 *
 	 * @param float $customsValue - Customs Value for the Unit / Package
 	 */
-	private function setCustomsValue($customsValue) {
+	private function setCustomsValue($customsValue)
+	{
 		$this->customsValue = $customsValue;
 	}
 
@@ -225,7 +240,8 @@ class ExportDocPosition {
 	 * @return StdClass - DHL-ExportDocPosition-Class
 	 * @since 2.0
 	 */
-	public function getExportDocPositionClass_v2() {
+	public function getExportDocPositionClass_v2()
+	{
 		$class = new StdClass;
 
 		$class->description = $this->getDescription();
@@ -244,7 +260,8 @@ class ExportDocPosition {
 	 * @return StdClass - DHL-ExportDocPosition-Class
 	 * @since 3.0
 	 */
-	public function getExportDocPositionClass_v3() {
+	public function getExportDocPositionClass_v3()
+	{
 		return $this->getExportDocPositionClass_v2();
 	}
 }

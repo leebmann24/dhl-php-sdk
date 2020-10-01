@@ -18,7 +18,8 @@ use stdClass;
  *
  * @package Petschko\DHL
  */
-abstract class Address {
+abstract class Address
+{
 	/**
 	 * Contains the Street Name (without number)
 	 *
@@ -139,14 +140,16 @@ abstract class Address {
 	/**
 	 * Address constructor.
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 		// VOID
 	}
 
 	/**
 	 * Clears the Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->streetName);
 		unset($this->streetNumber);
 		unset($this->addressAddition);
@@ -164,7 +167,8 @@ abstract class Address {
 	 *
 	 * @return string - Street name
 	 */
-	public function getStreetName() {
+	public function getStreetName()
+	{
 		return $this->streetName;
 	}
 
@@ -173,7 +177,8 @@ abstract class Address {
 	 *
 	 * @param string $streetName - Street name
 	 */
-	public function setStreetName($streetName) {
+	public function setStreetName($streetName)
+	{
 		$this->streetName = $streetName;
 	}
 
@@ -182,7 +187,8 @@ abstract class Address {
 	 *
 	 * @return string - Street Number
 	 */
-	public function getStreetNumber() {
+	public function getStreetNumber()
+	{
 		return $this->streetNumber;
 	}
 
@@ -191,7 +197,8 @@ abstract class Address {
 	 *
 	 * @param string $streetNumber - Street Number
 	 */
-	public function setStreetNumber($streetNumber) {
+	public function setStreetNumber($streetNumber)
+	{
 		$this->streetNumber = $streetNumber;
 	}
 
@@ -200,7 +207,8 @@ abstract class Address {
 	 *
 	 * @return null|string - Address addition or null for none
 	 */
-	public function getAddressAddition() {
+	public function getAddressAddition()
+	{
 		return $this->addressAddition;
 	}
 
@@ -209,7 +217,8 @@ abstract class Address {
 	 *
 	 * @param null|string $addressAddition - Address addition or null for none
 	 */
-	public function setAddressAddition($addressAddition) {
+	public function setAddressAddition($addressAddition)
+	{
 		$this->addressAddition = $addressAddition;
 	}
 
@@ -218,7 +227,8 @@ abstract class Address {
 	 *
 	 * @return null|string - Dispatching-Info or null for none
 	 */
-	public function getDispatchingInfo() {
+	public function getDispatchingInfo()
+	{
 		return $this->dispatchingInfo;
 	}
 
@@ -227,7 +237,8 @@ abstract class Address {
 	 *
 	 * @param null|string $dispatchingInfo - Dispatching-Info or null for none
 	 */
-	public function setDispatchingInfo($dispatchingInfo) {
+	public function setDispatchingInfo($dispatchingInfo)
+	{
 		$this->dispatchingInfo = $dispatchingInfo;
 	}
 
@@ -236,7 +247,8 @@ abstract class Address {
 	 *
 	 * @return string - ZIP
 	 */
-	public function getZip() {
+	public function getZip()
+	{
 		return $this->zip;
 	}
 
@@ -245,7 +257,8 @@ abstract class Address {
 	 *
 	 * @param string $zip - ZIP
 	 */
-	public function setZip($zip) {
+	public function setZip($zip)
+	{
 		$this->zip = $zip;
 	}
 
@@ -254,7 +267,8 @@ abstract class Address {
 	 *
 	 * @return string - Location
 	 */
-	public function getLocation() {
+	public function getLocation()
+	{
 		return $this->location;
 	}
 
@@ -263,7 +277,8 @@ abstract class Address {
 	 *
 	 * @param string $location - Location
 	 */
-	public function setLocation($location) {
+	public function setLocation($location)
+	{
 		$this->location = $location;
 	}
 
@@ -272,7 +287,8 @@ abstract class Address {
 	 *
 	 * @return string - Location
 	 */
-	public function getCity() {
+	public function getCity()
+	{
 		return $this->location;
 	}
 
@@ -281,7 +297,8 @@ abstract class Address {
 	 *
 	 * @param string $city - Location
 	 */
-	public function setCity($city) {
+	public function setCity($city)
+	{
 		$this->location = $city;
 	}
 
@@ -291,7 +308,8 @@ abstract class Address {
 	 * @return string|null - Name of the Province or null if none
 	 * @since 3.0
 	 */
-	public function getProvince(): ?string {
+	public function getProvince(): ?string
+	{
 		return $this->province;
 	}
 
@@ -301,7 +319,8 @@ abstract class Address {
 	 * @param string|null $province - Name of the Province or null for none
 	 * @since 3.0
 	 */
-	public function setProvince(?string $province): void {
+	public function setProvince(?string $province): void
+	{
 		$this->province = $province;
 	}
 
@@ -310,7 +329,8 @@ abstract class Address {
 	 *
 	 * @return string|null - Country or null for none
 	 */
-	public function getCountry() {
+	public function getCountry()
+	{
 		return $this->country;
 	}
 
@@ -319,8 +339,9 @@ abstract class Address {
 	 *
 	 * @param string|null $country - Country or null for none
 	 */
-	public final function setCountry($country) {
-		if($country !== null)
+	public final function setCountry($country)
+	{
+		if ($country !== null)
 			$this->country = mb_strtolower($country);
 		else
 			$this->country = null;
@@ -331,7 +352,8 @@ abstract class Address {
 	 *
 	 * @return string|null - Country-ISO-Code or null for none
 	 */
-	public function getCountryISOCode() {
+	public function getCountryISOCode()
+	{
 		return $this->countryISOCode;
 	}
 
@@ -340,8 +362,9 @@ abstract class Address {
 	 *
 	 * @param string|null $countryISOCode - Country-ISO-Code or null for none
 	 */
-	public final function setCountryISOCode($countryISOCode) {
-		if($countryISOCode !== null)
+	public final function setCountryISOCode($countryISOCode)
+	{
+		if ($countryISOCode !== null)
 			$this->countryISOCode = mb_strtoupper($countryISOCode);
 		else
 			$this->countryISOCode = null;
@@ -352,7 +375,8 @@ abstract class Address {
 	 *
 	 * @return null|string - State (Geo-Location) or null for none
 	 */
-	public function getState() {
+	public function getState()
+	{
 		return $this->state;
 	}
 
@@ -361,7 +385,8 @@ abstract class Address {
 	 *
 	 * @param null|string $state - State (Geo-Location) or null for none
 	 */
-	public function setState($state) {
+	public function setState($state)
+	{
 		$this->state = $state;
 	}
 
@@ -374,14 +399,15 @@ abstract class Address {
 	 *
 	 * @deprecated - Buggy on some addresses, please separate the number and street by yourself
 	 */
-	public final function setFullStreet($street) {
+	public final function setFullStreet($street)
+	{
 		Deprecated::methodIsDeprecated(__METHOD__, __CLASS__);
 
 		$match = array();
 
 		preg_match('/^([^\d]*[^\d\s]) *(\d.*)$/', $street, $match);
 
-		if(count($match) == 0) return;
+		if (count($match) == 0) return;
 
 		$this->setStreetName($match[1]);
 		$this->setStreetNumber($match[2]);
@@ -393,15 +419,16 @@ abstract class Address {
 	 * @return StdClass - Origin Class
 	 * @since 2.0
 	 */
-	protected function getOriginClass_v2() {
+	protected function getOriginClass_v2()
+	{
 		$class = new StdClass;
 
-		if($this->getCountry() !== null)
+		if ($this->getCountry() !== null)
 			$class->country = $this->getCountry();
 
 		$class->countryISOCode = $this->getCountryISOCode();
 
-		if($this->getState() !== null)
+		if ($this->getState() !== null)
 			$class->state = $this->getState();
 
 		return $class;
@@ -413,7 +440,8 @@ abstract class Address {
 	 * @return StdClass - Origin Class
 	 * @since 3.0
 	 */
-	protected function getOriginClass_v3() {
+	protected function getOriginClass_v3()
+	{
 		return $this->getOriginClass_v2();
 	}
 }

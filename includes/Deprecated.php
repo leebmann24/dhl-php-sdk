@@ -17,20 +17,23 @@ use Exception;
  *
  * @package Petschko\DHL
  */
-class Deprecated {
+class Deprecated
+{
 	const BUSINESS_SHIPMENT_BIG_FIELD_DEPRECATION_REASON = 'These details belong to the `ShipmentOrder` Object, please do them there';
 
 	/**
 	 * Deprecated constructor
 	 */
-	private function __construct() {
+	private function __construct()
+	{
 		// VOID
 	}
 
 	/**
 	 * Deprecated clone
 	 */
-	private function __clone() {
+	private function __clone()
+	{
 		// VOID
 	}
 
@@ -41,7 +44,8 @@ class Deprecated {
 	 * @param string|null $class - Class-Name or null for none
 	 * @param string $message - Optional Message
 	 */
-	public static function methodIsDeprecated(string $method, $class = null, $message = '') {
+	public static function methodIsDeprecated(string $method, $class = null, $message = '')
+	{
 		trigger_error(trim('[DHL-PHP-SDK]: Method ' . (($class) ? $class . '->' : '') . $method . ' is deprecated. ' . $message), E_USER_DEPRECATED);
 		error_log(trim('[DHL-PHP-SDK]: Method ' . (($class) ? $class . '->' : '') . $method . ' is deprecated. ' . $message), E_USER_DEPRECATED);
 	}
@@ -54,7 +58,8 @@ class Deprecated {
 	 * @param string $message - Optional Message
 	 * @throws Exception - Deprecated Exception
 	 */
-	public static function methodIsDeprecatedWithException(string $method, $class = null, $message = '') {
+	public static function methodIsDeprecatedWithException(string $method, $class = null, $message = '')
+	{
 		self::methodIsDeprecated($method, $class, $message);
 
 		throw new Exception(trim('[DHL-PHP-SDK]: Method ' . (($class) ? $class . '->' : '') . $method . ' is deprecated. ' . $message));

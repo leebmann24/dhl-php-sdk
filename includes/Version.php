@@ -18,7 +18,8 @@ use stdClass;
  *
  * @package Petschko\DHL
  */
-abstract class Version {
+abstract class Version
+{
 	/**
 	 * Current-Version
 	 *
@@ -45,14 +46,16 @@ abstract class Version {
 	 *
 	 * @param string $version - Version of the DHL-API, you want to use
 	 */
-	protected function __construct($version) {
+	protected function __construct($version)
+	{
 		$this->setVersion($version);
 	}
 
 	/**
 	 * Clears Memory
 	 */
-	protected function __destruct() {
+	protected function __destruct()
+	{
 		unset($this->version);
 		unset($this->mayor);
 		unset($this->minor);
@@ -63,7 +66,8 @@ abstract class Version {
 	 *
 	 * @return string - Current-Version
 	 */
-	public function getVersion() {
+	public function getVersion()
+	{
 		return $this->version;
 	}
 
@@ -72,14 +76,15 @@ abstract class Version {
 	 *
 	 * @param string $version - Version
 	 */
-	protected function setVersion($version) {
+	protected function setVersion($version)
+	{
 		$this->version = $version;
 
 		$numbers = explode('.', $version);
 
 		// Update Mayor and Minor-Version-Numbers
-		$this->setMayor((int) $numbers[0]);
-		$this->setMinor((int) $numbers[1]);
+		$this->setMayor((int)$numbers[0]);
+		$this->setMinor((int)$numbers[1]);
 	}
 
 	/**
@@ -87,7 +92,8 @@ abstract class Version {
 	 *
 	 * @return int - Mayor-Version-Number
 	 */
-	public function getMayor() {
+	public function getMayor()
+	{
 		return $this->mayor;
 	}
 
@@ -96,7 +102,8 @@ abstract class Version {
 	 *
 	 * @param int $mayor - Mayor-Version-Number
 	 */
-	private function setMayor($mayor) {
+	private function setMayor($mayor)
+	{
 		$this->mayor = $mayor;
 	}
 
@@ -105,7 +112,8 @@ abstract class Version {
 	 *
 	 * @return int - Minor-Version-Number
 	 */
-	public function getMinor() {
+	public function getMinor()
+	{
 		return $this->minor;
 	}
 
@@ -114,7 +122,8 @@ abstract class Version {
 	 *
 	 * @param int $minor - Minor-Version-Number
 	 */
-	private function setMinor($minor) {
+	private function setMinor($minor)
+	{
 		$this->minor = $minor;
 	}
 
@@ -123,7 +132,8 @@ abstract class Version {
 	 *
 	 * @return StdClass - Version DHL-Class
 	 */
-	public function getVersionClass() {
+	public function getVersionClass()
+	{
 		$class = new StdClass;
 
 		$class->majorRelease = $this->getMayor();

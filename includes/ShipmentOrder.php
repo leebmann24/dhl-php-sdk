@@ -19,7 +19,8 @@ use Exception;
  *
  * @package Petschko\DHL
  */
-class ShipmentOrder {
+class ShipmentOrder
+{
 	/**
 	 * Contains the Sequence-Number
 	 *
@@ -114,7 +115,8 @@ class ShipmentOrder {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->sequenceNumber);
 		unset($this->shipmentDetails);
 		unset($this->sender);
@@ -132,7 +134,8 @@ class ShipmentOrder {
 	 *
 	 * @return string - Sequence-Number
 	 */
-	public function getSequenceNumber() {
+	public function getSequenceNumber()
+	{
 		return $this->sequenceNumber;
 	}
 
@@ -141,7 +144,8 @@ class ShipmentOrder {
 	 *
 	 * @param string $sequenceNumber - Sequence-Number
 	 */
-	public function setSequenceNumber($sequenceNumber) {
+	public function setSequenceNumber($sequenceNumber)
+	{
 		$this->sequenceNumber = $sequenceNumber;
 	}
 
@@ -150,7 +154,8 @@ class ShipmentOrder {
 	 *
 	 * @return ShipmentDetails - Shipment-Details-Object
 	 */
-	public function getShipmentDetails() {
+	public function getShipmentDetails()
+	{
 		return $this->shipmentDetails;
 	}
 
@@ -159,7 +164,8 @@ class ShipmentOrder {
 	 *
 	 * @param ShipmentDetails $shipmentDetails - Shipment-Details-Object
 	 */
-	public function setShipmentDetails($shipmentDetails) {
+	public function setShipmentDetails($shipmentDetails)
+	{
 		$this->shipmentDetails = $shipmentDetails;
 	}
 
@@ -168,7 +174,8 @@ class ShipmentOrder {
 	 *
 	 * @return Sender|null - Sender-Object or null if use sender reference
 	 */
-	public function getSender() {
+	public function getSender()
+	{
 		return $this->sender;
 	}
 
@@ -177,7 +184,8 @@ class ShipmentOrder {
 	 *
 	 * @param Sender|null $sender - Sender-Object or null if use sender reference
 	 */
-	public function setSender($sender) {
+	public function setSender($sender)
+	{
 		$this->sender = $sender;
 	}
 
@@ -186,7 +194,8 @@ class ShipmentOrder {
 	 *
 	 * @return Receiver|PackStation|Filial - Receiver-Object
 	 */
-	public function getReceiver() {
+	public function getReceiver()
+	{
 		return $this->receiver;
 	}
 
@@ -195,7 +204,8 @@ class ShipmentOrder {
 	 *
 	 * @param Receiver|PackStation|Filial $receiver - Receiver-Object
 	 */
-	public function setReceiver($receiver) {
+	public function setReceiver($receiver)
+	{
 		$this->receiver = $receiver;
 	}
 
@@ -206,7 +216,8 @@ class ShipmentOrder {
 	 *
 	 * @return ReturnReceiver|null - ReturnReceiver-Object or null if none
 	 */
-	public function getReturnReceiver() {
+	public function getReturnReceiver()
+	{
 		return $this->returnReceiver;
 	}
 
@@ -217,7 +228,8 @@ class ShipmentOrder {
 	 *
 	 * @param ReturnReceiver|null $returnReceiver - ReturnReceiver-Object or null for none
 	 */
-	public function setReturnReceiver($returnReceiver) {
+	public function setReturnReceiver($returnReceiver)
+	{
 		$this->returnReceiver = $returnReceiver;
 	}
 
@@ -226,7 +238,8 @@ class ShipmentOrder {
 	 *
 	 * @return ExportDocument|null - ExportDocument-Object or null if none
 	 */
-	public function getExportDocument() {
+	public function getExportDocument()
+	{
 		return $this->exportDocument;
 	}
 
@@ -235,7 +248,8 @@ class ShipmentOrder {
 	 *
 	 * @param ExportDocument|null $exportDocument - ExportDocument-Object or null for none
 	 */
-	public function setExportDocument($exportDocument) {
+	public function setExportDocument($exportDocument)
+	{
 		$this->exportDocument = $exportDocument;
 	}
 
@@ -245,7 +259,8 @@ class ShipmentOrder {
 	 * @return string|null - Shipper-Reference or null for none
 	 * @since 3.0
 	 */
-	public function getShipperReference(): ?string {
+	public function getShipperReference(): ?string
+	{
 		return $this->shipperReference;
 	}
 
@@ -255,7 +270,8 @@ class ShipmentOrder {
 	 * @param string|null $shipperReference - Shipper-Reference or null for none
 	 * @since 3.0
 	 */
-	public function setShipperReference(?string $shipperReference): void {
+	public function setShipperReference(?string $shipperReference): void
+	{
 		$this->shipperReference = $shipperReference;
 	}
 
@@ -264,7 +280,8 @@ class ShipmentOrder {
 	 *
 	 * @return bool|null - Should the label only printed on a valid Address | null means DHL-Default
 	 */
-	public function getPrintOnlyIfReceiverIsValid() {
+	public function getPrintOnlyIfReceiverIsValid()
+	{
 		return $this->printOnlyIfReceiverIsValid;
 	}
 
@@ -275,7 +292,8 @@ class ShipmentOrder {
 	 *
 	 * @param bool|null $printOnlyIfReceiverIsValid - Should the label only printed on a valid Address | null uses default from DHL
 	 */
-	public function setPrintOnlyIfReceiverIsValid($printOnlyIfReceiverIsValid) {
+	public function setPrintOnlyIfReceiverIsValid($printOnlyIfReceiverIsValid)
+	{
 		$this->printOnlyIfReceiverIsValid = $printOnlyIfReceiverIsValid;
 	}
 
@@ -284,7 +302,8 @@ class ShipmentOrder {
 	 *
 	 * @return null|string - Label-Response type | null means DHL-Default
 	 */
-	public function getLabelResponseType() {
+	public function getLabelResponseType()
+	{
 		return $this->labelResponseType;
 	}
 
@@ -293,7 +312,8 @@ class ShipmentOrder {
 	 *
 	 * @param null|string $labelResponseType - Label-Response type | null uses DHL-Default
 	 */
-	public function setLabelResponseType($labelResponseType) {
+	public function setLabelResponseType($labelResponseType)
+	{
 		$this->labelResponseType = $labelResponseType;
 	}
 
@@ -303,7 +323,8 @@ class ShipmentOrder {
 	 * @return LabelFormat|null - Label-Format | null means DHL-Default
 	 * @since 3.0
 	 */
-	public function getLabelFormat(): ?LabelFormat {
+	public function getLabelFormat(): ?LabelFormat
+	{
 		return $this->labelFormat;
 	}
 
@@ -313,7 +334,8 @@ class ShipmentOrder {
 	 * @param LabelFormat|null $labelFormat - Label-Format | null uses DHL-Default
 	 * @since 3.0
 	 */
-	public function setLabelFormat(?LabelFormat $labelFormat): void {
+	public function setLabelFormat(?LabelFormat $labelFormat): void
+	{
 		$this->labelFormat = $labelFormat;
 	}
 
@@ -323,7 +345,8 @@ class ShipmentOrder {
 	 * @return stdClass - DHL-ShipmentOrder-Class
 	 * @since 2.0
 	 */
-	public function getShipmentOrderClass_v2() {
+	public function getShipmentOrderClass_v2()
+	{
 		$class = new StdClass;
 		$class->sequenceNumber = $this->getSequenceNumber();
 
@@ -338,24 +361,24 @@ class ShipmentOrder {
 		$class->Shipment->Receiver = $this->getReceiver()->getClass_v2();
 
 		// Return-Receiver
-		if($this->getReturnReceiver() !== null)
+		if ($this->getReturnReceiver() !== null)
 			$class->Shipment->ReturnReceiver = $this->getReturnReceiver()->getClass_v2();
 
 		// Export-Document
-		if($this->getExportDocument() !== null) {
+		if ($this->getExportDocument() !== null) {
 			try {
 				$class->Shipment->ExportDocument = $this->getExportDocument()->getExportDocumentClass_v2();
-			} catch(Exception $e) {
+			} catch (Exception $e) {
 				trigger_error('[DHL-PHP-SDK]: Exception in method ' . __METHOD__ . ':' . $e->getMessage(), E_USER_WARNING);
 			}
 		}
 
 		// Other Settings
-		if($this->getPrintOnlyIfReceiverIsValid() !== null) {
+		if ($this->getPrintOnlyIfReceiverIsValid() !== null) {
 			$class->PrintOnlyIfCodeable = new StdClass;
-			$class->PrintOnlyIfCodeable->active = (int) $this->getPrintOnlyIfReceiverIsValid();
+			$class->PrintOnlyIfCodeable->active = (int)$this->getPrintOnlyIfReceiverIsValid();
 		}
-		if($this->getLabelResponseType() !== null && in_array($this->getLabelResponseType(), array(BusinessShipment::RESPONSE_TYPE_URL, BusinessShipment::RESPONSE_TYPE_B64)))
+		if ($this->getLabelResponseType() !== null && in_array($this->getLabelResponseType(), array(BusinessShipment::RESPONSE_TYPE_URL, BusinessShipment::RESPONSE_TYPE_B64)))
 			$class->labelResponseType = $this->getLabelResponseType();
 
 		return $class;
@@ -367,7 +390,8 @@ class ShipmentOrder {
 	 * @return stdClass - DHL-ShipmentOrder-Class
 	 * @since 3.0
 	 */
-	public function getShipmentOrderClass_v3() {
+	public function getShipmentOrderClass_v3()
+	{
 		$class = new StdClass;
 		$class->sequenceNumber = $this->getSequenceNumber();
 
@@ -379,35 +403,35 @@ class ShipmentOrder {
 		$class->Shipment->Receiver = $this->getReceiver()->getClass_v3();
 
 		// Return-Receiver
-		if($this->getReturnReceiver() !== null)
+		if ($this->getReturnReceiver() !== null)
 			$class->Shipment->ReturnReceiver = $this->getReturnReceiver()->getClass_v3();
 
 		// Export-Document
-		if($this->getExportDocument() !== null) {
+		if ($this->getExportDocument() !== null) {
 			try {
 				$class->Shipment->ExportDocument = $this->getExportDocument()->getExportDocumentClass_v3();
-			} catch(Exception $e) {
+			} catch (Exception $e) {
 				trigger_error('[DHL-PHP-SDK]: Exception in method ' . __METHOD__ . ':' . $e->getMessage(), E_USER_WARNING);
 			}
 		}
 
 		// Shipper
-		if($this->getSender() !== null)
+		if ($this->getSender() !== null)
 			$class->Shipment->Shipper = $this->getSender()->getClass_v3();
 		else
 			$class->Shipment->ShipperReference = $this->getShipperReference();
 
 		// Other Settings
-		if($this->getPrintOnlyIfReceiverIsValid() !== null) {
+		if ($this->getPrintOnlyIfReceiverIsValid() !== null) {
 			$class->PrintOnlyIfCodeable = new StdClass;
-			$class->PrintOnlyIfCodeable->active = (int) $this->getPrintOnlyIfReceiverIsValid();
+			$class->PrintOnlyIfCodeable->active = (int)$this->getPrintOnlyIfReceiverIsValid();
 		}
 
 		// Fixme: It doesnt seem to affect the single format, maybe it was just a bug
-		if($this->getLabelResponseType() !== null)
+		if ($this->getLabelResponseType() !== null)
 			$class->labelResponseType = $this->getLabelResponseType();
 
-		if($this->getLabelFormat() !== null)
+		if ($this->getLabelFormat() !== null)
 			$class = $this->getLabelFormat()->addLabelFormatClass_v3($class);
 
 		return $class;

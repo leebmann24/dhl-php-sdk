@@ -18,7 +18,8 @@ use stdClass;
  *
  * @package Petschko\DHL
  */
-class Filial extends Receiver {
+class Filial extends Receiver
+{
 	/**
 	 * Contains the Post-Number
 	 *
@@ -42,7 +43,8 @@ class Filial extends Receiver {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		parent::__destruct();
 		unset($this->postNumber);
 		unset($this->filialNumber);
@@ -53,7 +55,8 @@ class Filial extends Receiver {
 	 *
 	 * @return string - Post-Number
 	 */
-	public function getPostNumber() {
+	public function getPostNumber()
+	{
 		return $this->postNumber;
 	}
 
@@ -62,7 +65,8 @@ class Filial extends Receiver {
 	 *
 	 * @param string $postNumber - Post-Number
 	 */
-	public function setPostNumber($postNumber) {
+	public function setPostNumber($postNumber)
+	{
 		$this->postNumber = $postNumber;
 	}
 
@@ -71,7 +75,8 @@ class Filial extends Receiver {
 	 *
 	 * @return string - Filial-Number
 	 */
-	public function getFilialNumber() {
+	public function getFilialNumber()
+	{
 		return $this->filialNumber;
 	}
 
@@ -80,7 +85,8 @@ class Filial extends Receiver {
 	 *
 	 * @return string $filialNumber - Filial-Number
 	 */
-	public function getPostFilialNumber() {
+	public function getPostFilialNumber()
+	{
 		return $this->filialNumber;
 	}
 
@@ -89,7 +95,8 @@ class Filial extends Receiver {
 	 *
 	 * @param string $filialNumber - Filial-Number
 	 */
-	public function setFilialNumber($filialNumber) {
+	public function setFilialNumber($filialNumber)
+	{
 		$this->filialNumber = $filialNumber;
 	}
 
@@ -98,7 +105,8 @@ class Filial extends Receiver {
 	 *
 	 * @param string $filialNumber - Filial-Number
 	 */
-	public function setPostFilialNumber($filialNumber) {
+	public function setPostFilialNumber($filialNumber)
+	{
 		$this->filialNumber = $filialNumber;
 	}
 
@@ -108,7 +116,8 @@ class Filial extends Receiver {
 	 * @return StdClass - DHL-SendPerson-class
 	 * @since 2.0
 	 */
-	public function getClass_v2() {
+	public function getClass_v2()
+	{
 		$class = new StdClass;
 		$class->name1 = $this->getName();
 
@@ -120,7 +129,7 @@ class Filial extends Receiver {
 		$class->Postfiliale->zip = $this->getZip();
 		$class->Postfiliale->city = $this->getLocation();
 
-		if($this->getCountryISOCode() !== null)
+		if ($this->getCountryISOCode() !== null)
 			$class->Postfiliale->Origin = $this->getOriginClass_v2();
 
 		return $class;
@@ -132,7 +141,8 @@ class Filial extends Receiver {
 	 * @return StdClass - DHL-SendPerson-class
 	 * @since 3.0
 	 */
-	public function getClass_v3() {
+	public function getClass_v3()
+	{
 		return $this->getClass_v2();
 	}
 }

@@ -19,7 +19,8 @@ use stdClass;
  *
  * @package Petschko\DHL
  */
-class ExportDocument {
+class ExportDocument
+{
 	/**
 	 * Constants for Export-Type
 	 */
@@ -93,7 +94,7 @@ class ExportDocument {
 	 * DDX - Delivery duty paid (excl. Duties, taxes and VAT)
 	 *
 	 * @var string|null $termsOfTrade - Terms of trades (Can assigned with ExportDocument::TERMS_OF_TRADE_{TYPE})
-	 * 									or null for none
+	 *                                    or null for none
 	 */
 	private $termsOfTrade = null;
 
@@ -165,7 +166,8 @@ class ExportDocument {
 	/**
 	 * Clears Memory
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		unset($this->invoiceNumber);
 		unset($this->exportType);
 		unset($this->exportTypeDescription);
@@ -183,7 +185,8 @@ class ExportDocument {
 	 *
 	 * @return float|int|null|string - Invoice-Number or null if none
 	 */
-	public function getInvoiceNumber() {
+	public function getInvoiceNumber()
+	{
 		return $this->invoiceNumber;
 	}
 
@@ -192,7 +195,8 @@ class ExportDocument {
 	 *
 	 * @param float|int|null|string $invoiceNumber - Invoice-Number or null for none
 	 */
-	public function setInvoiceNumber($invoiceNumber) {
+	public function setInvoiceNumber($invoiceNumber)
+	{
 		$this->invoiceNumber = $invoiceNumber;
 	}
 
@@ -201,7 +205,8 @@ class ExportDocument {
 	 *
 	 * @return string - Export-Type
 	 */
-	public function getExportType() {
+	public function getExportType()
+	{
 		return $this->exportType;
 	}
 
@@ -210,7 +215,8 @@ class ExportDocument {
 	 *
 	 * @param string $exportType - Export-Type
 	 */
-	public function setExportType($exportType) {
+	public function setExportType($exportType)
+	{
 		$this->exportType = $exportType;
 	}
 
@@ -219,7 +225,8 @@ class ExportDocument {
 	 *
 	 * @return null|string - Export-Type-Description or null if none
 	 */
-	public function getExportTypeDescription() {
+	public function getExportTypeDescription()
+	{
 		return $this->exportTypeDescription;
 	}
 
@@ -228,7 +235,8 @@ class ExportDocument {
 	 *
 	 * @param null|string $exportTypeDescription - Export-Type-Description or null for none
 	 */
-	public function setExportTypeDescription($exportTypeDescription) {
+	public function setExportTypeDescription($exportTypeDescription)
+	{
 		$this->exportTypeDescription = $exportTypeDescription;
 	}
 
@@ -237,7 +245,8 @@ class ExportDocument {
 	 *
 	 * @return null|string - Terms of Trade or null if none
 	 */
-	public function getTermsOfTrade() {
+	public function getTermsOfTrade()
+	{
 		return $this->termsOfTrade;
 	}
 
@@ -246,7 +255,8 @@ class ExportDocument {
 	 *
 	 * @param null|string $termsOfTrade - Terms of Trade or null for none
 	 */
-	public function setTermsOfTrade($termsOfTrade) {
+	public function setTermsOfTrade($termsOfTrade)
+	{
 		$this->termsOfTrade = $termsOfTrade;
 	}
 
@@ -255,7 +265,8 @@ class ExportDocument {
 	 *
 	 * @return string - Place of Committal
 	 */
-	public function getPlaceOfCommittal() {
+	public function getPlaceOfCommittal()
+	{
 		return $this->placeOfCommittal;
 	}
 
@@ -264,7 +275,8 @@ class ExportDocument {
 	 *
 	 * @param string $placeOfCommittal - Place of Committal
 	 */
-	public function setPlaceOfCommittal($placeOfCommittal) {
+	public function setPlaceOfCommittal($placeOfCommittal)
+	{
 		$this->placeOfCommittal = $placeOfCommittal;
 	}
 
@@ -273,7 +285,8 @@ class ExportDocument {
 	 *
 	 * @return float - Additional Fee
 	 */
-	public function getAdditionalFee(): float {
+	public function getAdditionalFee(): float
+	{
 		return $this->additionalFee;
 	}
 
@@ -282,7 +295,8 @@ class ExportDocument {
 	 *
 	 * @param float $additionalFee - Additional Fee
 	 */
-	public function setAdditionalFee(float $additionalFee): void {
+	public function setAdditionalFee(float $additionalFee): void
+	{
 		$this->additionalFee = $additionalFee;
 	}
 
@@ -291,7 +305,8 @@ class ExportDocument {
 	 *
 	 * @return float|int|null|string - Permit-Number or null if none
 	 */
-	public function getPermitNumber() {
+	public function getPermitNumber()
+	{
 		return $this->permitNumber;
 	}
 
@@ -300,7 +315,8 @@ class ExportDocument {
 	 *
 	 * @param float|int|null|string $permitNumber - Permit-Number or null for none
 	 */
-	public function setPermitNumber($permitNumber) {
+	public function setPermitNumber($permitNumber)
+	{
 		$this->permitNumber = $permitNumber;
 	}
 
@@ -309,7 +325,8 @@ class ExportDocument {
 	 *
 	 * @return float|int|null|string - Attestation-Number or null if none
 	 */
-	public function getAttestationNumber() {
+	public function getAttestationNumber()
+	{
 		return $this->attestationNumber;
 	}
 
@@ -318,7 +335,8 @@ class ExportDocument {
 	 *
 	 * @param float|int|null|string $attestationNumber - Attestation-Number or null for none
 	 */
-	public function setAttestationNumber($attestationNumber) {
+	public function setAttestationNumber($attestationNumber)
+	{
 		$this->attestationNumber = $attestationNumber;
 	}
 
@@ -327,7 +345,8 @@ class ExportDocument {
 	 *
 	 * @return bool|null - Is it with Electronic Export Notifications or null if default
 	 */
-	public function getWithElectronicExportNotification() {
+	public function getWithElectronicExportNotification()
+	{
 		return $this->withElectronicExportNotification;
 	}
 
@@ -336,7 +355,8 @@ class ExportDocument {
 	 *
 	 * @param bool|null $withElectronicExportNotification - Is it with Electronic Export Notifications or null for default
 	 */
-	public function setWithElectronicExportNotification($withElectronicExportNotification) {
+	public function setWithElectronicExportNotification($withElectronicExportNotification)
+	{
 		$this->withElectronicExportNotification = $withElectronicExportNotification;
 	}
 
@@ -345,7 +365,8 @@ class ExportDocument {
 	 *
 	 * @return ExportDocPosition|ExportDocPosition[]|null - ExportDocPosition(s) class(es) or null if none
 	 */
-	public function getExportDocPosition() {
+	public function getExportDocPosition()
+	{
 		return $this->exportDocPosition;
 	}
 
@@ -354,7 +375,8 @@ class ExportDocument {
 	 *
 	 * @param ExportDocPosition|ExportDocPosition[]|null $exportDocPosition - ExportDocPosition(s) class(es) or null for none
 	 */
-	public function setExportDocPosition($exportDocPosition) {
+	public function setExportDocPosition($exportDocPosition)
+	{
 		$this->exportDocPosition = $exportDocPosition;
 	}
 
@@ -367,10 +389,11 @@ class ExportDocument {
 	 *
 	 * @param ExportDocPosition $exportDocPosition - Object to add
 	 */
-	public function addExportDocPosition($exportDocPosition) {
-		if($this->getExportDocPosition() === null)
+	public function addExportDocPosition($exportDocPosition)
+	{
+		if ($this->getExportDocPosition() === null)
 			$this->setExportDocPosition($exportDocPosition);
-		else if(is_array($this->getExportDocPosition()))
+		else if (is_array($this->getExportDocPosition()))
 			$this->exportDocPosition[] = $exportDocPosition;
 		else {
 			// Convert the first existing entry to an array
@@ -385,47 +408,48 @@ class ExportDocument {
 	 * @throws Exception - Invalid Data-Exception
 	 * @since 2.0
 	 */
-	public function getExportDocumentClass_v2() {
+	public function getExportDocumentClass_v2()
+	{
 		$class = new StdClass;
 
 		// Standard-Export-Stuff
-		if($this->getInvoiceNumber() !== null)
+		if ($this->getInvoiceNumber() !== null)
 			$class->invoiceNumber = $this->getInvoiceNumber();
 
 		$class->exportType = $this->getExportType();
 
-		if($this->getExportTypeDescription() !== null)
+		if ($this->getExportTypeDescription() !== null)
 			$class->exportTypeDescription = $this->getExportTypeDescription();
-		else if($this->getExportType() === self::EXPORT_TYPE_OTHER)
+		else if ($this->getExportType() === self::EXPORT_TYPE_OTHER)
 			throw new Exception('ExportTypeDescription must filled out if Export-Type is OTHER! - ' .
 				'Export-Class will not generated now');
 
-		if($this->getTermsOfTrade() !== null)
+		if ($this->getTermsOfTrade() !== null)
 			$class->termsOfTrade = $this->getTermsOfTrade();
 
 		$class->placeOfCommital = $this->getPlaceOfCommittal();
 		$class->additionalFee = $this->getAdditionalFee();
 
-		if($this->getPermitNumber() !== null)
+		if ($this->getPermitNumber() !== null)
 			$class->permitNumber = $this->getPermitNumber();
 
-		if($this->getAttestationNumber() !== null)
+		if ($this->getAttestationNumber() !== null)
 			$class->attestationNumber = $this->getAttestationNumber();
 
 		// Add rest (Elements)
-		if($this->getWithElectronicExportNotification() !== null) {
+		if ($this->getWithElectronicExportNotification() !== null) {
 			$class->WithElectronicExportNtfctn = new StdClass;
-			$class->WithElectronicExportNtfctn->active = (int) $this->getWithElectronicExportNotification();
+			$class->WithElectronicExportNtfctn->active = (int)$this->getWithElectronicExportNotification();
 		}
 
 		// Check if child-class is being used
-		if($this->getExportDocPosition() !== null) {
+		if ($this->getExportDocPosition() !== null) {
 			// Handle non-arrays... (Backward compatibility)
-			if(! is_array($this->getExportDocPosition()))
+			if (!is_array($this->getExportDocPosition()))
 				$class->ExportDocPosition = $this->getExportDocPosition()->getExportDocPositionClass_v2();
 			else {
 				$pos = $this->getExportDocPosition();
-				foreach($pos as $key => &$exportDoc)
+				foreach ($pos as $key => &$exportDoc)
 					$class->ExportDocPosition[$key] = $exportDoc->getExportDocPositionClass_v2();
 			}
 		}
@@ -440,7 +464,8 @@ class ExportDocument {
 	 * @throws Exception - Invalid Data-Exception
 	 * @since 3.0
 	 */
-	public function getExportDocumentClass_v3() {
+	public function getExportDocumentClass_v3()
+	{
 		return $this->getExportDocumentClass_v2();
 	}
 }
