@@ -5,6 +5,12 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Peter Dragicevic",
+            "email": "peter@petschko.org",
+            "homepage": "http://petschko.org/",
+            "role": "developer"
+        },
+        {
             "name": "Bernhard Schönberger",
             "email": "bernhard.schoenberger@leebmann.de",
             "homepage": "https://www.leebmann24.de/",
@@ -12,7 +18,7 @@
         }
     ],
     "support": {
-        "email": "peter@petschko.org",
+        "email": "bernhard.schoenberger@leebmann.de",
         "issues": "https://github.com/leebmann24/dhl-php-sdk/issues",
         "source": "https://github.com/leebmann24/dhl-php-sdk",
         "docs": "https://github.com/leebmann24/dhl-php-sdk/blob/master/examples/getting-started.md"
@@ -24,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Petschko\\DHL\\": "includes/"
+            "Leebmann24\\DHL\\": "includes/"
         }
     },
     "require-dev": {
