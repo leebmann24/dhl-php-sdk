@@ -19,4 +19,7 @@ jobs:
         uses: pxgamer/phpunit-action@master
         with:
           command: tests/
+        env:
+          API_USER: ${{ secrets.API_USER }}
+          API_PASS: ${{ secrets.API_PASS }}
 
