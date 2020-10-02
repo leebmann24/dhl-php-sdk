@@ -1,12 +1,6 @@
 name: Test
 
-on:
-  push:
-    - master
-    - dev
-    - upgrade-v3.1
-
-
+on: [ push ]
 
 jobs:
   test:
