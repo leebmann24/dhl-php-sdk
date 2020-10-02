@@ -1,9 +1,9 @@
 <?php
 
-use Petschko\DHL\Receiver;
-use Petschko\DHL\Sender;
-use Petschko\DHL\Service;
-use Petschko\DHL\ShipmentDetails;
+use Leebmann24\DHL\Receiver;
+use Leebmann24\DHL\Sender;
+use Leebmann24\DHL\Service;
+use Leebmann24\DHL\ShipmentDetails;
 use PHPUnit\Framework\TestCase;
 
 abstract class DhlTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-namespace Petschko\DHL;
+namespace Leebmann24\DHL;
 
 /**
  * Author: Peter Dragicevic [peter@petschko.org]

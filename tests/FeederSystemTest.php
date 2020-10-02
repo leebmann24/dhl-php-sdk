@@ -1,8 +1,9 @@
 <?php
 
-use Petschko\DHL\BusinessShipment;
-use Petschko\DHL\Credentials;
-use Petschko\DHL\ShipmentOrder;
+use Leebmann24\DHL\BusinessShipment;
+use Leebmann24\DHL\Credentials;
+use Leebmann24\DHL\LabelFormat;
+use Leebmann24\DHL\ShipmentOrder;
 
 final class FeederSystemTest extends DhlTest {
 
@@ -22,7 +23,7 @@ final class FeederSystemTest extends DhlTest {
 		$shipmentOrder->setLabelResponseType(BusinessShipment::RESPONSE_TYPE_URL);
 		$shipmentOrder->setShipmentDetails($this->exampleShipmentDetails($credentials->getEkp(10)));
 
-		$labelFormat = new \Petschko\DHL\LabelFormat();
+		$labelFormat = new LabelFormat();
 		$labelFormat->setLabelFormat(null);
 		$labelFormat->setLabelFormatRetoure(null);
 		$labelFormat->setCombinedPrinting(true); // Here you can set if all labels should printed together (if you have multiple)

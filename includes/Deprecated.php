@@ -8,7 +8,7 @@
  * Notes: Contains all deprecated information & methods
  */
 
-namespace Petschko\DHL;
+namespace Leebmann24\DHL;
 
 use Exception;
 

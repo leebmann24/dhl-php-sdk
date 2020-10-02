@@ -8,7 +8,7 @@
  * Notes: Contains the class for the Label-Format
  */
 
-namespace Petschko\DHL;
+namespace Leebmann24\DHL;
 
 use stdClass;
 
