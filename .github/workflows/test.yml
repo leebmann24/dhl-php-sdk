@@ -12,8 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        uses: php-actions/composer@v1
+#      - name: Install Dependencies
+#        uses: php-actions/composer@v1
 
       - name: Test
         uses: pxgamer/phpunit-action@master
