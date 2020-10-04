@@ -15,7 +15,7 @@ use stdClass;
 /**
  * Class LabelFormat
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  * @since 3.0
  */
 class LabelFormat
@@ -97,17 +97,6 @@ class LabelFormat
 	 */
 	private $feederSystem = null;
 
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->groupProfileName);
-		unset($this->labelFormat);
-		unset($this->labelFormatRetoure);
-		unset($this->combinedPrinting);
-		unset($this->feederSystem);
-	}
 
 	/**
 	 * Get the Group-Profile name - Choose between multiple user groups

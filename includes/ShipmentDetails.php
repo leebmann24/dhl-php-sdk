@@ -16,9 +16,10 @@ use stdClass;
 /**
  * Class ShipmentDetails
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
-class ShipmentDetails {
+class ShipmentDetails
+{
 	/**
 	 * Product-Type Values:
 	 *
@@ -51,17 +52,17 @@ class ShipmentDetails {
 	 * Contains which Product is used
 	 *
 	 * Allowed values: (Use PRODUCT_TYPE_* constants - See above)
-	 * 	'V01PAK' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE -> National-Package
-	 * 	'V01PRIO' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE_PRIO -> National-Package-Prio
-	 * 	'V53WPAK' or ShipmentDetails::PRODUCT_TYPE_INTERNATIONAL_PACKAGE -> International-Package
-	 * 	'V54EPAK' or ShipmentDetails::PRODUCT_TYPE_EUROPA_PACKAGE -> Europa-Package
-	 * 	'V55PAK' or ShipmentDetails::PRODUCT_TYPE_PACKED_CONNECT -> Packed Connect
-	 * 	'V06PAK' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE -> Same-Day Package
-	 * 	'V06TG' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER -> Same Day Messenger
-	 * 	'V06WZ' or ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER -> Wish Time Messenger
-	 * 	'V86PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_PACKAGE -> Austria Package
-	 * 	'V82PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_INTERNATIONAL_PACKAGE -> Austria International Package
-	 * 	'V87PARCEL' or ShipmentDetails::PRODUCT_TYPE_CONNECT_PACKAGE -> Connect Package
+	 *    'V01PAK' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE -> National-Package
+	 *    'V01PRIO' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE_PRIO -> National-Package-Prio
+	 *    'V53WPAK' or ShipmentDetails::PRODUCT_TYPE_INTERNATIONAL_PACKAGE -> International-Package
+	 *    'V54EPAK' or ShipmentDetails::PRODUCT_TYPE_EUROPA_PACKAGE -> Europa-Package
+	 *    'V55PAK' or ShipmentDetails::PRODUCT_TYPE_PACKED_CONNECT -> Packed Connect
+	 *    'V06PAK' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE -> Same-Day Package
+	 *    'V06TG' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER -> Same Day Messenger
+	 *    'V06WZ' or ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER -> Wish Time Messenger
+	 *    'V86PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_PACKAGE -> Austria Package
+	 *    'V82PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_INTERNATIONAL_PACKAGE -> Austria International Package
+	 *    'V87PARCEL' or ShipmentDetails::PRODUCT_TYPE_CONNECT_PACKAGE -> Connect Package
 	 *
 	 * @var string $product - Product to use (Default: National Package)
 	 */
@@ -210,49 +211,31 @@ class ShipmentDetails {
 	 *
 	 * @param string $accountNumber - Account-Number
 	 */
-	public function __construct($accountNumber) {
+	public function __construct($accountNumber)
+	{
 		$this->setAccountNumber($accountNumber);
-	}
-
-	/**
-	 * Clears the Memory
-	 */
-	public function __destruct() {
-		unset($this->product);
-		unset($this->accountNumber);
-		unset($this->customerReference);
-		unset($this->shipmentDate);
-		unset($this->costCentre);
-		unset($this->returnAccountNumber);
-		unset($this->returnReference);
-		unset($this->weight);
-		unset($this->length);
-		unset($this->width);
-		unset($this->height);
-		unset($this->service);
-		unset($this->notificationEmail);
-		unset($this->bank);
 	}
 
 	/**
 	 * Get which Product is used
 	 *
-	 * 	Return values: (Use PRODUCT_TYPE_* constants - See above)
-	 * 	'V01PAK' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE -> National-Package
-	 * 	'V01PRIO' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE_PRIO -> National-Package-Prio
-	 * 	'V53WPAK' or ShipmentDetails::PRODUCT_TYPE_INTERNATIONAL_PACKAGE -> International-Package
-	 * 	'V54EPAK' or ShipmentDetails::PRODUCT_TYPE_EUROPA_PACKAGE -> Europa-Package
-	 * 	'V55PAK' or ShipmentDetails::PRODUCT_TYPE_PACKED_CONNECT -> Packed Connect
-	 * 	'V06PAK' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE -> Same-Day Package
-	 * 	'V06TG' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER -> Same Day Messenger
-	 * 	'V06WZ' or ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER -> Wish Time Messenger
-	 * 	'V86PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_PACKAGE -> Austria Package
-	 * 	'V82PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_INTERNATIONAL_PACKAGE -> Austria International Package
-	 * 	'V87PARCEL' or ShipmentDetails::PRODUCT_TYPE_CONNECT_PACKAGE -> Connect Package
+	 *    Return values: (Use PRODUCT_TYPE_* constants - See above)
+	 *    'V01PAK' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE -> National-Package
+	 *    'V01PRIO' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE_PRIO -> National-Package-Prio
+	 *    'V53WPAK' or ShipmentDetails::PRODUCT_TYPE_INTERNATIONAL_PACKAGE -> International-Package
+	 *    'V54EPAK' or ShipmentDetails::PRODUCT_TYPE_EUROPA_PACKAGE -> Europa-Package
+	 *    'V55PAK' or ShipmentDetails::PRODUCT_TYPE_PACKED_CONNECT -> Packed Connect
+	 *    'V06PAK' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE -> Same-Day Package
+	 *    'V06TG' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER -> Same Day Messenger
+	 *    'V06WZ' or ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER -> Wish Time Messenger
+	 *    'V86PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_PACKAGE -> Austria Package
+	 *    'V82PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_INTERNATIONAL_PACKAGE -> Austria International Package
+	 *    'V87PARCEL' or ShipmentDetails::PRODUCT_TYPE_CONNECT_PACKAGE -> Connect Package
 	 *
 	 * @return string - Used Product
 	 */
-	public function getProduct() {
+	public function getProduct()
+	{
 		return $this->product;
 	}
 
@@ -260,22 +243,23 @@ class ShipmentDetails {
 	 * Set which Product is used
 	 *
 	 * Allowed values: (Use PRODUCT_TYPE_* constants - See above)
-	 * 	'V01PAK' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE -> National-Package
-	 * 	'V01PRIO' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE_PRIO -> National-Package-Prio
-	 * 	'V53WPAK' or ShipmentDetails::PRODUCT_TYPE_INTERNATIONAL_PACKAGE -> International-Package
-	 * 	'V54EPAK' or ShipmentDetails::PRODUCT_TYPE_EUROPA_PACKAGE -> Europa-Package
-	 * 	'V55PAK' or ShipmentDetails::PRODUCT_TYPE_PACKED_CONNECT -> Packed Connect
-	 * 	'V06PAK' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE -> Same-Day Package
-	 * 	'V06TG' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER -> Same Day Messenger
-	 * 	'V06WZ' or ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER -> Wish Time Messenger
-	 * 	'V86PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_PACKAGE -> Austria Package
-	 * 	'V82PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_INTERNATIONAL_PACKAGE -> Austria International Package
-	 * 	'V87PARCEL' or ShipmentDetails::PRODUCT_TYPE_CONNECT_PACKAGE -> Connect Package
-	 * 	'V62WP' or ShipmentDetails:: PRODUCT_TYPE_GOODS_LETTER -> Warenpost 2.0
+	 *    'V01PAK' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE -> National-Package
+	 *    'V01PRIO' or ShipmentDetails::PRODUCT_TYPE_NATIONAL_PACKAGE_PRIO -> National-Package-Prio
+	 *    'V53WPAK' or ShipmentDetails::PRODUCT_TYPE_INTERNATIONAL_PACKAGE -> International-Package
+	 *    'V54EPAK' or ShipmentDetails::PRODUCT_TYPE_EUROPA_PACKAGE -> Europa-Package
+	 *    'V55PAK' or ShipmentDetails::PRODUCT_TYPE_PACKED_CONNECT -> Packed Connect
+	 *    'V06PAK' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_PACKAGE -> Same-Day Package
+	 *    'V06TG' or ShipmentDetails::PRODUCT_TYPE_SAME_DAY_MESSENGER -> Same Day Messenger
+	 *    'V06WZ' or ShipmentDetails::PRODUCT_TYPE_WISH_TIME_MESSENGER -> Wish Time Messenger
+	 *    'V86PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_PACKAGE -> Austria Package
+	 *    'V82PARCEL' or ShipmentDetails::PRODUCT_TYPE_AUSTRIA_INTERNATIONAL_PACKAGE -> Austria International Package
+	 *    'V87PARCEL' or ShipmentDetails::PRODUCT_TYPE_CONNECT_PACKAGE -> Connect Package
+	 *    'V62WP' or ShipmentDetails:: PRODUCT_TYPE_GOODS_LETTER -> Warenpost 2.0
 	 *
 	 * @param string $product - Product, which should be used
 	 */
-	public function setProduct($product) {
+	public function setProduct($product)
+	{
 		$this->product = $product;
 	}
 
@@ -288,7 +272,8 @@ class ShipmentDetails {
 	 *
 	 * @return string - Account-Number plus Product Type Number plus Process Type Number
 	 */
-	private function getAccountNumber() {
+	private function getAccountNumber()
+	{
 		return $this->accountNumber;
 	}
 
@@ -301,7 +286,8 @@ class ShipmentDetails {
 	 *
 	 * @param string $accountNumber - Account-Number plus Product Type Number plus Process Type Number
 	 */
-	private function setAccountNumber($accountNumber) {
+	private function setAccountNumber($accountNumber)
+	{
 		$this->accountNumber = $accountNumber;
 	}
 
@@ -310,7 +296,8 @@ class ShipmentDetails {
 	 *
 	 * @return null|string - Customer Reference or null for none
 	 */
-	public function getCustomerReference() {
+	public function getCustomerReference()
+	{
 		return $this->customerReference;
 	}
 
@@ -319,7 +306,8 @@ class ShipmentDetails {
 	 *
 	 * @param null|string $customerReference - Customer Reference or null for none
 	 */
-	public function setCustomerReference($customerReference) {
+	public function setCustomerReference($customerReference)
+	{
 		$this->customerReference = $customerReference;
 	}
 
@@ -328,9 +316,11 @@ class ShipmentDetails {
 	 *
 	 * @return string - Shipment-Date as ISO-Date String YYYY-MM-DD
 	 */
-	public function getShipmentDate() {
-		if($this->shipmentDate === null)
+	public function getShipmentDate()
+	{
+		if ($this->shipmentDate === null) {
 			$this->setShipmentDate($this->createDefaultShipmentDate());
+		}
 
 		return $this->shipmentDate;
 	}
@@ -341,13 +331,15 @@ class ShipmentDetails {
 	 * @param string|int|null $shipmentDate - Shipment-Date as String YYYY-MM-DD or the int value time() of the date | null for today (+1 Day on Sunday)
 	 * @param bool $useIntTime - Use the int Time Value instead of a String
 	 */
-	public function setShipmentDate($shipmentDate, $useIntTime = false) {
-		if($useIntTime) {
+	public function setShipmentDate($shipmentDate, $useIntTime = false)
+	{
+		if ($useIntTime) {
 			// Convert Time-Stamp to Date
 			$shipmentDate = date('Y-m-d', $shipmentDate);
 
-			if($shipmentDate === false)
+			if ($shipmentDate === false) {
 				$shipmentDate = null;
+			}
 		}
 
 		$this->shipmentDate = $shipmentDate;
@@ -359,7 +351,8 @@ class ShipmentDetails {
 	 * @return string|null - Name of a Cost center or null for none
 	 * @since 3.0
 	 */
-	public function getCostCentre(): ?string {
+	public function getCostCentre(): ?string
+	{
 		return $this->costCentre;
 	}
 
@@ -369,7 +362,8 @@ class ShipmentDetails {
 	 * @param string|null $costCentre - Name of a Cost center or null for none
 	 * @since 3.0
 	 */
-	public function setCostCentre(?string $costCentre): void {
+	public function setCostCentre(?string $costCentre): void
+	{
 		$this->costCentre = $costCentre;
 	}
 
@@ -378,7 +372,8 @@ class ShipmentDetails {
 	 *
 	 * @return null|string - Return-Account-Number or null for none
 	 */
-	public function getReturnAccountNumber() {
+	public function getReturnAccountNumber()
+	{
 		return $this->returnAccountNumber;
 	}
 
@@ -387,7 +382,8 @@ class ShipmentDetails {
 	 *
 	 * @param null|string $returnAccountNumber - Return-Account-Number or null for none
 	 */
-	public function setReturnAccountNumber($returnAccountNumber) {
+	public function setReturnAccountNumber($returnAccountNumber)
+	{
 		$this->returnAccountNumber = $returnAccountNumber;
 	}
 
@@ -396,7 +392,8 @@ class ShipmentDetails {
 	 *
 	 * @return null|string - Return-Reference or null for none
 	 */
-	public function getReturnReference() {
+	public function getReturnReference()
+	{
 		return $this->returnReference;
 	}
 
@@ -405,7 +402,8 @@ class ShipmentDetails {
 	 *
 	 * @param null|string $returnReference - Return-Reference or null for none
 	 */
-	public function setReturnReference($returnReference) {
+	public function setReturnReference($returnReference)
+	{
 		$this->returnReference = $returnReference;
 	}
 
@@ -414,7 +412,8 @@ class ShipmentDetails {
 	 *
 	 * @return float - Weight in KG
 	 */
-	public function getWeight() {
+	public function getWeight()
+	{
 		return $this->weight;
 	}
 
@@ -423,7 +422,8 @@ class ShipmentDetails {
 	 *
 	 * @param float $weight - Weight in KG
 	 */
-	public function setWeight($weight) {
+	public function setWeight($weight)
+	{
 		$this->weight = $weight;
 	}
 
@@ -432,7 +432,8 @@ class ShipmentDetails {
 	 *
 	 * @return int|null - Length in CM or null for none
 	 */
-	public function getLength() {
+	public function getLength()
+	{
 		return $this->length;
 	}
 
@@ -441,7 +442,8 @@ class ShipmentDetails {
 	 *
 	 * @param int|null $length - Length in CM or null for none
 	 */
-	public function setLength($length) {
+	public function setLength($length)
+	{
 		$this->length = $length;
 	}
 
@@ -450,7 +452,8 @@ class ShipmentDetails {
 	 *
 	 * @return int|null - Width in CM or null for none
 	 */
-	public function getWidth() {
+	public function getWidth()
+	{
 		return $this->width;
 	}
 
@@ -459,7 +462,8 @@ class ShipmentDetails {
 	 *
 	 * @param int|null $width - Width in CM or null for none
 	 */
-	public function setWidth($width) {
+	public function setWidth($width)
+	{
 		$this->width = $width;
 	}
 
@@ -468,7 +472,8 @@ class ShipmentDetails {
 	 *
 	 * @return int|null - Height in CM or null for none
 	 */
-	public function getHeight() {
+	public function getHeight()
+	{
 		return $this->height;
 	}
 
@@ -477,7 +482,8 @@ class ShipmentDetails {
 	 *
 	 * @param int|null $height - Height in CM or null for none
 	 */
-	public function setHeight($height) {
+	public function setHeight($height)
+	{
 		$this->height = $height;
 	}
 
@@ -486,7 +492,8 @@ class ShipmentDetails {
 	 *
 	 * @return Service|null - Service-Object or null if none
 	 */
-	public function getService() {
+	public function getService()
+	{
 		return $this->service;
 	}
 
@@ -495,7 +502,8 @@ class ShipmentDetails {
 	 *
 	 * @param Service|null $service - Service-Object or null for none
 	 */
-	public function setService($service) {
+	public function setService($service)
+	{
 		$this->service = $service;
 	}
 
@@ -504,7 +512,8 @@ class ShipmentDetails {
 	 *
 	 * @return string|null - Notification E-Mail or null for none
 	 */
-	public function getNotificationEmail() {
+	public function getNotificationEmail()
+	{
 		return $this->notificationEmail;
 	}
 
@@ -513,7 +522,8 @@ class ShipmentDetails {
 	 *
 	 * @param string|null $notificationEmail - Notification E-Mail or null for none
 	 */
-	public function setNotificationEmail($notificationEmail) {
+	public function setNotificationEmail($notificationEmail)
+	{
 		$this->notificationEmail = $notificationEmail;
 	}
 
@@ -522,7 +532,8 @@ class ShipmentDetails {
 	 *
 	 * @return BankData|null - Bank-Object or null if none
 	 */
-	public function getBank() {
+	public function getBank()
+	{
 		return $this->bank;
 	}
 
@@ -531,7 +542,8 @@ class ShipmentDetails {
 	 *
 	 * @param BankData|null $bank - Bank-Object or null for none
 	 */
-	public function setBank($bank) {
+	public function setBank($bank)
+	{
 		$this->bank = $bank;
 	}
 
@@ -540,12 +552,14 @@ class ShipmentDetails {
 	 *
 	 * @return string - Default-Date as ISO-Date String
 	 */
-	private function createDefaultShipmentDate() {
+	private function createDefaultShipmentDate()
+	{
 		$now = time();
 		$weekDay = date('w', $now);
 
-		if($weekDay === 0)
-			$now += 86400; // Increase Day by 1 if Sunday
+		if ($weekDay === 0) {
+			$now += 86400;
+		} // Increase Day by 1 if Sunday
 
 		return date('Y-m-d', $now);
 	}
@@ -556,38 +570,47 @@ class ShipmentDetails {
 	 * @return StdClass - DHL-ShipmentDetails-Class
 	 * @since 2.0
 	 */
-	public function getShipmentDetailsClass_v2() {
+	public function getShipmentDetailsClass_v2()
+	{
 		$class = new StdClass;
 
 		$class->product = $this->getProduct();
 		$class->accountNumber = $this->getAccountNumber();
-		if($this->getCustomerReference() !== null)
+		if ($this->getCustomerReference() !== null) {
 			$class->customerReference = $this->getCustomerReference();
+		}
 		$class->shipmentDate = $this->getShipmentDate();
-		if($this->getReturnAccountNumber() !== null)
+		if ($this->getReturnAccountNumber() !== null) {
 			$class->returnShipmentAccountNumber = $this->getReturnAccountNumber();
-		if($this->getReturnReference() !== null)
+		}
+		if ($this->getReturnReference() !== null) {
 			$class->returnShipmentReference = $this->getReturnReference();
+		}
 
 		$class->ShipmentItem = new StdClass;
 		$class->ShipmentItem->weightInKG = $this->getWeight();
-		if($this->getLength() !== null)
+		if ($this->getLength() !== null) {
 			$class->ShipmentItem->lengthInCM = $this->getLength();
-		if($this->getWidth() !== null)
+		}
+		if ($this->getWidth() !== null) {
 			$class->ShipmentItem->widthInCM = $this->getWidth();
-		if($this->getHeight() !== null)
+		}
+		if ($this->getHeight() !== null) {
 			$class->ShipmentItem->heightInCM = $this->getHeight();
+		}
 
-		if($this->getService() !== null)
+		if ($this->getService() !== null) {
 			$class->Service = $this->getService()->getServiceClass_v2($this->getProduct());
+		}
 
-		if($this->getNotificationEmail() !== null) {
+		if ($this->getNotificationEmail() !== null) {
 			$class->Notification = new StdClass;
 			$class->Notification->recipientEmailAddress = $this->getNotificationEmail();
 		}
 
-		if($this->getBank() !== null)
+		if ($this->getBank() !== null) {
 			$class->BankData = $this->getBank()->getBankClass_v2();
+		}
 
 		return $class;
 	}
@@ -598,40 +621,50 @@ class ShipmentDetails {
 	 * @return StdClass - DHL-ShipmentDetails-Class
 	 * @since 3.0
 	 */
-	public function getShipmentDetailsClass_v3() {
+	public function getShipmentDetailsClass_v3()
+	{
 		$class = new StdClass;
 
 		$class->product = $this->getProduct();
 		$class->accountNumber = $this->getAccountNumber();
-		if($this->getCustomerReference() !== null)
+		if ($this->getCustomerReference() !== null) {
 			$class->customerReference = $this->getCustomerReference();
+		}
 		$class->shipmentDate = $this->getShipmentDate();
-		if($this->getCostCentre() !== null)
+		if ($this->getCostCentre() !== null) {
 			$class->costCentre = $this->getCostCentre();
-		if($this->getReturnAccountNumber() !== null)
+		}
+		if ($this->getReturnAccountNumber() !== null) {
 			$class->returnShipmentAccountNumber = $this->getReturnAccountNumber();
-		if($this->getReturnReference() !== null)
+		}
+		if ($this->getReturnReference() !== null) {
 			$class->returnShipmentReference = $this->getReturnReference();
+		}
 
 		$class->ShipmentItem = new StdClass;
 		$class->ShipmentItem->weightInKG = $this->getWeight();
-		if($this->getLength() !== null)
+		if ($this->getLength() !== null) {
 			$class->ShipmentItem->lengthInCM = $this->getLength();
-		if($this->getWidth() !== null)
+		}
+		if ($this->getWidth() !== null) {
 			$class->ShipmentItem->widthInCM = $this->getWidth();
-		if($this->getHeight() !== null)
+		}
+		if ($this->getHeight() !== null) {
 			$class->ShipmentItem->heightInCM = $this->getHeight();
+		}
 
-		if($this->getService() !== null)
+		if ($this->getService() !== null) {
 			$class->Service = $this->getService()->getServiceClass_v3($this->getProduct());
+		}
 
-		if($this->getNotificationEmail() !== null) {
+		if ($this->getNotificationEmail() !== null) {
 			$class->Notification = new StdClass;
 			$class->Notification->recipientEmailAddress = $this->getNotificationEmail();
 		}
 
-		if($this->getBank() !== null)
+		if ($this->getBank() !== null) {
 			$class->BankData = $this->getBank()->getBankClass_v2();
+		}
 
 		return $class;
 	}

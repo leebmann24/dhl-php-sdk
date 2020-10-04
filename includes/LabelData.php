@@ -14,7 +14,7 @@ namespace Leebmann24\DHL;
 /**
  * Class LabelData
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class LabelData extends Version implements LabelResponse
 {
@@ -112,22 +112,6 @@ class LabelData extends Version implements LabelResponse
 					$this->loadLabelData_v3($labelData);
 			}
 		}
-	}
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->statusCode);
-		unset($this->statusText);
-		unset($this->statusMessage);
-		unset($this->sequenceNumber);
-		unset($this->shipmentNumber);
-		unset($this->label);
-		unset($this->returnLabel);
-		unset($this->exportDoc);
-		unset($this->codLabel);
 	}
 
 	/**

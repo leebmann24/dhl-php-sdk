@@ -3,8 +3,10 @@ version: '3.8'
 services:
 
   composer:
-    image: library/composer:latest
+    build: .
     restart: "no"
+    working_dir: /mod-dhl
+    entrypoint: /usr/local/bin/composer.phar
     volumes:
       - .:/mod-dhl
 
@@ -13,16 +15,6 @@ services:
     restart: "no"
     volumes:
       - .:/mod-dhl
-    working_dir: /mod-dhl
-    env_file:
-      - .env
-
-  phpunit:
-    build: .
-    restart: "no"
-    volumes:
-      - .:/mod-dhl
-    working_dir: /mod-dhl
     entrypoint: ./vendor/bin/phpunit tests
     env_file:
       - .env

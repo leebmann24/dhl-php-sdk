@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class PackStation
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class PackStation extends Receiver
 {
@@ -39,16 +39,6 @@ class PackStation extends Receiver
 	 * @var string $packStationNumber - Pack-Station-Number
 	 */
 	private $packStationNumber = '';
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		parent::__destruct();
-		unset($this->postNumber);
-		unset($this->packStationNumber);
-	}
 
 	/**
 	 * Get the Post-Number

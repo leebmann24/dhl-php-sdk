@@ -15,27 +15,11 @@ use Exception;
 /**
  * Class Deprecated
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class Deprecated
 {
 	const BUSINESS_SHIPMENT_BIG_FIELD_DEPRECATION_REASON = 'These details belong to the `ShipmentOrder` Object, please do them there';
-
-	/**
-	 * Deprecated constructor
-	 */
-	private function __construct()
-	{
-		// VOID
-	}
-
-	/**
-	 * Deprecated clone
-	 */
-	private function __clone()
-	{
-		// VOID
-	}
 
 	/**
 	 * Notes about a deprecated method

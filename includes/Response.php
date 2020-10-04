@@ -14,7 +14,7 @@ namespace Leebmann24\DHL;
 /**
  * Class Response
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class Response extends Version implements LabelResponse
 {
@@ -110,27 +110,15 @@ class Response extends Version implements LabelResponse
 	}
 
 	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		parent::__destruct();
-		unset($this->manifestData);
-		unset($this->statusCode);
-		unset($this->statusText);
-		unset($this->statusMessage);
-		unset($this->labelData);
-	}
-
-	/**
 	 * Getter for Shipment-Number
 	 *
 	 * @return null|string - Shipment-Number or null if not set
 	 */
 	public function getShipmentNumber()
 	{
-		if ($this->countLabelData() > 0)
+		if ($this->countLabelData() > 0) {
 			return $this->getLabelData(0)->getShipmentNumber();
+		}
 
 		return null;
 	}
@@ -142,8 +130,9 @@ class Response extends Version implements LabelResponse
 	 */
 	public function getLabel()
 	{
-		if ($this->countLabelData() > 0)
+		if ($this->countLabelData() > 0) {
 			return $this->getLabelData(0)->getLabel();
+		}
 
 		return null;
 	}
@@ -155,8 +144,9 @@ class Response extends Version implements LabelResponse
 	 */
 	public function getReturnLabel()
 	{
-		if ($this->countLabelData() > 0)
+		if ($this->countLabelData() > 0) {
 			return $this->getLabelData(0)->getReturnLabel();
+		}
 
 		return null;
 	}
@@ -168,8 +158,9 @@ class Response extends Version implements LabelResponse
 	 */
 	public function getExportDoc()
 	{
-		if ($this->countLabelData() > 0)
+		if ($this->countLabelData() > 0) {
 			return $this->getLabelData(0)->getExportDoc();
+		}
 
 		return null;
 	}
@@ -201,8 +192,9 @@ class Response extends Version implements LabelResponse
 	 */
 	public function getSequenceNumber()
 	{
-		if ($this->countLabelData() > 0)
+		if ($this->countLabelData() > 0) {
 			return $this->getLabelData(0)->getSequenceNumber();
+		}
 
 		return null;
 	}
@@ -293,10 +285,11 @@ class Response extends Version implements LabelResponse
 	 */
 	public function getLabelData($index = null)
 	{
-		if ($index === null)
+		if ($index === null) {
 			return $this->labelData;
-		else
+		} else {
 			return $this->labelData[$index];
+		}
 	}
 
 	/**
@@ -324,8 +317,9 @@ class Response extends Version implements LabelResponse
 	 */
 	private function validateStatusCode()
 	{
-		if ($this->getStatusCode() === self::DHL_ERROR_NO_ERROR && $this->getStatusText() !== 'ok')
+		if ($this->getStatusCode() === self::DHL_ERROR_NO_ERROR && $this->getStatusText() !== 'ok') {
 			$this->setStatusCode(self::DHL_ERROR_WEAK_WARNING);
+		}
 
 		// Fix the DHL-Error Weak-Warning-Bug
 		if ($this->countLabelData() === 1) {
@@ -333,24 +327,26 @@ class Response extends Version implements LabelResponse
 			$this->setStatusCode($this->getLabelData(0)->getStatusCode());
 			$this->setStatusText($this->getLabelData(0)->getStatusText());
 			$this->setStatusMessage($this->getLabelData(0)->getStatusMessage());
-		} else if ($this->getStatusCode() === self::DHL_ERROR_WEAK_WARNING) {
-			$noError = true;
+		} else {
+			if ($this->getStatusCode() === self::DHL_ERROR_WEAK_WARNING) {
+				$noError = true;
 
-			// Search in all shipments if an error/warning exists
-			foreach ($this->getLabelData() as &$labelData) {
-				/**
-				 * @var LabelData $labelData
-				 */
-				if ($labelData->getStatusCode() !== self::DHL_ERROR_NO_ERROR) {
-					$noError = false;
-					break;
+				// Search in all shipments if an error/warning exists
+				foreach ($this->getLabelData() as &$labelData) {
+					/**
+					 * @var LabelData $labelData
+					 */
+					if ($labelData->getStatusCode() !== self::DHL_ERROR_NO_ERROR) {
+						$noError = false;
+						break;
+					}
 				}
-			}
 
-			if ($noError) {
-				$this->setStatusCode(self::DHL_ERROR_NO_ERROR);
-				$this->setStatusText('ok');
-				$this->setStatusMessage('Der Webservice wurde ohne Fehler ausgeführt.');
+				if ($noError) {
+					$this->setStatusCode(self::DHL_ERROR_NO_ERROR);
+					$this->setStatusText('ok');
+					$this->setStatusMessage('Der Webservice wurde ohne Fehler ausgeführt.');
+				}
 			}
 		}
 	}
@@ -362,8 +358,9 @@ class Response extends Version implements LabelResponse
 	 */
 	public function getCodLabel()
 	{
-		if ($this->countLabelData() > 0)
+		if ($this->countLabelData() > 0) {
 			return $this->getLabelData(0)->getCodLabel();
+		}
 
 		return null;
 	}
@@ -376,10 +373,12 @@ class Response extends Version implements LabelResponse
 	private function handleMultiShipments($possibleMultiLabelObject)
 	{
 		if (is_array($possibleMultiLabelObject)) {
-			foreach ($possibleMultiLabelObject as &$singleLabel)
+			foreach ($possibleMultiLabelObject as &$singleLabel) {
 				$this->addLabelData(new LabelData($this->getVersion(), $singleLabel));
-		} else
+			}
+		} else {
 			$this->addLabelData(new LabelData($this->getVersion(), $possibleMultiLabelObject));
+		}
 	}
 
 	/**
@@ -392,19 +391,22 @@ class Response extends Version implements LabelResponse
 	{
 		// Set global Status-Values first
 		if (isset($response->Status)) {
-			if (isset($response->Status->statusCode))
+			if (isset($response->Status->statusCode)) {
 				$this->setStatusCode((int)$response->Status->statusCode);
+			}
 			if (isset($response->Status->statusText)) {
-				if (is_array($response->Status->statusText))
+				if (is_array($response->Status->statusText)) {
 					$this->setStatusText(implode(';', $response->Status->statusText));
-				else
+				} else {
 					$this->setStatusText($response->Status->statusText);
+				}
 			}
 			if (isset($response->Status->statusMessage)) {
-				if (is_array($response->Status->statusMessage))
+				if (is_array($response->Status->statusMessage)) {
 					$this->setStatusMessage(implode(';', $response->Status->statusMessage));
-				else
+				} else {
 					$this->setStatusMessage($response->Status->statusMessage);
+				}
 			}
 		}
 
@@ -426,21 +428,39 @@ class Response extends Version implements LabelResponse
 		 * 6 -> doManifest
 		 */
 		if (isset($response->CreationState)) // 1
+		{
 			$this->handleMultiShipments($response->CreationState);
-		else if (isset($response->DeletionState)) // 2
-			$this->handleMultiShipments($response->DeletionState);
-		else if (isset($response->LabelData)) // 3
-			$this->handleMultiShipments($response->LabelData);
-		else if (isset($response->ValidationState)) // 4
-			$this->handleMultiShipments($response->ValidationState);
-		else if (isset($response->ExportDocData)) // 5
-			$this->handleMultiShipments($response->ExportDocData);
-		else if (isset($response->ManifestState)) // 6
-			$this->handleMultiShipments($response->ManifestState);
+		} else {
+			if (isset($response->DeletionState)) // 2
+			{
+				$this->handleMultiShipments($response->DeletionState);
+			} else {
+				if (isset($response->LabelData)) // 3
+				{
+					$this->handleMultiShipments($response->LabelData);
+				} else {
+					if (isset($response->ValidationState)) // 4
+					{
+						$this->handleMultiShipments($response->ValidationState);
+					} else {
+						if (isset($response->ExportDocData)) // 5
+						{
+							$this->handleMultiShipments($response->ExportDocData);
+						} else {
+							if (isset($response->ManifestState)) // 6
+							{
+								$this->handleMultiShipments($response->ManifestState);
+							}
+						}
+					}
+				}
+			}
+		}
 
 		// Validate the status to fix errors on the Main-Status and show weak-warnings
-		if ($this->getStatusCode() !== self::DHL_ERROR_NOT_SET)
+		if ($this->getStatusCode() !== self::DHL_ERROR_NOT_SET) {
 			$this->validateStatusCode();
+		}
 	}
 
 	/**

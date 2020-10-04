@@ -21,7 +21,7 @@ use stdClass;
 /**
  * Class BusinessShipment
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class BusinessShipment extends Version
 {
@@ -271,8 +271,9 @@ class BusinessShipment extends Version
 	public function __construct($credentials, $testMode = false, $version = null)
 	{
 		// Set Version
-		if ($version === null)
+		if ($version === null) {
 			$version = self::NEWEST_VERSION;
+		}
 
 		parent::__construct($version);
 
@@ -295,32 +296,6 @@ class BusinessShipment extends Version
 	}
 
 	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		parent::__destruct();
-		unset($this->soapClient);
-		unset($this->errors);
-		unset($this->test);
-		unset($this->credentials);
-		unset($this->shipmentDetails);
-		unset($this->service);
-		unset($this->bank);
-		unset($this->sender);
-		unset($this->receiver);
-		unset($this->returnReceiver);
-		unset($this->exportDocument);
-		unset($this->sequenceNumber);
-		unset($this->receiverEmail);
-		unset($this->printOnlyIfReceiverIsValid);
-		unset($this->labelResponseType);
-		unset($this->shipmentOrders);
-		unset($this->labelFormat);
-		unset($this->customAPIURL);
-	}
-
-	/**
 	 * Get the Business-API-URL for this Version
 	 *
 	 * @return string - Business-API-URL
@@ -328,8 +303,9 @@ class BusinessShipment extends Version
 	protected function getAPIUrl()
 	{
 		// Use own API-URL if set
-		if ($this->getCustomAPIURL() !== null)
+		if ($this->getCustomAPIURL() !== null) {
 			return $this->getCustomAPIURL();
+		}
 
 		return self::DHL_WSDL_LIB_URL . $this->getVersion() . '/geschaeftskundenversand-api-' . $this->getVersion() . '.wsdl';
 	}
@@ -341,8 +317,9 @@ class BusinessShipment extends Version
 	 */
 	private function getSoapClient()
 	{
-		if ($this->soapClient === null)
+		if ($this->soapClient === null) {
 			$this->buildSoapClient();
+		}
 
 		return $this->soapClient;
 	}
@@ -354,8 +331,9 @@ class BusinessShipment extends Version
 	 */
 	public function getLastXML()
 	{
-		if ($this->soapClient === null)
+		if ($this->soapClient === null) {
 			return null;
+		}
 
 		return $this->getSoapClient()->__getLastRequest();
 	}
@@ -367,8 +345,9 @@ class BusinessShipment extends Version
 	 */
 	public function getLastDhlXMLResponse()
 	{
-		if ($this->soapClient === null)
+		if ($this->soapClient === null) {
 			return null;
+		}
 
 		return $this->getSoapClient()->__getLastResponse();
 	}
@@ -897,9 +876,10 @@ class BusinessShipment extends Version
 	{
 		$count = count($array);
 
-		if ($count > self::MAX_DHL_REQUESTS)
+		if ($count > self::MAX_DHL_REQUESTS) {
 			$this->addError('There are only ' . $maxReq . ' Request/s for one call allowed for the action "'
 				. $action . '"! You tried to request ' . $count . ' ones');
+		}
 	}
 
 	/**
@@ -925,10 +905,11 @@ class BusinessShipment extends Version
 	{
 		$header = $this->buildAuthHeader();
 
-		if ($this->isTest())
+		if ($this->isTest()) {
 			$location = self::DHL_SANDBOX_URL;
-		else
+		} else {
 			$location = self::DHL_PRODUCTION_URL;
+		}
 
 		$auth_params = array(
 			'login' => $this->getCredentials()->getApiUser(),
@@ -952,13 +933,14 @@ class BusinessShipment extends Version
 	public function getVersion($viaSOAP = false, $getBuildNumber = false, $returnAsArray = false)
 	{
 		if (!$viaSOAP) {
-			if ($returnAsArray)
+			if ($returnAsArray) {
 				return array(
 					'mayor' => parent::getMayor(),
 					'minor' => parent::getMinor()
 				);
-			else
+			} else {
 				return parent::getVersion();
+			}
 		}
 
 		switch ($this->getMayor()) {
@@ -985,15 +967,16 @@ class BusinessShipment extends Version
 
 			return false;
 		} else {
-			if ($returnAsArray)
+			if ($returnAsArray) {
 				return array(
 					'mayor' => $response->Version->majorRelease,
 					'minor' => $response->Version->minorRelease,
 					'build' => $response->Version->build
 				);
-			else
+			} else {
 				return $response->Version->majorRelease . '.' . $response->Version->minorRelease .
 					(($getBuildNumber) ? '.' . $response->Version->build : '');
+			}
 		}
 	}
 
@@ -1057,8 +1040,9 @@ class BusinessShipment extends Version
 			$this->addError($response->faultstring);
 
 			return false;
-		} else
+		} else {
 			return new Response($this->getVersion(), $response);
+		}
 	}
 
 	/**
@@ -1077,10 +1061,12 @@ class BusinessShipment extends Version
 		if (is_array($shipmentNumbers)) {
 			$this->checkRequestCount($shipmentNumbers, 'doManifest');
 
-			foreach ($shipmentNumbers as $key => &$number)
+			foreach ($shipmentNumbers as $key => &$number) {
 				$data->shipmentNumber[$key] = $number;
-		} else
+			}
+		} else {
 			$data->shipmentNumber = $shipmentNumbers;
+		}
 
 		return $data;
 	}
@@ -1131,8 +1117,9 @@ class BusinessShipment extends Version
 			$this->addError($response->faultstring);
 
 			return false;
-		} else
+		} else {
 			return new Response($this->getVersion(), $response);
+		}
 	}
 
 	/**
@@ -1146,8 +1133,9 @@ class BusinessShipment extends Version
 	{
 		$data = new StdClass;
 
-		if (is_array($manifestDate))
+		if (is_array($manifestDate)) {
 			$this->addError('You can only request 1 date on getManifest - multiple requests in 1 call are not allowed here');
+		}
 
 		$data->Version = $this->getVersionClass();
 		$data->manifestDate = $manifestDate;
@@ -1207,10 +1195,11 @@ class BusinessShipment extends Version
 
 				return false;
 			case 2:
-				if ($this->countShipmentOrders() < 1 && $this->getMayor() === 2)
+				if ($this->countShipmentOrders() < 1 && $this->getMayor() === 2) {
 					$data = $this->createShipmentClass_v2_legacy();
-				else
+				} else {
 					$data = $this->createShipmentClass_v2();
+				}
 				break;
 			case 3:
 			default:
@@ -1232,8 +1221,9 @@ class BusinessShipment extends Version
 			$this->addError($response->faultstring);
 
 			return false;
-		} else
+		} else {
 			return new Response($this->getVersion(), $response);
+		}
 	}
 
 	/**
@@ -1252,18 +1242,20 @@ class BusinessShipment extends Version
 		$data = new StdClass;
 		$data->Version = $this->getVersionClass();
 
-		if ($shipmentNumber !== null)
+		if ($shipmentNumber !== null) {
 			$data->shipmentNumber = (string)$shipmentNumber;
+		}
 
 		foreach ($shipmentOrders as $key => &$shipmentOrder) {
 			/**
 			 * @var ShipmentOrder $shipmentOrder
 			 */
 			if ($shipmentOrder->getLabelResponseType() === null && $this->getLabelResponseType() !== null) {
-				if (in_array($this->getLabelResponseType(), array(self::RESPONSE_TYPE_URL, self::RESPONSE_TYPE_B64)))
+				if (in_array($this->getLabelResponseType(), array(self::RESPONSE_TYPE_URL, self::RESPONSE_TYPE_B64))) {
 					$shipmentOrder->setLabelResponseType($this->getLabelResponseType());
-				else
+				} else {
 					$this->addError('Response-Type' . $this->getLabelResponseType() . ' is not allowed in Version 2.x. Using default instead');
+				}
 			}
 			$data->ShipmentOrder[$key] = $shipmentOrder->getShipmentOrderClass_v2();
 		}
@@ -1288,8 +1280,9 @@ class BusinessShipment extends Version
 		$data = new StdClass;
 		$data->Version = $this->getVersionClass();
 
-		if ($shipmentNumber !== null)
+		if ($shipmentNumber !== null) {
 			$data->shipmentNumber = (string)$shipmentNumber;
+		}
 
 		foreach ($shipmentOrders as $key => &$shipmentOrder) {
 			$data->ShipmentOrder[$key] = $shipmentOrder->getShipmentOrderClass_v3();
@@ -1327,8 +1320,9 @@ class BusinessShipment extends Version
 		$data = new StdClass;
 		$data->Version = $this->getVersionClass();
 
-		if ($shipmentNumber !== null)
+		if ($shipmentNumber !== null) {
 			$data->shipmentNumber = (string)$shipmentNumber;
+		}
 
 		$data->ShipmentOrder = new StdClass;
 		$data->ShipmentOrder->sequenceNumber = $this->getSequenceNumber();
@@ -1339,8 +1333,9 @@ class BusinessShipment extends Version
 
 		// Notification
 		$email = null; // Check for backward compatibility
-		if ($this->getShipmentDetails()->getNotificationEmail() === null && $this->receiverEmail !== null)
-			$email = $this->getReceiverEmail(); // Use old E-Mail implementation for BC
+		if ($this->getShipmentDetails()->getNotificationEmail() === null && $this->receiverEmail !== null) {
+			$email = $this->getReceiverEmail();
+		} // Use old E-Mail implementation for BC
 
 		if ($email !== null) {
 			$data->ShipmentOrder->Shipment->ShipmentDetails->Notification = new StdClass;
@@ -1354,8 +1349,9 @@ class BusinessShipment extends Version
 		$data->ShipmentOrder->Shipment->Receiver = $this->getReceiver()->getClass_v2();
 
 		// Return-Receiver
-		if ($this->getReturnReceiver() !== null)
+		if ($this->getReturnReceiver() !== null) {
 			$data->ShipmentOrder->Shipment->ReturnReceiver = $this->getReturnReceiver()->getClass_v2();
+		}
 
 		// Export-Document
 		if ($this->getExportDocument() !== null) {
@@ -1372,10 +1368,13 @@ class BusinessShipment extends Version
 			$data->ShipmentOrder->PrintOnlyIfCodeable->active = (int)$this->getPrintOnlyIfReceiverIsValid();
 		}
 
-		if ($this->getLabelResponseType() !== null && in_array($this->getLabelResponseType(), array(self::RESPONSE_TYPE_URL, self::RESPONSE_TYPE_B64)))
+		if ($this->getLabelResponseType() !== null && in_array($this->getLabelResponseType(), array(self::RESPONSE_TYPE_URL, self::RESPONSE_TYPE_B64))) {
 			$data->ShipmentOrder->labelResponseType = $this->getLabelResponseType();
-		else if ($this->getLabelResponseType() !== null)
-			$this->addError('Response-Type' . $this->getLabelResponseType() . ' is not allowed in Version 2.x. Using default instead');
+		} else {
+			if ($this->getLabelResponseType() !== null) {
+				$this->addError('Response-Type' . $this->getLabelResponseType() . ' is not allowed in Version 2.x. Using default instead');
+			}
+		}
 
 		return $data;
 	}
@@ -1440,8 +1439,9 @@ class BusinessShipment extends Version
 			$this->addError($response->faultstring);
 
 			return false;
-		} else
+		} else {
 			return new Response($this->getVersion(), $response);
+		}
 	}
 
 	/**
@@ -1460,10 +1460,12 @@ class BusinessShipment extends Version
 		if (is_array($shipmentNumbers)) {
 			$this->checkRequestCount($shipmentNumbers, 'deleteShipmentOrder');
 
-			foreach ($shipmentNumbers as $key => &$number)
+			foreach ($shipmentNumbers as $key => &$number) {
 				$data->shipmentNumber[$key] = $number;
-		} else
+			}
+		} else {
 			$data->shipmentNumber = $shipmentNumbers;
+		}
 
 		return $data;
 	}
@@ -1530,8 +1532,9 @@ class BusinessShipment extends Version
 			$this->addError($response->faultstring);
 
 			return false;
-		} else
+		} else {
 			return new Response($this->getVersion(), $response);
+		}
 	}
 
 	/**
@@ -1550,13 +1553,16 @@ class BusinessShipment extends Version
 		if (is_array($shipmentNumbers)) {
 			$this->checkRequestCount($shipmentNumbers, 'getLabel');
 
-			foreach ($shipmentNumbers as $key => &$number)
+			foreach ($shipmentNumbers as $key => &$number) {
 				$data->shipmentNumber[$key] = $number;
-		} else
+			}
+		} else {
 			$data->shipmentNumber = $shipmentNumbers;
+		}
 
-		if ($this->getLabelResponseType() !== null)
+		if ($this->getLabelResponseType() !== null) {
 			$data->labelResponseType = $this->getLabelResponseType();
+		}
 
 		return $data;
 	}
@@ -1572,8 +1578,9 @@ class BusinessShipment extends Version
 	{
 		$data = $this->getLabelClass_v2($shipmentNumbers);
 
-		if ($this->getLabelFormat() !== null)
+		if ($this->getLabelFormat() !== null) {
 			$data = $this->getLabelFormat()->addLabelFormatClass_v3($data);
+		}
 
 		return $data;
 	}
@@ -1627,8 +1634,9 @@ class BusinessShipment extends Version
 			$this->addError($response->faultstring);
 
 			return false;
-		} else
+		} else {
 			return new Response($this->getVersion(), $response);
+		}
 	}
 
 	/**
@@ -1647,13 +1655,16 @@ class BusinessShipment extends Version
 		if (is_array($shipmentNumbers)) {
 			$this->checkRequestCount($shipmentNumbers, 'getExportDoc');
 
-			foreach ($shipmentNumbers as $key => &$number)
+			foreach ($shipmentNumbers as $key => &$number) {
 				$data->shipmentNumber[$key] = $number;
-		} else
+			}
+		} else {
 			$data->shipmentNumber = $shipmentNumbers;
+		}
 
-		if ($this->getLabelResponseType() !== null)
+		if ($this->getLabelResponseType() !== null) {
 			$data->exportDocResponseType = $this->getLabelResponseType();
+		}
 
 		return $data;
 	}
@@ -1669,8 +1680,9 @@ class BusinessShipment extends Version
 	{
 		$data = $this->getExportDocClass_v2($shipmentNumbers);
 
-		if ($this->getLabelFormat() !== null)
+		if ($this->getLabelFormat() !== null) {
 			$data = $this->getLabelFormat()->addLabelFormatClass_v3($data);
+		}
 
 		return $data;
 	}
@@ -1708,8 +1720,9 @@ class BusinessShipment extends Version
 			$this->addError($response->faultstring);
 
 			return false;
-		} else
+		} else {
 			return new Response($this->getVersion(), $response);
+		}
 	}
 
 	/**
@@ -1748,10 +1761,11 @@ class BusinessShipment extends Version
 
 				return false;
 			case 2:
-				if ($this->countShipmentOrders() < 1 && $this->getMayor() === 2)
+				if ($this->countShipmentOrders() < 1 && $this->getMayor() === 2) {
 					$data = $this->createShipmentClass_v2_legacy($shipmentNumber);
-				else
+				} else {
 					$data = $this->createShipmentClass_v2($shipmentNumber);
+				}
 				break;
 			case 3:
 			default:
@@ -1776,8 +1790,9 @@ class BusinessShipment extends Version
 			$this->addError($response->faultstring);
 
 			return false;
-		} else
+		} else {
 			return new Response($this->getVersion(), $response);
+		}
 	}
 
 	/**

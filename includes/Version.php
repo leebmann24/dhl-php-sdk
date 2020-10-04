@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class Version
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 abstract class Version
 {
@@ -49,16 +49,6 @@ abstract class Version
 	protected function __construct($version)
 	{
 		$this->setVersion($version);
-	}
-
-	/**
-	 * Clears Memory
-	 */
-	protected function __destruct()
-	{
-		unset($this->version);
-		unset($this->mayor);
-		unset($this->minor);
 	}
 
 	/**

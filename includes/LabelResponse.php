@@ -14,7 +14,7 @@ namespace Leebmann24\DHL;
 /**
  * Interface LabelResponse
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 interface LabelResponse
 {

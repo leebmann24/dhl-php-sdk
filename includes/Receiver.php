@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class Receiver
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class Receiver extends SendPerson
 {

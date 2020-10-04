@@ -14,7 +14,7 @@ namespace Leebmann24\DHL;
 /**
  * Class Product
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class Product
 {
@@ -103,24 +103,6 @@ class Product
 	public function __construct($type)
 	{
 		$this->setType($type);
-	}
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->type);
-		unset($this->name);
-		unset($this->austria);
-		unset($this->minLength);
-		unset($this->maxLength);
-		unset($this->minWidth);
-		unset($this->maxWidth);
-		unset($this->minHeight);
-		unset($this->maxHeight);
-		unset($this->maxWeight);
-		unset($this->services);
 	}
 
 	/**

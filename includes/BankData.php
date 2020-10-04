@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class BankData
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class BankData
 {
@@ -97,28 +97,6 @@ class BankData
 	 * @var string|null $accountReference - Account reference to customer profile | null for none
 	 */
 	private $accountReference = null;
-
-	/**
-	 * BankData constructor.
-	 */
-	public function __construct()
-	{
-		// VOID
-	}
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->accountOwnerName);
-		unset($this->bankName);
-		unset($this->iban);
-		unset($this->note1);
-		unset($this->note2);
-		unset($this->bic);
-		unset($this->accountReference);
-	}
 
 	/**
 	 * Get the Account Owner Name

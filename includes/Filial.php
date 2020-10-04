@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class Filial
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class Filial extends Receiver
 {
@@ -39,16 +39,6 @@ class Filial extends Receiver
 	 * @var string $filialNumber - Post-Filial-Number
 	 */
 	private $filialNumber = '';
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		parent::__destruct();
-		unset($this->postNumber);
-		unset($this->filialNumber);
-	}
 
 	/**
 	 * Get the Post-Number

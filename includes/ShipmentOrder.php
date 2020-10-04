@@ -17,7 +17,7 @@ use Exception;
 /**
  * Class ShipmentOrder
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class ShipmentOrder
 {
@@ -111,23 +111,6 @@ class ShipmentOrder
 	 * @since 3.0
 	 */
 	private $labelFormat = null;
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->sequenceNumber);
-		unset($this->shipmentDetails);
-		unset($this->sender);
-		unset($this->receiver);
-		unset($this->returnReceiver);
-		unset($this->exportDocument);
-		unset($this->shipperReference);
-		unset($this->printOnlyIfReceiverIsValid);
-		unset($this->labelResponseType);
-		unset($this->labelFormat);
-	}
 
 	/**
 	 * Get the Sequence-Number
@@ -361,8 +344,9 @@ class ShipmentOrder
 		$class->Shipment->Receiver = $this->getReceiver()->getClass_v2();
 
 		// Return-Receiver
-		if ($this->getReturnReceiver() !== null)
+		if ($this->getReturnReceiver() !== null) {
 			$class->Shipment->ReturnReceiver = $this->getReturnReceiver()->getClass_v2();
+		}
 
 		// Export-Document
 		if ($this->getExportDocument() !== null) {
@@ -378,8 +362,9 @@ class ShipmentOrder
 			$class->PrintOnlyIfCodeable = new StdClass;
 			$class->PrintOnlyIfCodeable->active = (int)$this->getPrintOnlyIfReceiverIsValid();
 		}
-		if ($this->getLabelResponseType() !== null && in_array($this->getLabelResponseType(), array(BusinessShipment::RESPONSE_TYPE_URL, BusinessShipment::RESPONSE_TYPE_B64)))
+		if ($this->getLabelResponseType() !== null && in_array($this->getLabelResponseType(), array(BusinessShipment::RESPONSE_TYPE_URL, BusinessShipment::RESPONSE_TYPE_B64))) {
 			$class->labelResponseType = $this->getLabelResponseType();
+		}
 
 		return $class;
 	}
@@ -403,8 +388,9 @@ class ShipmentOrder
 		$class->Shipment->Receiver = $this->getReceiver()->getClass_v3();
 
 		// Return-Receiver
-		if ($this->getReturnReceiver() !== null)
+		if ($this->getReturnReceiver() !== null) {
 			$class->Shipment->ReturnReceiver = $this->getReturnReceiver()->getClass_v3();
+		}
 
 		// Export-Document
 		if ($this->getExportDocument() !== null) {
@@ -416,10 +402,11 @@ class ShipmentOrder
 		}
 
 		// Shipper
-		if ($this->getSender() !== null)
+		if ($this->getSender() !== null) {
 			$class->Shipment->Shipper = $this->getSender()->getClass_v3();
-		else
+		} else {
 			$class->Shipment->ShipperReference = $this->getShipperReference();
+		}
 
 		// Other Settings
 		if ($this->getPrintOnlyIfReceiverIsValid() !== null) {
@@ -428,11 +415,13 @@ class ShipmentOrder
 		}
 
 		// Fixme: It doesnt seem to affect the single format, maybe it was just a bug
-		if ($this->getLabelResponseType() !== null)
+		if ($this->getLabelResponseType() !== null) {
 			$class->labelResponseType = $this->getLabelResponseType();
+		}
 
-		if ($this->getLabelFormat() !== null)
+		if ($this->getLabelFormat() !== null) {
 			$class = $this->getLabelFormat()->addLabelFormatClass_v3($class);
+		}
 
 		return $class;
 	}

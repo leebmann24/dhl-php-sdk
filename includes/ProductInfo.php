@@ -14,7 +14,7 @@ namespace Leebmann24\DHL;
 /**
  * Class ProductInfo
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class ProductInfo
 {
@@ -63,20 +63,6 @@ class ProductInfo
 	 * @var Product[] $dhlProducts - Products
 	 */
 	private static $dhlProducts = array();
-
-	/**
-	 * Disabled Clone-Function
-	 */
-	private function __clone()
-	{ /* VOID */
-	}
-
-	/**
-	 * Disabled ProductInfo constructor.
-	 */
-	private function __construct()
-	{ /* VOID */
-	}
 
 	/**
 	 * Initiates the Class
@@ -356,8 +342,9 @@ class ProductInfo
 	 */
 	public static function getDhlProducts()
 	{
-		if (!self::isInit())
+		if (!self::isInit()) {
 			self::init();
+		}
 
 		return self::$dhlProducts;
 	}
@@ -380,12 +367,10 @@ class ProductInfo
 	 */
 	public static function getInfo($productType)
 	{
-		if (!self::isInit())
+		if (!self::isInit()) {
 			self::init();
+		}
 
-		if (!array_key_exists($productType, self::$dhlProducts))
-			return null;
-
-		return self::$dhlProducts[$productType];
+		return self::$dhlProducts[$productType] ?? null;
 	}
 }

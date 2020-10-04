@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class Service
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class Service
 {
@@ -478,51 +478,6 @@ class Service
 	private $parcelOutletRoutingDetails = null;
 
 	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->dayOfDeliveryEnabled);
-		unset($this->dayOfDeliveryDate);
-		unset($this->deliveryTimeframeEnabled);
-		unset($this->deliveryTimeframe);
-		unset($this->preferredTimeEnabled);
-		unset($this->preferredTime);
-		unset($this->individualSenderRequirementsEnabled);
-		unset($this->individualSenderRequirementsText);
-		unset($this->packagingReturn);
-		unset($this->returnImmediatelyIfShipmentFailed);
-		unset($this->noticeOnNonDeliverable);
-		unset($this->shipmentHandlingEnabled);
-		unset($this->shipmentHandlingType);
-		unset($this->endorsementEnabled);
-		unset($this->endorsementType);
-		unset($this->visualCheckOfAgeEnabled);
-		unset($this->visualCheckOfAgeType);
-		unset($this->preferredLocationEnabled);
-		unset($this->preferredLocationDetails);
-		unset($this->preferredNeighbourEnabled);
-		unset($this->preferredNeighbourText);
-		unset($this->preferredDayEnabled);
-		unset($this->preferredDayText);
-		unset($this->perishables);
-		unset($this->disableNeighbourDelivery);
-		unset($this->namedPersonOnly);
-		unset($this->returnReceipt);
-		unset($this->premium);
-		unset($this->cashOnDeliveryEnabled);
-		unset($this->cashOnDeliveryAddFee);
-		unset($this->cashOnDeliveryAmount);
-		unset($this->additionalInsuranceEnabled);
-		unset($this->additionalInsuranceAmount);
-		unset($this->bulkyGoods);
-		unset($this->identCheckEnabled);
-		unset($this->identCheckObj);
-		unset($this->parcelOutletRoutingEnabled);
-		unset($this->parcelOutletRoutingDetails);
-	}
-
-	/**
 	 * Get if the Service "DayOfDelivery" is enabled
 	 *
 	 * @return bool|null - Is the Service "DayOfDelivery" enabled or null for default
@@ -563,8 +518,9 @@ class Service
 		if ($useIntTime) {
 			$dayOfDeliveryDate = date('Y-m-d', $dayOfDeliveryDate);
 
-			if ($dayOfDeliveryDate === false)
+			if ($dayOfDeliveryDate === false) {
 				$dayOfDeliveryDate = null;
+			}
 		}
 
 		$this->dayOfDeliveryDate = $dayOfDeliveryDate;
@@ -1593,8 +1549,9 @@ class Service
 		if ($this->getCashOnDeliveryEnabled() !== null) {
 			$class->CashOnDelivery = new StdClass;
 			$class->CashOnDelivery->active = (int)$this->getCashOnDeliveryEnabled();
-			if ($this->getCashOnDeliveryAddFee() !== null)
+			if ($this->getCashOnDeliveryAddFee() !== null) {
 				$class->CashOnDelivery->addFee = (int)$this->getCashOnDeliveryAddFee();
+			}
 			$class->CashOnDelivery->codAmount = (float)$this->getCashOnDeliveryAmount();
 		}
 		if ($this->getAdditionalInsuranceEnabled() !== null) {
@@ -1630,8 +1587,9 @@ class Service
 			$class->ParcelOutletRouting = new StdClass;
 			$class->ParcelOutletRouting->active = (int)$this->getParcelOutletRoutingEnabled();
 
-			if ($this->getParcelOutletRoutingDetails() !== null)
+			if ($this->getParcelOutletRoutingDetails() !== null) {
 				$class->ParcelOutletRouting->details = $this->getParcelOutletRoutingDetails();
+			}
 		}
 
 		return $class;

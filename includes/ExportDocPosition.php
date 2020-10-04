@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class ExportDocPosition
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  *
  * Note: If min 1 value is filled out, all other values are required (else none is required)
  */
@@ -99,19 +99,6 @@ class ExportDocPosition
 		$this->setAmount($amount);
 		$this->setNetWeightInKG((float)$netWeightInKG);
 		$this->setCustomsValue((float)$customsValue);
-	}
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->description);
-		unset($this->countryCodeOrigin);
-		unset($this->customsTariffNumber);
-		unset($this->amount);
-		unset($this->netWeightInKG);
-		unset($this->customsValue);
 	}
 
 	/**

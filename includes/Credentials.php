@@ -14,7 +14,7 @@ namespace Leebmann24\DHL;
 /**
  * Class Credentials
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class Credentials
 {
@@ -141,18 +141,6 @@ class Credentials
 			$this->setSignature(self::DHL_BUSINESS_TEST_USER_PASSWORD);
 			$this->setEkp(self::DHL_BUSINESS_TEST_EKP);
 		}
-	}
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->user);
-		unset($this->signature);
-		unset($this->ekp);
-		unset($this->apiUser);
-		unset($this->apiPassword);
 	}
 
 	/**

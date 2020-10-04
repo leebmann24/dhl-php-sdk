@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class Address
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 abstract class Address
 {
@@ -136,31 +136,6 @@ abstract class Address
 	 * @var string|null $state - Name of the State (Geo-Location) | null for none
 	 */
 	private $state = null;
-
-	/**
-	 * Address constructor.
-	 */
-	public function __construct()
-	{
-		// VOID
-	}
-
-	/**
-	 * Clears the Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->streetName);
-		unset($this->streetNumber);
-		unset($this->addressAddition);
-		unset($this->dispatchingInfo);
-		unset($this->zip);
-		unset($this->location);
-		unset($this->province);
-		unset($this->country);
-		unset($this->countryISOCode);
-		unset($this->state);
-	}
 
 	/**
 	 * Get the Street name
@@ -341,10 +316,11 @@ abstract class Address
 	 */
 	public final function setCountry($country)
 	{
-		if ($country !== null)
+		if ($country !== null) {
 			$this->country = mb_strtolower($country);
-		else
+		} else {
 			$this->country = null;
+		}
 	}
 
 	/**
@@ -364,10 +340,11 @@ abstract class Address
 	 */
 	public final function setCountryISOCode($countryISOCode)
 	{
-		if ($countryISOCode !== null)
+		if ($countryISOCode !== null) {
 			$this->countryISOCode = mb_strtoupper($countryISOCode);
-		else
+		} else {
 			$this->countryISOCode = null;
+		}
 	}
 
 	/**
@@ -407,7 +384,9 @@ abstract class Address
 
 		preg_match('/^([^\d]*[^\d\s]) *(\d.*)$/', $street, $match);
 
-		if (count($match) == 0) return;
+		if (count($match) == 0) {
+			return;
+		}
 
 		$this->setStreetName($match[1]);
 		$this->setStreetNumber($match[2]);
@@ -423,13 +402,15 @@ abstract class Address
 	{
 		$class = new StdClass;
 
-		if ($this->getCountry() !== null)
+		if ($this->getCountry() !== null) {
 			$class->country = $this->getCountry();
+		}
 
 		$class->countryISOCode = $this->getCountryISOCode();
 
-		if ($this->getState() !== null)
+		if ($this->getState() !== null) {
 			$class->state = $this->getState();
+		}
 
 		return $class;
 	}

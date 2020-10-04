@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class SendPerson
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 abstract class SendPerson extends Address
 {
@@ -90,20 +90,6 @@ abstract class SendPerson extends Address
 	 * @var string|null $contactPerson - Contact Person | null for none
 	 */
 	private $contactPerson = null;
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		parent::__destruct();
-		unset($this->name);
-		unset($this->name2);
-		unset($this->name3);
-		unset($this->phone);
-		unset($this->email);
-		unset($this->contactPerson);
-	}
 
 	/**
 	 * Get the Name
@@ -235,16 +221,20 @@ abstract class SendPerson extends Address
 	{
 		$class = new StdClass;
 
-		if ($this->getPhone() !== null)
+		if ($this->getPhone() !== null) {
 			$class->phone = $this->getPhone();
-		if ($this->getEmail() !== null)
+		}
+		if ($this->getEmail() !== null) {
 			$class->email = $this->getEmail();
-		if ($this->getContactPerson() !== null)
+		}
+		if ($this->getContactPerson() !== null) {
 			$class->contactPerson = $this->getContactPerson();
+		}
 
 		// Just set a Contact-Person (The name) if nothing else if given since this is a required element but every element is optional...
-		if ($this->getPhone() === null && $this->getEmail() === null && $this->getContactPerson() === null)
+		if ($this->getPhone() === null && $this->getEmail() === null && $this->getContactPerson() === null) {
 			$class->contactPerson = $this->getName();
+		}
 
 		return $class;
 	}

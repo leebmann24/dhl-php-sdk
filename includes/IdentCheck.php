@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Class IdentCheck
  *
- * @package Petschko\DHL
+ * @package Leebmann24\DHL
  */
 class IdentCheck
 {
@@ -76,17 +76,6 @@ class IdentCheck
 		$this->setFirstName($firstName);
 		$this->setBirthday($birthday);
 		$this->setMinimumAge($minimumAge);
-	}
-
-	/**
-	 * Clears Memory
-	 */
-	public function __destruct()
-	{
-		unset($this->lastName);
-		unset($this->firstName);
-		unset($this->birthday);
-		unset($this->minimumAge);
 	}
 
 	/**
